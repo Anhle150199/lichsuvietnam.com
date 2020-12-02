@@ -1,7 +1,7 @@
 @include("layouts.elements.head")
 
 <body>
-           
+
 
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
@@ -22,28 +22,19 @@
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="post-1" role="tabpanel" aria-labelledby="post-1-tab">
                             <!-- Single Feature Post -->
-                            <div class="single-feature-post video-post bg-img" style="background-image: url(img/bg-img/7.jpg);">
-                                <!-- Play Button -->
-                                <a href="video-post" class="btn play-btn"><i class="fa fa-play" aria-hidden="true"></i></a>
-
-                                <!-- Post Content -->
-                                <div class="post-content">
-                                    <a href="#" class="post-cata">Sports</a>
-                                    <a href="single-post.html" class="post-title">Reunification of migrant toddlers, parents should be completed Thursday</a>
-                                    <div class="post-meta d-flex">
-                                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 25</a>
-                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 25</a>
-                                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 25</a>
-                                    </div>
+                            <div class="single-feature-post ">
+                                <div>
+                                    <?php 
+                                    echo '<iframe width="750" height="500" margin-left="5px" src="https://www.youtube.com/embed/sMeWmUlzz74" 
+                                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                        </iframe>'
+                                    ?>
                                 </div>
-
-                                <!-- Video Duration -->
-                                <span class="video-duration">05.03</span>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="post-2" role="tabpanel" aria-labelledby="post-2-tab">
-                            <!-- Single Feature Post -->
-                            <div class="single-feature-post video-post bg-img" style="background-image: url(img/bg-img/8.jpg);">
+
+                            <div class="single-feature-post video-post bg-img">
                                 <!-- Play Button -->
                                 <a href="video-post.html" class="btn play-btn"><i class="fa fa-play" aria-hidden="true"></i></a>
 
@@ -688,104 +679,6 @@
                             </div>
                         </div>
 
-                        <!-- Single Post Area -->
-                        <div class="single-post-area mb-30">
-                            <div class="row align-items-center">
-                                <div class="col-12 col-lg-6">
-                                    <!-- Post Thumbnail -->
-                                    <div class="post-thumbnail">
-                                        <img src="<?php echo url('/'); ?>/img/bg-img/22.jpg" alt="">
-
-                                        <!-- Video Duration -->
-                                        <span class="video-duration">05.03</span>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6">
-                                    <!-- Post Content -->
-                                    <div class="post-content mt-0">
-                                        <a href="#" class="post-cata cata-sm cata-danger">Game</a>
-                                        <a href="single-post.html" class="post-title mb-2">Thailand cave rescue: Boys 'doing well' after spending night</a>
-                                        <div class="post-meta d-flex align-items-center mb-2">
-                                            <a href="#" class="post-author">By Jane</a>
-                                            <i class="fa fa-circle" aria-hidden="true"></i>
-                                            <a href="#" class="post-date">Sep 08, 2018</a>
-                                        </div>
-                                        <p class="mb-2">Quisque mollis tristique ante. Proin ligula eros, varius id tristique sit amet, rutrum non ligula.</p>
-                                        <div class="post-meta d-flex">
-                                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 32</a>
-                                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 42</a>
-                                            <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 7</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Post Area -->
-                        <div class="single-post-area mb-30">
-                            <div class="row align-items-center">
-                                <div class="col-12 col-lg-6">
-                                    <!-- Post Thumbnail -->
-                                    <div class="post-thumbnail">
-                                        <img src="<?php echo url('/'); ?>/img/bg-img/23.jpg" alt="">
-
-                                        <!-- Video Duration -->
-                                        <span class="video-duration">05.03</span>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6">
-                                    <!-- Post Content -->
-                                    <div class="post-content mt-0">
-                                        <a href="#" class="post-cata cata-sm cata-primary">Business</a>
-                                        <a href="single-post.html" class="post-title mb-2">Theresa May battles Brexiteer backlash amid disquiet</a>
-                                        <div class="post-meta d-flex align-items-center mb-2">
-                                            <a href="#" class="post-author">By Jane</a>
-                                            <i class="fa fa-circle" aria-hidden="true"></i>
-                                            <a href="#" class="post-date">Sep 08, 2018</a>
-                                        </div>
-                                        <p class="mb-2">Quisque mollis tristique ante. Proin ligula eros, varius id tristique sit amet, rutrum non ligula.</p>
-                                        <div class="post-meta d-flex">
-                                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 32</a>
-                                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 42</a>
-                                            <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 7</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Post Area -->
-                        <div class="single-post-area mb-30">
-                            <div class="row align-items-center">
-                                <div class="col-12 col-lg-6">
-                                    <!-- Post Thumbnail -->
-                                    <div class="post-thumbnail">
-                                        <img src="<?php echo url('/'); ?>/img/bg-img/24.jpg" alt="">
-
-                                        <!-- Video Duration -->
-                                        <span class="video-duration">05.03</span>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6">
-                                    <!-- Post Content -->
-                                    <div class="post-content mt-0">
-                                        <a href="#" class="post-cata cata-sm cata-danger">Game</a>
-                                        <a href="single-post.html" class="post-title mb-2">Theresa May warned Brexit strategy 'risks putting Jeremy Corbyn</a>
-                                        <div class="post-meta d-flex align-items-center mb-2">
-                                            <a href="#" class="post-author">By Jane</a>
-                                            <i class="fa fa-circle" aria-hidden="true"></i>
-                                            <a href="#" class="post-date">Sep 08, 2018</a>
-                                        </div>
-                                        <p class="mb-2">Quisque mollis tristique ante. Proin ligula eros, varius id tristique sit amet, rutrum non ligula.</p>
-                                        <div class="post-meta d-flex">
-                                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 32</a>
-                                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 42</a>
-                                            <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 7</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
                 </div>

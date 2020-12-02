@@ -3,8 +3,8 @@
 
         <!-- ***** Fan Page ***** -->
         <div class="single-widget latest-video-widget mb-50">
-            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flichsunuocvietnam&tabs=timeline&width=300&height=450&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="300" height="450" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-            </iframe>
+            <!-- <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flichsunuocvietnam&tabs=timeline&width=300&height=450&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="300" height="450" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+            </iframe> -->
 
         </div>
 
@@ -51,24 +51,6 @@
                     <a href="https://www.youtube.com/channel/UCB3s9v6DPrOGgNHe49KO6DA" class="channel-title">Việt Sử Toàn Thư</a>
                     <a href="https://www.youtube.com/channel/UCB3s9v6DPrOGgNHe49KO6DA" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Subscribe</a>
                 </div>
-            </div>
-            
-        </div>
-
-        <!-- ***** Single Widget ***** -->
-        <div class="single-widget newsletter-widget mb-50">
-            <!-- Section Heading -->
-            <div class="section-heading style-2 mb-30">
-                <h4>Newsletter</h4>
-                <div class="line"></div>
-            </div>
-            <p>Subscribe our newsletter gor get notification about new updates, information discount, etc.</p>
-            <!-- Newsletter Form -->
-            <div class="newsletter-form">
-                <form action="#" method="post">
-                    <input type="email" name="nl-email" class="form-control mb-15" id="emailnl" placeholder="Enter your email">
-                    <button type="submit" class="btn vizew-btn w-100">Subscribe</button>
-                </form>
             </div>
         </div>
 
