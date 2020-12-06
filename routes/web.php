@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,12 +14,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('test', function(){
+    $user = User::find(1);
+    foreach ($user->post as $post){
+        echo $post->title."<br>";
+    }
+    
+});
+
 Route::get('/', function () {
     return view('index');
 });
 
 Route::get('/home', function () {
     return view('index');
+});
+
+Route::get('/admin', function () {
+    return view('admin/index');
 });
 
 Route::get('/login', function () {
@@ -28,4 +42,13 @@ Route::get('/danh-nhan', function () {
 });
 Route::get('/video-post', function () {
     return view('video-post');
+});
+
+//admin page
+Route::get('/admin', function () {
+    return view('admin/index');
+});
+
+Route::get('/admin/admin-list', function () {
+    return view('admin/admin-list');
 });
