@@ -37,7 +37,7 @@
                     <!-- Archive Catagory & View Options -->
                     <div class="archive-catagory-view mb-50 d-flex align-items-center justify-content-between">
                         <div class="archive-catagory">
-                            <h4><i class="fa fa-music" aria-hidden="true"></i> Danh nhân </h4>
+                            <h4><i aria-hidden="true"></i> Danh nhân </h4>
                         </div>
                         <!-- View Options -->
                         <div class="view-options">
@@ -61,7 +61,7 @@
                             <div class="col-12 col-md-6">
                                 <!-- Post Content -->
                                 <div class="post-content mt-0">
-                                    <a href="#" class="post-cata cata-sm cata-success">Sports</a>
+                                   <!-- <a href="#" class="post-cata cata-sm cata-success">Sports</a> -->
                                     <a href="single-post.html" class="post-title mb-2">May fights on after Johnson savages Brexit approach</a>
                                     <div class="post-meta d-flex align-items-center mb-2">
                                         <a href="#" class="post-author">By Jane</a>
@@ -94,7 +94,7 @@
                             <div class="col-12 col-md-6">
                                 <!-- Post Content -->
                                 <div class="post-content mt-0">
-                                    <a href="#" class="post-cata cata-sm cata-danger">Game</a>
+                                  <!--  <a href="#" class="post-cata cata-sm cata-danger">Game</a> -->
                                     <a href="single-post.html" class="post-title mb-2">Thailand cave rescue: Boys 'doing well' after spending night</a>
                                     <div class="post-meta d-flex align-items-center mb-2">
                                         <a href="#" class="post-author">By Jane</a>

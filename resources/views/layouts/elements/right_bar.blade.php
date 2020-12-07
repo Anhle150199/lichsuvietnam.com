@@ -58,7 +58,7 @@
         <div class="single-widget mb-50">
             <!-- Section Heading -->
             <div class="section-heading style-2 mb-30">
-                <h4>Most Viewed Playlist</h4>
+                <h4>Xem nhiều</h4>
                 <div class="line"></div>
             </div>
 

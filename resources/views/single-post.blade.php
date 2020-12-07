@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <!-- Title -->
-    <title>Vizew - Blog &amp; Magazine HTML Template</title>
-
-    <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
-
-</head>
+@include("layouts.elements.head")
 
 <body>
     <!-- Preloader -->
@@ -30,147 +11,7 @@
         </div>
     </div>
 
-    <!-- ##### Header Area Start ##### -->
-    <header class="header-area">
-        <!-- Top Header Area -->
-        <div class="top-header-area">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-6">
-                        <!-- Breaking News Widget -->
-                        <div class="breaking-news-area d-flex align-items-center">
-                            <div class="news-title">
-                                <p>Breaking News:</p>
-                            </div>
-                            <div id="breakingNewsTicker" class="ticker">
-                                <ul>
-                                    <li><a href="single-post.html">10 Things Amazon Echo Can Do</a></li>
-                                    <li><a href="single-post.html">Welcome to Colorlib Family.</a></li>
-                                    <li><a href="single-post.html">Boys 'doing well' after Thai</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="top-meta-data d-flex align-items-center justify-content-end">
-                            <!-- Top Social Info -->
-                            <div class="top-social-info">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-pinterest"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-youtube-play"></i></a>
-                            </div>
-                            <!-- Top Search Area -->
-                            <div class="top-search-area">
-                                <form action="index.html" method="post">
-                                    <input type="search" name="top-search" id="topSearch" placeholder="Search...">
-                                    <button type="submit" class="btn"><i class="fa fa-search" aria-hidden="true"></i></button>
-                                </form>
-                            </div>
-                            <!-- Login -->
-                            <a href="login.html" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Navbar Area -->
-        <div class="vizew-main-menu" id="sticker">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
-
-                    <!-- Menu -->
-                    <nav class="classy-navbar justify-content-between" id="vizewNav">
-
-                        <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
-
-                        <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
-
-                        <div class="classy-menu">
-
-                            <!-- Close Button -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li class="active"><a href="index.html">Home</a></li>
-                                    <li><a href="archive-list.html">Archives</a></li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.html">- Home</a></li>
-                                            <li><a href="archive-list.html">- Archive List</a></li>
-                                            <li><a href="archive-grid.html">- Archive Grid</a></li>
-                                            <li><a href="single-post.html">- Single Post</a></li>
-                                            <li><a href="video-post.html">- Single Video Post</a></li>
-                                            <li><a href="contact.html">- Contact</a></li>
-                                            <li><a href="typography.html">- Typography</a></li>
-                                            <li><a href="login.html">- Login</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Features</a>
-                                        <div class="megamenu">
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="index.html">- Home</a></li>
-                                                <li><a href="archive-list.html">- Archive List</a></li>
-                                                <li><a href="archive-grid.html">- Archive Grid</a></li>
-                                                <li><a href="single-post.html">- Single Post</a></li>
-                                                <li><a href="video-post.html">- Single Video Post</a></li>
-                                                <li><a href="contact.html">- Contact</a></li>
-                                                <li><a href="typography.html">- Typography</a></li>
-                                                <li><a href="login.html">- Login</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="index.html">- Home</a></li>
-                                                <li><a href="archive-list.html">- Archive List</a></li>
-                                                <li><a href="archive-grid.html">- Archive Grid</a></li>
-                                                <li><a href="single-post.html">- Single Post</a></li>
-                                                <li><a href="video-post.html">- Single Video Post</a></li>
-                                                <li><a href="contact.html">- Contact</a></li>
-                                                <li><a href="typography.html">- Typography</a></li>
-                                                <li><a href="login.html">- Login</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="index.html">- Home</a></li>
-                                                <li><a href="archive-list.html">- Archive List</a></li>
-                                                <li><a href="archive-grid.html">- Archive Grid</a></li>
-                                                <li><a href="single-post.html">- Single Post</a></li>
-                                                <li><a href="video-post.html">- Single Video Post</a></li>
-                                                <li><a href="contact.html">- Contact</a></li>
-                                                <li><a href="typography.html">- Typography</a></li>
-                                                <li><a href="login.html">- Login</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="index.html">- Home</a></li>
-                                                <li><a href="archive-list.html">- Archive List</a></li>
-                                                <li><a href="archive-grid.html">- Archive Grid</a></li>
-                                                <li><a href="single-post.html">- Single Post</a></li>
-                                                <li><a href="video-post.html">- Single Video Post</a></li>
-                                                <li><a href="contact.html">- Contact</a></li>
-                                                <li><a href="typography.html">- Typography</a></li>
-                                                <li><a href="login.html">- Login</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-                            </div>
-                            <!-- Nav End -->
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- ##### Header Area End ##### -->
+    @include("layouts.elements.header")
 
     <!-- ##### Breadcrumb Area Start ##### -->
     <div class="vizew-breadcrumb">
@@ -180,8 +21,8 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Archives</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Reunification of migrant toddlers</li>
+                            <li class="breadcrumb-item"><a href="#">Di Tích</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"></li>
                         </ol>
                     </nav>
                 </div>
@@ -189,51 +30,6 @@
         </div>
     </div>
     <!-- ##### Breadcrumb Area End ##### -->
-
-    <!-- ##### Pager Area Start ##### -->
-    <div class="vizew-pager-area">
-        <div class="vizew-pager-prev">
-            <p>PREVIOUS ARTICLE</p>
-
-            <!-- Single Feature Post -->
-            <div class="single-feature-post video-post bg-img pager-article" style="background-image: url(img/bg-img/15.jpg);">
-                <!-- Post Content -->
-                <div class="post-content">
-                    <a href="#" class="post-cata cata-sm cata-success">Sports</a>
-                    <a href="video-post.html" class="post-title">Searching for the 'angel' who held me on Westminster Bridge</a>
-                    <div class="post-meta d-flex">
-                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 18</a>
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 32</a>
-                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 24</a>
-                    </div>
-                </div>
-                <!-- Video Duration -->
-                <span class="video-duration">11.13</span>
-            </div>
-        </div>
-
-        <div class="vizew-pager-next">
-            <p>NEXT ARTICLE</p>
-
-            <!-- Single Feature Post -->
-            <div class="single-feature-post video-post bg-img pager-article" style="background-image: url(img/bg-img/14.jpg);">
-                <!-- Post Content -->
-                <div class="post-content">
-                    <a href="#" class="post-cata cata-sm cata-business">Business</a>
-                    <a href="video-post.html" class="post-title">Reunification of migrant toddlers, parents should be completed Thursday</a>
-                    <div class="post-meta d-flex">
-                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 25</a>
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 25</a>
-                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 25</a>
-                    </div>
-                </div>
-                <!-- Video Duration -->
-                <span class="video-duration">06.59</span>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Pager Area End ##### -->
-
     <!-- ##### Post Details Area Start ##### -->
     <section class="post-details-area mb-80">
         <div class="container">
@@ -273,8 +69,6 @@
 
                             <p>I love dals. All kinds of them but yellow moong dal is my go-to lentil when I am in need of some easy comfort food. In this recipe I added suva or dill leaves to the classic moong dal recipe for a twist. I like the simplicity of this recipe, just the dal, tomatoes and fresh dill with simple seasoning. This recipe is without any onions and garlic. I love the aroma of fresh dill and I think, in Indian food, we don’t really use dill as much as we can. Nine out of ten times, the only green leaves sprinkled on a curry or a dal is fresh coriander and while I love coriander too, dill adds a unique freshness and aroma to the dal. The delicate feathery leaves of dill are also rich in Vitamin A, C and minerals like iron and manganese.</p>
 
-                            <p>Dals or lentils are packed with proteins and especially in a vegetarian diet, lentils are the main source of protein. It is amazing how this humble yellow moong dal can be made into so many recipes from a plain dal khichdi to mangodi ki sabzi to the traditional Indian desserts like moong dal halwa.</p>
-
                             <blockquote class="vizew-blockquote mb-15">
                                 <h5 class="blockquote-text">“If you’re going to try, go all the way. There is no other feeling like that. You will be alone with the gods.”</h5>
                                 <h6>Ollie Schneider - CEO Deercreative</h6>
@@ -287,20 +81,17 @@
                             <ul class="unordered-list mb-0">
                                 <li>Wash the dal in 3-4 changes of water and soak in room temperature water for 10 mins while you finish the rest of preparation.</li>
                                 <li>Drain and pressure cook with salt, turmeric and water for 2 whistles.</li>
-                                <li>Remove the cooker from heat and open only after all the steam has escaped on its own.</li>
-                                <li>While the dal is cooking, heat ghee in a pan. Add hing and cumin seeds.</li>
-                                <li>When the seeds start to crackle, add ginger, and green chillies. Sauté for a minute.</li>
-                                <li>Add tomatoes and a little salt. Mix well. Cook for about 5 mins with occasional stirring.</li>
+                               
                             </ul>
 
                             <!-- Post Tags -->
-                            <div class="post-tags mt-30">
+                           <!-- <div class="post-tags mt-30">
                                 <ul>
                                     <li><a href="#">HealthFood</a></li>
                                     <li><a href="#">Sport</a></li>
                                     <li><a href="#">Game</a></li>
                                 </ul>
-                            </div>
+                            </div> -->
 
                             <!-- Post Author -->
                             <div class="vizew-post-author d-flex align-items-center py-5">
@@ -308,8 +99,8 @@
                                     <img src="img/bg-img/30.jpg" alt="">
                                 </div>
                                 <div class="post-author-desc pl-4">
-                                    <a href="#" class="author-name">Calantha Flower</a>
-                                    <p>Hello! My name is Nicolas Sarkozy. I’m a web designer and front-end web developer with over fifteen years of professional.</p>
+                                    <a href="#" class="author-name">Tác giả</a>
+                                    <p>Cám ơn sự đồng hành của tất cả các bạn!</p>
                                     <div class="post-author-social-info">
                                         <a href="#"><i class="fa fa-facebook"></i></a>
                                         <a href="#"><i class="fa fa-twitter"></i></a>
@@ -324,7 +115,7 @@
                             <div class="related-post-area mt-5">
                                 <!-- Section Title -->
                                 <div class="section-heading style-2">
-                                    <h4>Related Post</h4>
+                                    <h4>Các bài viết khác</h4>
                                     <div class="line"></div>
                                 </div>
 
@@ -385,7 +176,7 @@
 
                                 <!-- Section Title -->
                                 <div class="section-heading style-2">
-                                    <h4>Comment</h4>
+                                    <h4>Bình luận</h4>
                                     <div class="line"></div>
                                 </div>
 
@@ -496,7 +287,7 @@
 
                         <!-- ***** Single Widget ***** -->
                         <div class="single-widget share-post-widget mb-50">
-                            <p>Share This Post</p>
+                            <p>Chia sẻ bài viết</p>
                             <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
                             <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
                             <a href="#" class="google"><i class="fa fa-google" aria-hidden="true"></i> Google+</a>
@@ -506,18 +297,18 @@
                         <div class="single-widget p-0 author-widget">
                             <div class="p-4">
                                 <img class="author-avatar" src="img/bg-img/30.jpg" alt="">
-                                <a href="#" class="author-name">Chris Hemsworth</a>
+                                <a href="#" class="author-name">Tác giả</a>
                                 <div class="author-social-info">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-twitter"></i></a>
                                     <a href="#"><i class="fa fa-pinterest"></i></a>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+                                <p>Cám ơn sự đồng hành của tất cả các bạn!</p>
                             </div>
 
                             <div class="authors--meta-data d-flex">
-                                <p>Posted<span class="counter">80</span></p>
-                                <p>Comments<span class="counter">230</span></p>
+                                <p>Bài viết<span class="counter">80</span></p>
+                                <p>Bình luận<span class="counter">230</span></p>
                             </div>
                         </div>
 
@@ -528,57 +319,29 @@
     </section>
     <!-- ##### Post Details Area End ##### -->
 
-    <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area">
+        <!-- ##### Footer Area Start ##### -->
+        <footer class="footer-area">
         <div class="container">
             <div class="row">
                 <!-- Footer Widget Area -->
                 <div class="col-12 col-sm-6 col-xl-3">
-                    <div class="footer-widget mb-70">
+                    <div class="footer-widget mb-70" style="margin-top: 10%;">
                         <!-- Logo -->
-                        <a href="index.html" class="foo-logo d-block mb-4"><img src="img/core-img/logo2.png" alt=""></a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
-                        <!-- Footer Newsletter Area -->
-                        <div class="footer-nl-area">
-                            <form action="#" method="post">
-                                <input type="email" name="nl-email" class="form-control" id="nlEmail" placeholder="Your email">
-                                <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                            </form>
-                        </div>
+                        <a href="home" class="foo-logo d-block mb-4"><img src="<?php echo url('/'); ?>/img/core-img/logo1.png" alt=""></a>
+                        <p></p>
+
                     </div>
                 </div>
 
                 <!-- Footer Widget Area -->
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="footer-widget mb-70">
-                        <h6 class="widget-title">Latest Twister</h6>
-                        <!-- Twitter Slides -->
                         <div class="twitter-slides owl-carousel">
-
-                            <!-- Single Twitter Slide -->
-                            <div class="single--twitter-slide">
-                                <!-- Single Twit -->
+                            <div class="">
                                 <div class="single-twit">
-                                    <p><i class="fa fa-twitter"></i> <span>@Leonard</span> I am so happy because I found this magazine, and it just made Vizeweasier. Thanks for sharing</p>
-                                </div>
-                                <!-- Single Twit -->
-                                <div class="single-twit">
-                                    <p><i class="fa fa-twitter"></i> <span>@Leonard</span> I am so happy because I found this magazine, and it just made Vizeweasier. Thanks for sharing</p>
+                                    <p>Chúng tôi là một trang web phi lợi nhuận, giúp mọi người có hứng thú với lịch sử nước nhà nhiều hơn. Nếu bạn cảm thấy lịch sử nhàm chán, hãy đến với chúng tôi</p>
                                 </div>
                             </div>
-
-                            <!-- Single Twitter Slide -->
-                            <div class="single--twitter-slide">
-                                <!-- Single Twit -->
-                                <div class="single-twit">
-                                    <p><i class="fa fa-twitter"></i> <span>@Colorlib</span> I am so happy because I found this magazine, and it just made Vizeweasier. Thanks for sharing</p>
-                                </div>
-                                <!-- Single Twit -->
-                                <div class="single-twit">
-                                    <p><i class="fa fa-twitter"></i> <span>@Colorlib</span> I am so happy because I found this magazine, and it just made Vizeweasier. Thanks for sharing</p>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -586,58 +349,42 @@
                 <!-- Footer Widget Area -->
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="footer-widget mb-70">
-                        <h6 class="widget-title">Sport Videos</h6>
-
-                        <!-- Single Blog Post -->
-                        <div class="single-blog-post d-flex">
-                            <div class="post-thumbnail">
-                                <img src="img/bg-img/1.jpg" alt="">
-                            </div>
-                            <div class="post-content">
-                                <a href="single-post.html" class="post-title">DC Shoes: gymkhana the</a>
-                                <div class="post-meta d-flex justify-content-between">
-                                    <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                                    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                                    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                                </div>
-                            </div>
+                        <h6 class="widget-title">Các trang thông tin</h6>
+                        <div class="post-content">
+                            <a href="http://quochoi.vn/Pages/default.aspx" class="post-title">- Quốc hội VN</a>
                         </div>
-
-                        <!-- Single Blog Post -->
-                        <div class="single-blog-post d-flex">
-                            <div class="post-thumbnail">
-                                <img src="img/bg-img/2.jpg" alt="">
-                            </div>
-                            <div class="post-content">
-                                <a href="single-post.html" class="post-title">Sweet Yummy Chocolatea Tea</a>
-                                <div class="post-meta d-flex justify-content-between">
-                                    <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                                    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                                    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                                </div>
-                            </div>
+                        <br>
+                        <div class="post-content">
+                            <a href="https://dangcongsan.vn/" class="post-title">- Đảng Cộng Sản VN</a>
                         </div>
-
+                        <br>
+                        <div class="post-content">
+                            <a href="http://www.chinhphu.vn/portal/page/portal/chinhphu/trangchu" class="post-title">- Chính Phủ VN</a>
+                        </div>
+                        <br>
+                        <div class="post-content">
+                            <a href="https://daibieunhandan.vn/" class="post-title">- Đại biểu nhân dân</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Footer Widget Area -->
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="footer-widget mb-70">
-                        <h6 class="widget-title">Our Address</h6>
+                        <h6 class="widget-title">Địa chỉ</h6>
                         <!-- Contact Address -->
                         <div class="contact-address">
-                            <p>101 E 129th St, East Chicago, <br>IN 46312, US</p>
-                            <p>Phone: 001-1234-88888</p>
-                            <p>Email: info.colorlib@gmail.com</p>
+                            <p>Số 1, Đại Cồ Việt <br>Hai Bà Trưng, Hà Nội</p>
+                            <p>Điện thoại: 0386435002</p>
+                            <p>Email: lichsuvietnam@gmail.com</p>
                         </div>
                         <!-- Footer Social Area -->
                         <div class="footer-social-area">
-                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-                            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://www.facebook.com/lichsunuocvietnam" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="https://www.google.com" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                            <a href="https://www.instagram.com/" class="instagram"><i class="fa fa-instagram"></i></a>
+                            <a href="https://twitter.com" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.linkedin.com/" class="linkedin"><i class="fa fa-linkedin"></i></a>
                         </div>
                     </div>
                 </div>
@@ -650,12 +397,16 @@
                 <div class="row align-items-center">
                     <!-- Copywrite Text -->
                     <div class="col-12 col-sm-6">
-                        <p class="copywrite-text"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        <p class="copywrite-text">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>
+                                document.write(new Date().getFullYear());
+                            </script> All rights reserved 
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
                     </div>
                     <div class="col-12 col-sm-6">
-                        <nav class="footer-nav">
+                        <!-- <nav class="footer-nav">
                             <ul>
                                 <li><a href="#">Advertise</a></li>
                                 <li><a href="#">About</a></li>
@@ -663,7 +414,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                                 <li><a href="#">Disclaimer</a></li>
                                 <li><a href="#">Privacy</a></li>
                             </ul>
-                        </nav>
+                        </nav> -->
                     </div>
                 </div>
             </div>

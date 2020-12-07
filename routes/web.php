@@ -40,8 +40,11 @@ Route::get('/login', function () {
 Route::get('/danh-nhan', function () {
     return view('list');
 });
-Route::get('/video-post', function () {
+Route::get('/video', function () {
     return view('video-post');
+});
+Route::get('/ditich', function () {
+    return view('single-post');
 });
 
 //admin page

@@ -125,8 +125,8 @@
                                             </ul>
                                         </div>
                                     </li> -->
-                                    <li><a href="contact.html">Di Tích</a></li>
-                                    <li><a href="contact.html">Video</a></li>
+                                    <li><a href="ditich">Di Tích</a></li>
+                                    <li><a href="video">Video</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->

@@ -21,8 +21,8 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Archives</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Reunification of migrant</li>
+                            <li class="breadcrumb-item"><a href="#">Video</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"></li>
                         </ol>
                     </nav>
                 </div>
@@ -32,13 +32,13 @@
     <!-- ##### Breadcrumb Area End ##### -->
 
     <!-- ##### Pager Area Start ##### -->
-    <div class="vizew-pager-area">
+<!--    <div class="vizew-pager-area">
         <div class="vizew-pager-prev">
             <p>PREVIOUS ARTICLE</p>
-
+-->
             <!-- Single Feature Post -->
-            <div class="single-feature-post video-post bg-img pager-article" style="background-image: url(img/bg-img/15.jpg);">
-                <!-- Post Content -->
+ <!--           <div class="single-feature-post video-post bg-img pager-article" style="background-image: url(img/bg-img/15.jpg);">
+                 Post Content 
                 <div class="post-content">
                     <a href="#" class="post-cata cata-sm cata-success">Sports</a>
                     <a href="single-post.html" class="post-title">Searching for the 'angel' who held me on Westminster Bridge</a>
@@ -48,7 +48,7 @@
                         <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 24</a>
                     </div>
                 </div>
-                <!-- Video Duration -->
+                 Video Duration 
                 <span class="video-duration">11.13</span>
             </div>
         </div>
@@ -56,9 +56,9 @@
         <div class="vizew-pager-next">
             <p>NEXT ARTICLE</p>
 
-            <!-- Single Feature Post -->
+             Single Feature Post 
             <div class="single-feature-post video-post bg-img pager-article" style="background-image: url(img/bg-img/14.jpg);">
-                <!-- Post Content -->
+                 Post Content 
                 <div class="post-content">
                     <a href="#" class="post-cata cata-sm cata-business">Business</a>
                     <a href="single-post.html" class="post-title">Reunification of migrant toddlers, parents should be completed Thursday</a>
@@ -68,11 +68,11 @@
                         <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 25</a>
                     </div>
                 </div>
-                <!-- Video Duration -->
+                 Video Duration 
                 <span class="video-duration">06.59</span>
             </div>
         </div>
-    </div>
+    </div>-->
     <!-- ##### Pager Area End ##### -->
 
     <!-- ##### Post Details Area Start ##### -->
@@ -81,7 +81,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="single-video-area">
-                        <iframe src="https://www.youtube.com/embed/1nI-GMmHMHs" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/sMeWmUlzz74" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                     <div class="post-details-content d-flex">
                         <!-- Post Share Info -->
                         <div class="post-share-info">
-                            <p>Share</p>
+                            <p>Chia sẻ</p>
                             <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
                             <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
                             <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
@@ -105,14 +105,14 @@
 
                             <!-- Post Content -->
                             <div class="post-content mt-0">
-                                <a href="#" class="post-cata cata-sm cata-danger">Game</a>
-                                <a href="single-post.html" class="post-title mb-2">Reunification of migrant toddlers, parents should be completed Thursday</a>
+                              <!--  <a href="#" class="post-cata cata-sm cata-danger">Game</a> -->
+                                <a href="single-post.html" class="post-title mb-2">Bình ngô đại chiến tiền truyện</a>
 
                                 <div class="d-flex justify-content-between mb-30">
                                     <div class="post-meta d-flex align-items-center">
-                                        <a href="#" class="post-author">By Jane</a>
+                                        <a href="#" class="post-author">Tác giả</a>
                                         <i class="fa fa-circle" aria-hidden="true"></i>
-                                        <a href="#" class="post-date">Sep 08, 2018</a>
+                                        <a href="#" class="post-date">2020</a>
                                     </div>
                                     <div class="post-meta d-flex">
                                         <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 32</a>
@@ -122,16 +122,16 @@
                                 </div>
                             </div>
 
-                            <p>I love dals. All kinds of them but yellow moong dal is my go-to lentil when I am in need of some easy comfort food. In this recipe I added suva or dill leaves to the classic moong dal recipe for a twist. I like the simplicity of this recipe, just the dal, tomatoes and fresh dill with simple seasoning. This recipe is without any onions and garlic. I love the aroma of fresh dill and I think, in Indian food, we don’t really use dill as much as we can. Nine out of ten times, the only green leaves sprinkled on a curry or a dal is fresh coriander and while I love coriander too, dill adds a unique freshness and aroma to the dal. The delicate feathery leaves of dill are also rich in Vitamin A, C and minerals like iron and manganese.</p>
+                            <p>Mùa thu năm 1426, trong cuộc Bắc tiến vĩ đại của nghĩa quân Lam Sơn, bộ ba Đinh Lễ - Nguyễn Xí - Lý Triện đã cùng nhau tạo nên một chiến thắng vô tiền khoáng hậu, chiến thắng Tốt Động-Chúc Động. Lấy 6 ngàn quân ít ỏi đối đầu cùng 10 vạn tinh binh của quân Minh. Một trận chiến rung trời chuyển đất, mở ra cơ hội quật khởi cho một dân tộc suốt 20 năm bị nô lệ cùng chà đạp.</p>
 
-                            <p>Dals or lentils are packed with proteins and especially in a vegetarian diet, lentils are the main source of protein. It is amazing how this humble yellow moong dal can be made into so many recipes from a plain dal khichdi to mangodi ki sabzi to the traditional Indian desserts like moong dal halwa.</p>
+                            <p>Tập phim TIỀN TRUYỆN là một sợi dây kết nối đưa khán giả đi từ GIẤY - SẮT - tới BÌNH NGÔ ĐẠI CHIẾN, giúp bạn hiểu và cảm được bối cảnh lịch sử, giới thiệu các tuyến nhân vật, các phe phái..., để chuẩn bị cho mình một tâm thế sẵn sàng trước khi bước vào và chứng kiến một trận chiến đã đi vào lịch sử - trận Tốt Động-Chúc Động.</p>
 
                             <blockquote class="vizew-blockquote mb-15">
-                                <h5 class="blockquote-text">“If you’re going to try, go all the way. There is no other feeling like that. You will be alone with the gods.”</h5>
-                                <h6>Ollie Schneider - CEO Deercreative</h6>
+                                <h5 class="blockquote-text">"Tự do sao có thể trông chờ kẻ địch ban phát. Tự do phải do chính tay mình giành lấy."</h5>
+                                <h6> Đinh Lễ - Nguyễn Xí - Lý Triện</h6>
                             </blockquote>
 
-                            <p>Dals or lentils are packed with proteins and especially in a vegetarian diet, lentils are the main source of protein. It is amazing how this humble yellow moong dal can be made into so many recipes from a plain dal khichdi to mangodi ki sabzi to the traditional Indian desserts like moong dal halwa. Fresh dill should be added only at the end of cooking, much like fresh coriander leaves.</p>
+                           <!-- <p>Dals or lentils are packed with proteins and especially in a vegetarian diet, lentils are the main source of protein. It is amazing how this humble yellow moong dal can be made into so many recipes from a plain dal khichdi to mangodi ki sabzi to the traditional Indian desserts like moong dal halwa. Fresh dill should be added only at the end of cooking, much like fresh coriander leaves.</p>
 
                             <h4>Immediate Dividends</h4>
 
@@ -142,16 +142,16 @@
                                 <li>While the dal is cooking, heat ghee in a pan. Add hing and cumin seeds.</li>
                                 <li>When the seeds start to crackle, add ginger, and green chillies. Sauté for a minute.</li>
                                 <li>Add tomatoes and a little salt. Mix well. Cook for about 5 mins with occasional stirring.</li>
-                            </ul>
+                            </ul> -->
 
                             <!-- Post Tags -->
-                            <div class="post-tags mt-30">
+                         <!--   <div class="post-tags mt-30">
                                 <ul>
                                     <li><a href="#">HealthFood</a></li>
                                     <li><a href="#">Sport</a></li>
                                     <li><a href="#">Game</a></li>
                                 </ul>
-                            </div>
+                            </div> -->
 
                             <!-- Post Author -->
                             <div class="vizew-post-author d-flex align-items-center py-5">
@@ -159,8 +159,8 @@
                                     <img src="img/bg-img/30.jpg" alt="">
                                 </div>
                                 <div class="post-author-desc pl-4">
-                                    <a href="#" class="author-name">Calantha Flower</a>
-                                    <p>Hello! My name is Nicolas Sarkozy. I’m a web designer and front-end web developer with over fifteen years of professional.</p>
+                                    <a href="#" class="author-name">Tác giả</a>
+                                    <p>Cám ơn sự đồng hành của tất cả các bạn!</p>
                                     <div class="post-author-social-info">
                                         <a href="#"><i class="fa fa-facebook"></i></a>
                                         <a href="#"><i class="fa fa-twitter"></i></a>
@@ -175,7 +175,7 @@
                             <div class="related-post-area mt-5">
                                 <!-- Section Title -->
                                 <div class="section-heading style-2">
-                                    <h4>Related Post</h4>
+                                    <h4>Các video khác</h4>
                                     <div class="line"></div>
                                 </div>
 
@@ -356,7 +356,7 @@
                         <div class="single-widget latest-video-widget mb-50">
                             <!-- Section Heading -->
                             <div class="section-heading style-2 mb-30">
-                                <h4>Latest Video</h4>
+                                <h4>Các Video trước</h4>
                                 <div class="line"></div>
                             </div>
 
@@ -429,73 +429,51 @@
                         </div>
 
                         <!-- ***** Single Widget ***** -->
-                        <div class="single-widget add-widget mb-50">
-                            <a href="#"><img src="img/bg-img/add.png" alt=""></a>
-                        </div>
-
-                        <!-- ***** Sidebar Widget ***** -->
                         <div class="single-widget youtube-channel-widget mb-50">
-                            <!-- Section Heading -->
-                            <div class="section-heading style-2 mb-30">
-                                <h4>Hot Channels</h4>
-                                <div class="line"></div>
-                            </div>
+            <!-- Section Heading -->
+            <div class="section-heading style-2 mb-30">
+                <h4>Các kênh You Tube hay</h4>
+                <div class="line"></div>
+            </div>
 
-                            <!-- Single YouTube Channel -->
-                            <div class="single-youtube-channel d-flex align-items-center">
-                                <div class="youtube-channel-thumbnail">
-                                    <img src="img/bg-img/25.jpg" alt="">
-                                </div>
-                                <div class="youtube-channel-content">
-                                    <a href="single-post.html" class="channel-title">Music Channel</a>
-                                    <a href="#" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Subscribe</a>
-                                </div>
-                            </div>
+            <!-- Single YouTube Channel -->
+            <div class="single-youtube-channel d-flex align-items-center">
+                <div class="youtube-channel-thumbnail">
+                    <a href="https://www.youtube.com/user/TEDvnChannel" class="channel-title">
+                        <img src="https://yt3.ggpht.com/ytc/AAUvwngzdiZX_K0XSpYaSXB-f_RA9-Qi1ufXz0eZC8UnZg=s88-c-k-c0x00ffffff-no-rj" alt="">
+                    </a>
+                </div>
+                <div class="youtube-channel-content">
+                    <a href="https://www.youtube.com/user/TEDvnChannel" class="channel-title">Đuốc Mồi</a>
+                    <a href="https://www.youtube.com/user/TEDvnChannel" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Subscribe</a>
+                </div>
+            </div>
 
-                            <!-- Single YouTube Channel -->
-                            <div class="single-youtube-channel d-flex align-items-center">
-                                <div class="youtube-channel-thumbnail">
-                                    <img src="img/bg-img/26.jpg" alt="">
-                                </div>
-                                <div class="youtube-channel-content">
-                                    <a href="single-post.html" class="channel-title">Trending Channel</a>
-                                    <a href="#" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Subscribe</a>
-                                </div>
-                            </div>
+            <div class="single-youtube-channel d-flex align-items-center">
+                <div class="youtube-channel-thumbnail">
+                    <a href="https://www.youtube.com/c/JhGochannel" class="channel-title">
+                        <img src="https://yt3.ggpht.com/ytc/AAUvwnj2IK4miOjlmk36PpUEUc1h1Zyab4AnO9XpQo9h=s88-c-k-c0x00ffffff-no-rj" alt="">
+                    </a>
+                </div>
+                <div class="youtube-channel-content">
+                    <a href="https://www.youtube.com/c/JhGochannel" class="channel-title">JhGo Channel</a>
+                    <a href="https://www.youtube.com/c/JhGochannel" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Subscribe</a>
+                </div>
+            </div>
 
-                            <!-- Single YouTube Channel -->
-                            <div class="single-youtube-channel d-flex align-items-center">
-                                <div class="youtube-channel-thumbnail">
-                                    <img src="img/bg-img/27.jpg" alt="">
-                                </div>
-                                <div class="youtube-channel-content">
-                                    <a href="single-post.html" class="channel-title">Travel Channel</a>
-                                    <a href="#" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Subscribe</a>
-                                </div>
-                            </div>
+            <div class="single-youtube-channel d-flex align-items-center">
+                <div class="youtube-channel-thumbnail">
+                    <a href="https://www.youtube.com/channel/UCB3s9v6DPrOGgNHe49KO6DA" class="channel-title">
+                        <img src="https://yt3.ggpht.com/ytc/AAUvwnhKog7IMLc4biOdBrtY7sFUqrsHyjDeg0v1vxQa=s88-c-k-c0x00ffffff-no-rj" alt="">
+                    </a>
+                </div>
+                <div class="youtube-channel-content">
+                    <a href="https://www.youtube.com/channel/UCB3s9v6DPrOGgNHe49KO6DA" class="channel-title">Việt Sử Toàn Thư</a>
+                    <a href="https://www.youtube.com/channel/UCB3s9v6DPrOGgNHe49KO6DA" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Subscribe</a>
+                </div>
+            </div>
+        </div>
 
-                            <!-- Single YouTube Channel -->
-                            <div class="single-youtube-channel d-flex align-items-center">
-                                <div class="youtube-channel-thumbnail">
-                                    <img src="img/bg-img/28.jpg" alt="">
-                                </div>
-                                <div class="youtube-channel-content">
-                                    <a href="single-post.html" class="channel-title">Sport Channel</a>
-                                    <a href="#" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Subscribe</a>
-                                </div>
-                            </div>
-
-                            <!-- Single YouTube Channel -->
-                            <div class="single-youtube-channel d-flex align-items-center">
-                                <div class="youtube-channel-thumbnail">
-                                    <img src="img/bg-img/29.jpg" alt="">
-                                </div>
-                                <div class="youtube-channel-content">
-                                    <a href="single-post.html" class="channel-title">TV Show Channel</a>
-                                    <a href="#" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Subscribe</a>
-                                </div>
-                            </div>
-                        </div>
 
                         <!-- ***** Single Widget ***** -->
                         <div class="single-widget newsletter-widget mb-50">
@@ -518,7 +496,7 @@
                         <div class="single-widget mb-50">
                             <!-- Section Heading -->
                             <div class="section-heading style-2 mb-30">
-                                <h4>Most Viewed Playlist</h4>
+                                <h4>Xem nhiều</h4>
                                 <div class="line"></div>
                             </div>
 
@@ -553,7 +531,7 @@
                             </div>
 
                             <!-- Single Blog Post -->
-                            <div class="single-blog-post d-flex">
+                           <!-- <div class="single-blog-post d-flex">
                                 <div class="post-thumbnail">
                                     <img src="img/bg-img/36.jpg" alt="">
                                 </div>
@@ -565,10 +543,10 @@
                                         <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- Single Blog Post -->
-                            <div class="single-blog-post d-flex">
+                          <!--  <div class="single-blog-post d-flex">
                                 <div class="post-thumbnail">
                                     <img src="img/bg-img/37.jpg" alt="">
                                 </div>
@@ -580,7 +558,7 @@
                                         <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- Single Blog Post -->
                             <div class="single-blog-post d-flex">
@@ -605,57 +583,29 @@
     </section>
     <!-- ##### Post Details Area End ##### -->
 
-    <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area">
+       <!-- ##### Footer Area Start ##### -->
+       <footer class="footer-area">
         <div class="container">
             <div class="row">
                 <!-- Footer Widget Area -->
                 <div class="col-12 col-sm-6 col-xl-3">
-                    <div class="footer-widget mb-70">
+                    <div class="footer-widget mb-70" style="margin-top: 10%;">
                         <!-- Logo -->
-                        <a href="index.html" class="foo-logo d-block mb-4"><img src="img/core-img/logo2.png" alt=""></a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
-                        <!-- Footer Newsletter Area -->
-                        <div class="footer-nl-area">
-                            <form action="#" method="post">
-                                <input type="email" name="nl-email" class="form-control" id="nlEmail" placeholder="Your email">
-                                <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                            </form>
-                        </div>
+                        <a href="home" class="foo-logo d-block mb-4"><img src="<?php echo url('/'); ?>/img/core-img/logo1.png" alt=""></a>
+                        <p></p>
+
                     </div>
                 </div>
 
                 <!-- Footer Widget Area -->
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="footer-widget mb-70">
-                        <h6 class="widget-title">Latest Twister</h6>
-                        <!-- Twitter Slides -->
                         <div class="twitter-slides owl-carousel">
-
-                            <!-- Single Twitter Slide -->
-                            <div class="single--twitter-slide">
-                                <!-- Single Twit -->
+                            <div class="">
                                 <div class="single-twit">
-                                    <p><i class="fa fa-twitter"></i> <span>@Leonard</span> I am so happy because I found this magazine, and it just made Vizeweasier. Thanks for sharing</p>
-                                </div>
-                                <!-- Single Twit -->
-                                <div class="single-twit">
-                                    <p><i class="fa fa-twitter"></i> <span>@Leonard</span> I am so happy because I found this magazine, and it just made Vizeweasier. Thanks for sharing</p>
+                                    <p>Chúng tôi là một trang web phi lợi nhuận, giúp mọi người có hứng thú với lịch sử nước nhà nhiều hơn. Nếu bạn cảm thấy lịch sử nhàm chán, hãy đến với chúng tôi</p>
                                 </div>
                             </div>
-
-                            <!-- Single Twitter Slide -->
-                            <div class="single--twitter-slide">
-                                <!-- Single Twit -->
-                                <div class="single-twit">
-                                    <p><i class="fa fa-twitter"></i> <span>@Colorlib</span> I am so happy because I found this magazine, and it just made Vizeweasier. Thanks for sharing</p>
-                                </div>
-                                <!-- Single Twit -->
-                                <div class="single-twit">
-                                    <p><i class="fa fa-twitter"></i> <span>@Colorlib</span> I am so happy because I found this magazine, and it just made Vizeweasier. Thanks for sharing</p>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -663,58 +613,42 @@
                 <!-- Footer Widget Area -->
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="footer-widget mb-70">
-                        <h6 class="widget-title">Sport Videos</h6>
-
-                        <!-- Single Blog Post -->
-                        <div class="single-blog-post d-flex">
-                            <div class="post-thumbnail">
-                                <img src="img/bg-img/1.jpg" alt="">
-                            </div>
-                            <div class="post-content">
-                                <a href="single-post.html" class="post-title">DC Shoes: gymkhana the</a>
-                                <div class="post-meta d-flex justify-content-between">
-                                    <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                                    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                                    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                                </div>
-                            </div>
+                        <h6 class="widget-title">Các trang thông tin</h6>
+                        <div class="post-content">
+                            <a href="http://quochoi.vn/Pages/default.aspx" class="post-title">- Quốc hội VN</a>
                         </div>
-
-                        <!-- Single Blog Post -->
-                        <div class="single-blog-post d-flex">
-                            <div class="post-thumbnail">
-                                <img src="img/bg-img/2.jpg" alt="">
-                            </div>
-                            <div class="post-content">
-                                <a href="single-post.html" class="post-title">Sweet Yummy Chocolatea Tea</a>
-                                <div class="post-meta d-flex justify-content-between">
-                                    <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                                    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                                    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                                </div>
-                            </div>
+                        <br>
+                        <div class="post-content">
+                            <a href="https://dangcongsan.vn/" class="post-title">- Đảng Cộng Sản VN</a>
                         </div>
-
+                        <br>
+                        <div class="post-content">
+                            <a href="http://www.chinhphu.vn/portal/page/portal/chinhphu/trangchu" class="post-title">- Chính Phủ VN</a>
+                        </div>
+                        <br>
+                        <div class="post-content">
+                            <a href="https://daibieunhandan.vn/" class="post-title">- Đại biểu nhân dân</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Footer Widget Area -->
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="footer-widget mb-70">
-                        <h6 class="widget-title">Our Address</h6>
+                        <h6 class="widget-title">Địa chỉ</h6>
                         <!-- Contact Address -->
                         <div class="contact-address">
-                            <p>101 E 129th St, East Chicago, <br>IN 46312, US</p>
-                            <p>Phone: 001-1234-88888</p>
-                            <p>Email: info.colorlib@gmail.com</p>
+                            <p>Số 1, Đại Cồ Việt <br>Hai Bà Trưng, Hà Nội</p>
+                            <p>Điện thoại: 0386435002</p>
+                            <p>Email: lichsuvietnam@gmail.com</p>
                         </div>
                         <!-- Footer Social Area -->
                         <div class="footer-social-area">
-                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-                            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://www.facebook.com/lichsunuocvietnam" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="https://www.google.com" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                            <a href="https://www.instagram.com/" class="instagram"><i class="fa fa-instagram"></i></a>
+                            <a href="https://twitter.com" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.linkedin.com/" class="linkedin"><i class="fa fa-linkedin"></i></a>
                         </div>
                     </div>
                 </div>
@@ -727,12 +661,16 @@
                 <div class="row align-items-center">
                     <!-- Copywrite Text -->
                     <div class="col-12 col-sm-6">
-                        <p class="copywrite-text"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        <p class="copywrite-text">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>
+                                document.write(new Date().getFullYear());
+                            </script> All rights reserved 
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
                     </div>
                     <div class="col-12 col-sm-6">
-                        <nav class="footer-nav">
+                        <!-- <nav class="footer-nav">
                             <ul>
                                 <li><a href="#">Advertise</a></li>
                                 <li><a href="#">About</a></li>
@@ -740,7 +678,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                                 <li><a href="#">Disclaimer</a></li>
                                 <li><a href="#">Privacy</a></li>
                             </ul>
-                        </nav>
+                        </nav> -->
                     </div>
                 </div>
             </div>
