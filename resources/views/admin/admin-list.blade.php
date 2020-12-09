@@ -40,27 +40,32 @@
                 <div class="card-body p-0">
                   <div class="table-responsive">
                     <table class="table m-0">
-                      <thead >
+                      <thead>
                         <tr>
                           <th>ID</th>
                           <th>Họ tên</th>
                           <th>Email</th>
                           <th>Ngày tạo</th>
-                          <th>Số bài đăng</th>
+                          <!-- <th>Số bài đăng</th> -->
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <!-- id of posts -->
-                          <td>111</td>
-                          <!-- title anh link to this post -->
-                          <td><a href="#"> The Awards Night Promo 28677077 - After Effect Template Free</a></td>
-                          <td><span >20-12-2020</span></td>
-                          <td>
-                            <div class="sparkbar" data-color="#00a65a" data-height="20">100</div>
-                          </td>
-                        </tr>
-                        
+                        <?php foreach ($users as $item) { ?>
+                          <tr>
+                            <td><?php echo $item['username']; ?></td>
+                            <td><?php echo $item['email']; ?></td>
+                            <td><?php echo $item['create_at']; ?></td>
+                            <!-- <td>
+                              <form method="POST" class="form-delete" action="<?php# echo create_link(base_url(''), array('m' => 'user', 'a' => 'delete')); ?>">
+                                <a href="<?php #echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'edit', 'id' => $item['id'])); ?>">Edit</a>
+                                <input type="hidden" name="user_id" value="<?php #echo $item['id']; ?>" />
+                                <input type="hidden" name="request_name" value="delete_user" />
+                                <a href="#" class="btn-submit">Delete</a>
+                              </form>
+                            </td> -->
+                          </tr>
+                        <?php } ?>
+
                       </tbody>
                     </table>
                   </div>

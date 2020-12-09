@@ -14,29 +14,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('test', function(){
-    $user = User::find(1);
-    foreach ($user->post as $post){
-        echo $post->title."<br>";
-    }
-    
-});
 
-Route::get('/', function () {
-    return view('index');
-});
+Auth::routes();
 
-Route::get('/home', function () {
-    return view('index');
-});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/admin', function () {
-    return view('admin/index');
-});
+Route::get('/login',  [App\Http\Controllers\Auth\LoginController::class, 'getLogin'])->name('login');
 
-Route::get('/login', function () {
-    return view('login');
-});
 Route::get('/danh-nhan', function () {
     return view('list');
 });
@@ -48,10 +33,9 @@ Route::get('/ditich', function () {
 });
 
 //admin page
-Route::get('/admin', function () {
-    return view('admin/index');
-});
+Route::get('/admin', [App\Http\Controllers\Auth\AdminController::class, 'index'])->name('admin');
 
 Route::get('/admin/admin-list', function () {
     return view('admin/admin-list');
 });
+
