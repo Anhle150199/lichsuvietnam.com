@@ -64,14 +64,14 @@
                                 <li><a href="danh-nhan">Danh nhân</a></li>
                                 <li><a href="#">Sự Kiện</a>
                                     <ul class="dropdown" style="width: max-content;">
-                                        <li><a href="index.html">- Thời cổ đại</a></li>
-                                        <li><a href="archive-list.html">- Thời Trung Đại</a></li>
-                                        <li><a href="archive-grid.html">- Thời cận đại(1858-1945)</a></li>
-                                        <li><a href="single-post.html">- Thời hiện đại</a></li>
+                                        <li><a href="thoi-co-dai">- Thời cổ đại</a></li>
+                                        <li><a href="thoi-trung-dai">- Thời Trung Đại</a></li>
+                                        <li><a href="thoi-can-dai">- Thời cận đại(1858-1945)</a></li>
+                                        <li><a href="thoi-hien-dai">- Thời hiện đại</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="contact.html">Di Tích</a></li>
-                                <li><a href="contact.html">Video</a></li>
+                                <li><a href="ditich">Di Tích</a></li>
+                                <li><a href="video">Video</a></li>
                                 <li> </li>
                                 <li class="text-white" style="width: 55px; padding-left: 35px;">
 

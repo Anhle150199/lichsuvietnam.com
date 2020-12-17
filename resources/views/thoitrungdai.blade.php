@@ -19,7 +19,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="home"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
-                            <li class="breadcrumb-item"><a href="danh-nhan">Danh Nhân</a></li>
+                            <li class="breadcrumb-item"><a href="danh-nhan">Thời trung đại</a></li>
                             <!-- <li class="breadcrumb-item active" aria-current="page">Archive by Category MUSIC</li> -->
                         </ol>
                     </nav>
@@ -37,7 +37,7 @@
                     <!-- Archive Catagory & View Options -->
                     <div class="archive-catagory-view mb-50 d-flex align-items-center justify-content-between">
                         <div class="archive-catagory">
-                            <h4><i aria-hidden="true"></i> Danh nhân </h4>
+                            <h4><i aria-hidden="true"></i> Thời trung đại </h4>
                         </div>
                         <!-- View Options -->
                         <div class="view-options">
@@ -47,71 +47,40 @@
                     </div>
 
                     <!-- Single Post Area -->
+                    @foreach ($posts as $p)
                     <div class="single-post-area style-2">
                         <div class="row align-items-center">
                             <div class="col-12 col-md-6">
                                 <!-- Post Thumbnail -->
                                 <div class="post-thumbnail">
-                                    <img src="<?php echo url('/'); ?>/img/bg-img/21.jpg" alt="">
+                                    <img src="<?php echo url('/'); ?>/img/bg-img/{{$p->image}}" style = "height: 220px; width: 400px" alt="">
 
                                     <!-- Video Duration -->
-                                    <span class="video-duration">05.03</span>
+                                    {{-- <span class="video-duration">05.03</span> --}}
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <!-- Post Content -->
                                 <div class="post-content mt-0">
                                    <!-- <a href="#" class="post-cata cata-sm cata-success">Sports</a> -->
-                                    <a href="single-post.html" class="post-title mb-2">May fights on after Johnson savages Brexit approach</a>
+                                    <a href="single-post.html" class="post-title mb-2"> {{$p->title}}</a>
                                     <div class="post-meta d-flex align-items-center mb-2">
-                                        <a href="#" class="post-author">By Jane</a>
+                                        <a href="#" class="post-author">By {{$p->name}}</a>
                                         <i class="fa fa-circle" aria-hidden="true"></i>
-                                        <a href="#" class="post-date">Sep 08, 2018</a>
+                                        <a href="#" class="post-date"> {{$p->created_at}}</a>
                                     </div>
-                                    <p class="mb-2">Quisque mollis tristique ante. Proin ligula eros, varius id tristique sit amet, rutrum non ligula.</p>
+                                    <p class="mb-2">Góc nhìn tổng quan về cuộc chiến tranh tại Việt Nam.</p>
                                     <div class="post-meta d-flex">
                                         <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 32</a>
-                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 42</a>
-                                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 7</a>
+                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> {{$p->views}}</a>
+                                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {{$p->likes}}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Single Post Area -->
-                    <div class="single-post-area style-2">
-                        <div class="row align-items-center">
-                            <div class="col-12 col-md-6">
-                                <!-- Post Thumbnail -->
-                                <div class="post-thumbnail">
-                                    <img src="<?php echo url('/'); ?>/img/bg-img/22.jpg" alt="">
-
-                                    <!-- Video Duration -->
-                                    <span class="video-duration">05.03</span>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <!-- Post Content -->
-                                <div class="post-content mt-0">
-                                  <!--  <a href="#" class="post-cata cata-sm cata-danger">Game</a> -->
-                                    <a href="single-post.html" class="post-title mb-2">Thailand cave rescue: Boys 'doing well' after spending night</a>
-                                    <div class="post-meta d-flex align-items-center mb-2">
-                                        <a href="#" class="post-author">By Jane</a>
-                                        <i class="fa fa-circle" aria-hidden="true"></i>
-                                        <a href="#" class="post-date">Sep 08, 2018</a>
-                                    </div>
-                                    <p class="mb-2">Quisque mollis tristique ante. Proin ligula eros, varius id tristique sit amet, rutrum non ligula.</p>
-                                    <div class="post-meta d-flex">
-                                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 32</a>
-                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 42</a>
-                                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 7</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    </div>                        
+                    @endforeach
+                    
                     <!-- Pagination -->
                     <nav class="mt-50">
                         <ul class="pagination justify-content-center">
