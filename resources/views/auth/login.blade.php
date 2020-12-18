@@ -21,7 +21,7 @@
     <!-- ##### Breadcrumb Area End ##### -->
 
     <!-- ##### Login Area Start ##### -->
-    <div class="vizew-login-area section-padding-80">
+    <div class="vizew-login-area section-padding-60" style="padding-bottom: 60px;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6">
@@ -54,12 +54,17 @@
                                 @enderror
                             </div>
 
-
                                 <button type="submit" class="btn vizew-btn w-100 mt-30">Đăng nhập</button>
 
                                 @if (Route::has('password.request'))
                                 <a class="btn btn-link w-100" href="{{ route('password.request') }}">
                                     {{ __('Quên mật khẩu?') }}
+                                </a>
+                                @endif
+
+                                @if (Route::has('register'))
+                                <a class="btn btn-link w-100" href="{{ route('register') }}">
+                                    {{ __('Bạn chưa có tài khoản? Đăng ký') }}
                                 </a>
                                 @endif
                         

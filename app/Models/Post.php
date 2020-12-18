@@ -9,6 +9,7 @@ class Post extends Model
 {
     use HasFactory;
     protected $table = "posts";
+    // protected $connection = 'sqlite';
 
     protected $fillable = [
         'title', 'content', 'image', 'video', 'views', 'like',
@@ -33,4 +34,5 @@ class Post extends Model
     public function post_type(){
         return $this->belongsTo('App\Models\PostType', 'post_type_id', 'id');
     }
+
 }
