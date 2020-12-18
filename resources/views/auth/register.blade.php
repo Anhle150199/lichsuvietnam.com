@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <div class="vizew-login-area section-padding-80">
+    <div class="vizew-login-area section-padding-60" style="padding-bottom: 60px;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6">
@@ -73,6 +73,11 @@
                                     <input id="password-confirm" type="password" class="form-control text-white" name="password_confirmation" placeholder="Xác nhận mật khẩu" required autocomplete="new-password">
                             </div>
                             <button type="submit" class="btn vizew-btn w-100 mt-30">{{ __('Đăng ký') }}</button>
+                            @if (Route::has('login'))
+                                <a class="btn btn-link w-100" href="{{ route('login') }}">
+                                    {{ __('Bạn đã có tài khoản? Đăng nhập') }}
+                                </a>
+                                @endif
                         </form>
                     </div>
                 </div>

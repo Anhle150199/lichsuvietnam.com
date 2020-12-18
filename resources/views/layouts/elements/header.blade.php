@@ -72,10 +72,9 @@
                                 </li>
                                 <li><a href="contact.html">Di Tích</a></li>
                                 <li><a href="contact.html">Video</a></li>
-                                <li> </li>
                                 <li class="text-white" style="width: 55px; padding-left: 35px;">
 
-                                    <i class="fa fa-user fa-lg" aria-hidden="true">
+                                    <i class="fa fa-user fa-lg " aria-hidden="true">
 
                                         <ul class="dropdown" style="width: max-content;">
                                             @guest
@@ -93,7 +92,7 @@
                                             <li>
                                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                                    {{ __('Logout') }}
+                                                    {{ __('Đăng xuất') }}
                                                 </a>
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                                     @csrf
