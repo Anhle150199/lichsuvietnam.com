@@ -65,14 +65,11 @@ Route::prefix('admin')->group(function(){
     });
     Route::prefix('/comments')->group(function(){
         Route::get('/', [App\Http\Controllers\UserController::class, 'getPostList'])->name('comments');
-        Route::get('edit', [App\Http\Controllers\UserController::class, 'getPostEdit'])->name('post-edit');
-        Route::get('create', [App\Http\Controllers\UserController::class, 'getPostAdd'])->name('post-create');
         Route::get('delete', [App\Http\Controllers\UserController::class, 'getPostDelete'])->name('post-delete');
-        Route::get('show/{id}', [App\Http\Controllers\UserController::class, 'getPostShow'])->name('post-show');
     });
 });
 
 Route::get('test', function ()
 {
-    return view('admin.list-test');
+    return view('#');
 });

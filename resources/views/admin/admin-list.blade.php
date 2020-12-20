@@ -22,7 +22,7 @@
                                             <th>Quyền</th>
                                             <th>Tình trạng</th>
                                             <th>Ngày tạo</th>
-                                            <th></th>
+                                            <!-- <th></th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -44,7 +44,7 @@
                                             <td>Vô hiệu Hóa</td>
                                             @endif
                                             <td>{{$admin->created_at}}</td>
-                                            @if(Auth::user()->level == 2 )
+                                            <!-- @if(Auth::user()->level == 2 )
                                             @if($admin->active == 1)
                                             <td>
 
@@ -62,7 +62,7 @@
                                                     </button>
                                                 </a></td>
                                             @endif
-                                            @endif
+                                            @endif -->
 
                                         </tr>
                                         @endforeach

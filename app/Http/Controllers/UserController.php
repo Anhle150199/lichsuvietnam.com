@@ -8,6 +8,8 @@ use Socialite;
 
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Models\Category;
+use App\Models\Period;
 use Auth;
 use Hash;
 
@@ -30,20 +32,28 @@ class UserController extends Controller
     //get list
     public function getAdminList()
     {
-        $users = User::where('level', '>', 0)->paginate(10);
+        $users = User::where('level', '>', 0)->get();
         return view('admin.admin-list', ['admins' => $users]);
     }
 
     public function getUserList()
     {
-        $users = User::where('level',  0)->paginate(10);
+        $users = User::where('level',  0)->get();
         return view('admin.users-list', ['users' => $users]);
     }
     public function getPostList()
     {
-        $posts = Post::paginate(10);
+        $posts = Post::orderBy('id', 'DESC')->get();
         // $posts = Post::all;
         return view('admin.posts-list', ['posts' => $posts]);
+    }
+
+    //Create
+    public function getPostAdd()
+    {
+        $categories = Category::all();
+        $period = Period::all();
+        return view("admin.post-create", ['categories' => $categories, 'periods' => $period]);
     }
 
     //Edit

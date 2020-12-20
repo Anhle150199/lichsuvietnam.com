@@ -41,7 +41,7 @@
                                             <td>{{$post['created_at']}}</td>
                                         </tr>
                                         @endforeach
-                                        </tbody>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -52,3 +52,5 @@
     </div>
     @include("admin.layout.script")
 </body>
+
+</html>

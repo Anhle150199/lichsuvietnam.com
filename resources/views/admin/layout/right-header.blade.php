@@ -4,7 +4,7 @@
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin') }}">
             <div class="sidebar-brand-icon ">
-            <img src="<?php echo url('/'); ?>/img/core-img/favicon.png"   style="opacity: .8; width: 80%;">
+                <img src="<?php echo url('/'); ?>/img/core-img/favicon.png" style="opacity: .8; width: 80%;">
             </div>
             <div class="sidebar-brand-text">Admin <sup></sup></div>
         </a>
@@ -17,7 +17,7 @@
         </li>
         <hr class="sidebar-divider">
         <div class="sidebar-heading">
-        Thành viên
+            Thành viên
         </div>
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('admins-list') }}">
@@ -26,7 +26,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('users-list') }}"  >
+            <a class="nav-link collapsed" href="{{ route('users-list') }}">
                 <i class="fas fa-fw fa-users"></i>
                 <span>Người dùng</span>
             </a>
@@ -42,10 +42,16 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('posts-list') }}" >
+            <a class="nav-link collapsed"  data-toggle="collapse" href="{{ route('posts-list') }}" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-file"></i>
                 <span>Bài viết</span>
             </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('posts-list') }}">Danh sách</a>
+                    <a class="collapse-item" href="{{ route('post-create') }}">Thêm mới</a>
+                </div>
+            </div>
         </li>
 
         <!-- Nav Item - Charts -->

@@ -23,4 +23,7 @@
 
   <!-- Custom styles for this page -->
   <link href="<?php echo url('/'); ?>/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <!-- <script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script> -->
+  <script src="<?php echo url('/'); ?>/ckeditor/ckeditor.js"></script>
+  <script src="<?php echo url('/'); ?>/ckeditor/ckfinder/ckfinder.js"></script>
 </head>

@@ -21,7 +21,7 @@
                                             <th>Email</th>
                                             <th>Tình trạng</th>
                                             <th>Ngày tạo</th>
-                                            <th></th>
+                                            <!-- <th></th> -->
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -40,7 +40,7 @@
 
                                                 <td>{{$user->created_at}}</td>
 
-                                                @if($user->active == 1)
+                                                <!-- @if($user->active == 1)
                                                 <td>
                                                     <a href={{"delete/".$user['id']}}>
                                                         <button class="btn text-white" style="background-color: red; width: 100%">
@@ -55,7 +55,7 @@
                                                             Kích hoạt
                                                         </button>
                                                     </a></td>
-                                                @endif
+                                                @endif -->
                                             </tr>
                                             @endforeach
                                         </tbody>

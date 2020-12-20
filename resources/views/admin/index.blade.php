@@ -1,17 +1,14 @@
 @include("admin.layout.head")
 
 <body id="page-top">
-    <!-- Page Wrapper -->
     <div id="wrapper">
         @include("admin.layout.right-header")
-        <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 @include("admin.layout.header")
                 <div class="container-fluid">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Trang tổng quan</h1>
-
                     </div>
                     <div class="row">
 
@@ -182,20 +179,9 @@
                     </div>
 
                 </div>
-                <!-- /.container-fluid -->
-
             </div>
-            <!-- End of Main Content -->
         </div>
-        <!-- End of Content Wrapper -->
-
     </div>
-    <!-- End of Page Wrapper -->
-
- 
-
-  
-
     @include("admin.layout.script")
 
 </body>
