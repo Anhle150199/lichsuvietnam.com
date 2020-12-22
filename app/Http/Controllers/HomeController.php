@@ -57,4 +57,8 @@ class HomeController extends Controller
         $posts = Post::join('users','posts.user_id','=','users.id')->where('posts.category_id', 2)->get(['posts.*','users.name']);   
         return view('ditich', compact('posts'));
     }
+    public function Video(){
+        $posts = Post::join('users','posts.user_id','=','users.id')->where('posts.category_id', 2)->get(['posts.*','users.name']);   
+        return view('video', compact('posts'));
+    }
 }
