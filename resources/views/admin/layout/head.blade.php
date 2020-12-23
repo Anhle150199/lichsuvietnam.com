@@ -49,4 +49,13 @@
       }
     }
   </script>
+
+<style>
+        .p {
+            text-overflow : ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            max-width: 300px;
+        }
+    </style>
 </head>

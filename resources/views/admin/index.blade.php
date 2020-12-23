@@ -111,7 +111,7 @@
 
                         <!-- Content Column -->
                         <div class="col-lg-6 mb-4">
-
+                            @if($post_highlight != null)
                             <!-- Project Card Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
@@ -137,7 +137,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                            @endif
                         </div>
 
                         <div class="col-lg-6 mb-4">

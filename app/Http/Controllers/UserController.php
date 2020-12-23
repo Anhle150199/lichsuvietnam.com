@@ -32,8 +32,8 @@ class UserController extends Controller
             $views = $post->sum('views');
             $likes = $post->sum('likes');
             $comments = $post->sum('comments');
-            if ($totalPost != 0) {
-                $userPost = User::where('id', '=', $postHighlight->user_id)->first();
+            if ($totalPost != 0 && $postHighlight != null) {
+                $userPost = User::where('id', '=', $postHighlight['user_id'])->first();
                 $userPostNew = User::where('id', '=', $postNew->user_id)->first();
                 return view("admin.index",
                     [
@@ -44,11 +44,13 @@ class UserController extends Controller
                     ]
                 );
             }
+            $userPostNew = User::where('id', '=', $postNew->user_id)->first();
             return view("admin.index",
                     [
                         'post' => $post, 'total_post' => $totalPost,
                         'views' => $views, 'likes' => $likes, 'comments' => $comments,
-                        'post_highlight' => $postHighlight, 'post_new' => $postNew
+                        'post_highlight' => $postHighlight, 'post_new' => $postNew,
+                        'user_post_new' => $userPostNew
                     ]
                 );
         }
@@ -195,6 +197,9 @@ class UserController extends Controller
         
         $user->updated_at = date("Y-m-d H:i:s");
         $user->save();
+        if($user->active == 0){
+            Auth::logout();
+        }
 
         return redirect()->route('user-edit', ['id' => $req->id])->with('dialog', 'Sửa thành công');
     }
