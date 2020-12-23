@@ -26,11 +26,11 @@ Route::post('/login',  [App\Http\Controllers\Auth\LoginController::class, 'postL
 Route::get('/danh-nhan', [App\Http\Controllers\HomeController::class, 'Danhnhan'], function () {
     return view('list');
 });
-Route::get('/video', function () {
-    return view('video-post');
+Route::get('/video', [App\Http\Controllers\HomeController::class, 'Video'], function () {
+    return view('video');
 });
 Route::get('/ditich', [App\Http\Controllers\HomeController::class, 'Ditich'], function () {
-    return view('single-post');
+    return view('ditich');
 });
 Route::get('/thoi-co-dai', [App\Http\Controllers\HomeController::class, 'Codai'], function () {
     return view('thoicodai');
