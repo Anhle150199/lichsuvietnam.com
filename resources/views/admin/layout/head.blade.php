@@ -10,6 +10,7 @@
   <meta name="author" content="">
 
   <title>Admin-Lịch sử Việt Nam</title>
+  <link rel="stylesheet" href="<?php echo url('/'); ?>/css/style.css">
   <link rel="icon" href="<?php echo url('/'); ?>/img/core-img/vietnam-icon.png">
   <!-- Custom fonts for this template-->
   <link href="<?php echo url('/'); ?>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,7 +24,30 @@
 
   <!-- Custom styles for this page -->
   <link href="<?php echo url('/'); ?>/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-  <!-- <script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script> -->
+  
   <script src="<?php echo url('/'); ?>/ckeditor/ckeditor.js"></script>
-  <script src="<?php echo url('/'); ?>/ckeditor/ckfinder/ckfinder.js"></script>
+  <script src="<?php echo url('/'); ?>/js/ckfinder/ckfinder.js"></script>
+  <script>
+    
+    // check file
+    function fileValidation() {
+      var fileInput = document.getElementById('image');
+      var filePath = fileInput.value;
+      var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+      if (!allowedExtensions.exec(filePath)) {
+        alert('File của bạn phải có đuôi .jpeg/.jpg/.png/.gif.');
+        fileInput.value = '';
+        return false;
+      } else {
+        //Image preview
+        if (fileInput.files && fileInput.files[0]) {
+          var reader = new FileReader();
+            reader.onload = function(e) {
+              document.getElementById('imagePreview').innerHTML = '<img style="max-height: 250px;" src="' + e.target.result + '"/>';
+            };
+          reader.readAsDataURL(fileInput.files[0]);
+        }
+      }
+    }
+  </script>
 </head>

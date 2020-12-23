@@ -21,16 +21,18 @@
                         <div class="card-body">
                             <div class="text-body">
 
-                                <form method="POST" action="{{route('post-create')}}" style="margin: auto; color: black;">
+                                <form name="myForm" method="POST" action="{{route('post-create')}}" onsubmit="return validateForm()" enctype="multipart/form-data" style="margin: auto; color: black;">
                                     @csrf
                                     <div class="form-group">
                                         <strong for="title" class="col-md-0 col-form-label">{{ __('Tiêu đề') }}</strong>
-                                        <input id="title " type="" class="form-control   @error('name') is-invalid @enderror" name="title" ">
-                                        @error('title')
-                                        <span class=" invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
+                                        <input id="title " type="text" class="form-control   @error('title') is-invalid @enderror" name="title">
+                                       
+                                    </div>
+
+                                    <div class="form-group">
+                                        <strong for="summary" class="col-md-0 col-form-label">{{ __('Tóm tắt') }}</strong>
+                                        <textarea id="summary " rows="3" class="form-control   @error('summary') is-invalid @enderror" name="summary"></textarea>
+                                   
                                     </div>
 
                                     <div class="form-group">
@@ -52,19 +54,31 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <strong for="editor" class="col-md-0 col-form-label ">{{ __('Nội dung') }}</strong>
-                                        <div id="editor" class="text-body">
-                                        </div>
+                                        <strong for="img" class="col-md-0 col-form-label">{{ __('Hình ảnh') }}</strong>
+                                        <input id="image" type="file" class="@error('img') is-invalid @enderror" name="img" onchange="return fileValidation()" style="margin-left: 5%;" />
+                                        <div id="imagePreview"></div> 
+                                    </div>
+
+                                    <div class="form-group">
+                                        <strong for="post_content" class="col-md-0 col-form-label ">{{ __('Nội dung') }}</strong>
+                                        <textarea type="text" name="post_content" id="post_content" cols="30" rows="10"></textarea>
                                         <script>
-                                            var editor = CKEDITOR.replace('editor');
-                                            // ClassicEditor
-                                            //     .create(document.querySelector('#editor'))
-                                            //     .catch(error => {
-                                            //         console.error(error);
-                                            //     });
+                                            CKEDITOR.replace('post_content');
                                         </script>
                                     </div>
 
+                                    <div class="form-group">
+                                        <strong for="highlight" class="col-md-0 col-form-label">{{ __('Nổi bật') }}</strong>
+                                        <div class="form-control" style="height: fit-content; ">
+                                            <label for="highlight" class="radio-inline">
+                                                <input name="highlight" type="radio" value="0" checked=""> Không
+                                            </label>
+
+                                            <label for="highlight" class="radio-inline" style="margin-left: 15%;">
+                                                <input name="highlight" type="radio" value="1"> Có
+                                            </label>
+                                        </div>
+                                    </div>
                                     <button type="submit" class="btn btn-primary w-100 mt-30" style="margin-bottom: 5%;">{{ __('Đăng tải') }}</button>
                                 </form>
                             </div>
@@ -75,4 +89,35 @@
         </div>
     </div>
     @include("admin.layout.script")
+    <script>
+        function validateForm() {
+            var title = document.forms["myForm"]["title"].value;
+            if (title == "") {
+                alert("Chưa nhập tiêu đề");
+                return false;
+            }
+            var summary = document.forms["myForm"]["summary"].value;
+            if (summary == "") {
+                alert("Chưa nhập tóm tắt");
+                return false;
+            }
+
+            var image = document.forms["myForm"]["img"].value;
+            if (image == "") {
+                alert("Chưa có ảnh");
+                return false;
+            }
+
+            var content = document.forms["myForm"]["post_content"].value;
+            if (content == "") {
+                alert("Chưa nhập Nội dung");
+                return false;
+            }
+
+            if (summary.length >255 || title.length >255 ) {
+                alert("tiêu đề  hoặc tóm tắt không quá 255 ký tự");
+                return false;
+            }
+        }
+    </script>
 </body>

@@ -13,6 +13,11 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
+                                @if(session('dialog'))
+                                <div class="alert alert-success">
+                                    <p>{{session('dialog')}}</p>
+                                </div>
+                                @endif
                                 <table class="table table-striped " id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
@@ -28,7 +33,7 @@
                                     <tbody>
                                         @foreach($posts as $post)
                                         <tr>
-                                            <td style="text-align: left;"><a href="#">{{$post['title']}}</a></td>
+                                            <td style="text-align: left;"><a href="{{route('post-edit', ['id' => $post['id']])}}">{{$post['title']}}</a></td>
                                             @if($post['post_type_id'] == 1)
                                             <td>Video</td>
                                             @endif

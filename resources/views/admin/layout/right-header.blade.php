@@ -49,7 +49,8 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{ route('posts-list') }}">Danh sách</a>
-                    <a class="collapse-item" href="{{ route('post-create') }}">Thêm mới</a>
+                    <a class="collapse-item" href="{{ route('post-create') }}">Thêm mới bài viết</a>
+                    <a class="collapse-item" href="{{ route('video-create') }}">Thêm mới video</a>
                 </div>
             </div>
         </li>
