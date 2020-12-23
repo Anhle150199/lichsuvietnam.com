@@ -10,7 +10,6 @@
   <meta name="author" content="">
 
   <title>Admin-Lịch sử Việt Nam</title>
-  <link rel="stylesheet" href="<?php echo url('/'); ?>/css/style.css">
   <link rel="icon" href="<?php echo url('/'); ?>/img/core-img/vietnam-icon.png">
   <!-- Custom fonts for this template-->
   <link href="<?php echo url('/'); ?>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

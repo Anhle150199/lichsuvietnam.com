@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Socialite;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\File; 
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Category;
@@ -25,22 +25,32 @@ class UserController extends Controller
     {
         if (Auth::user()->level == 1 || Auth::user()->level == 2) {
             $post = Post::all();
-            $postHighlight = DB::table('posts')->where('highlight','1')->orderBy('views', 'desc')->first() ;
-            $postNew = DB::table('posts')->orderBy('created_at', 'desc')->first() ;
-            $userPost = User::where('id','=', $postHighlight->user_id)->first();
-            $userPostNew = User::where('id','=', $postNew->user_id)->first();
+            $postHighlight = DB::table('posts')->where('highlight', '1')->orderBy('views', 'desc')->first();
+            $postNew = DB::table('posts')->orderBy('created_at', 'desc')->first();
+
             $totalPost = $post->count();
             $views = $post->sum('views');
             $likes = $post->sum('likes');
             $comments = $post->sum('comments');
-// return $userPost;
-            return view("admin.index", 
-            [
-                'post'=>$post, 'total_post' => $totalPost, 
-                'views'=>$views, 'likes'=>$likes, 'comments'=>$comments,
-                'post_highlight' => $postHighlight, 'post_new'=>$postNew,
-                'user_post' =>$userPost, 'user_post_new'=>$userPostNew
-            ]);
+            if ($totalPost != 0) {
+                $userPost = User::where('id', '=', $postHighlight->user_id)->first();
+                $userPostNew = User::where('id', '=', $postNew->user_id)->first();
+                return view("admin.index",
+                    [
+                        'post' => $post, 'total_post' => $totalPost,
+                        'views' => $views, 'likes' => $likes, 'comments' => $comments,
+                        'post_highlight' => $postHighlight, 'post_new' => $postNew,
+                        'user_post' => $userPost, 'user_post_new' => $userPostNew
+                    ]
+                );
+            }
+            return view("admin.index",
+                    [
+                        'post' => $post, 'total_post' => $totalPost,
+                        'views' => $views, 'likes' => $likes, 'comments' => $comments,
+                        'post_highlight' => $postHighlight, 'post_new' => $postNew
+                    ]
+                );
         }
         return redirect()->route('home');
     }
@@ -74,7 +84,7 @@ class UserController extends Controller
     }
     public function postPostAdd(Request $request)
     {
-        
+
 
         $post = new Post;
         $post->title = $request->title;
@@ -85,23 +95,23 @@ class UserController extends Controller
         $post->period_id = $request->period;
         $post->post_type_id = 2;
         $post->user_id = Auth::user()->id;
-        $post->views = 0;
-        $post->comments = 0;
-        $post->likes = 0;
+        // $post->views = 0;
+        // $post->comments = 0;
+        // $post->likes = 0;
         $post->video = "";
-        $post->hidden = 0;
+        // $post->hidden = 0;
+        $post->created_at = date("Y-m-d H:i:s");
         if ($request->hasFile('img')) {
             $file = $request->file('img');
             $name = $file->getClientOriginalName();
-            $img = Str::random(5)."_".$name;
-            
-            while (file_exists("public.upload.images.".$img)) {
-                $img = Str::random(5)."_".$name;
-            }
-            $file->move("upload/images",$img);
-            $post->image = $img;
+            $img = Str::random(5) . "_" . $name;
 
-        }else{
+            while (file_exists("public.upload.images." . $img)) {
+                $img = Str::random(5) . "_" . $name;
+            }
+            $file->move("upload/images", $img);
+            $post->image = $img;
+        } else {
             $post->image = "";
         }
         $post->save();
@@ -117,7 +127,7 @@ class UserController extends Controller
     }
     public function postVideoAdd(Request $request)
     {
-      
+
 
         $post = new Post;
         $post->title = $request->title;
@@ -128,23 +138,23 @@ class UserController extends Controller
         $post->period_id = $request->period;
         $post->post_type_id = 1;
         $post->user_id = Auth::user()->id;
-        $post->views = 0;
-        $post->comments = 0;
-        $post->likes = 0;
+        // $post->views = 0;
+        // $post->comments = 0;
+        // $post->likes = 0;
         $post->video = $request->video;
-        $post->hidden = 0;
+        // $post->hidden = 0;
+        $post->created_at = date("Y-m-d H:i:s");
         if ($request->hasFile('img')) {
             $file = $request->file('img');
             $name = $file->getClientOriginalName();
-            $img = Str::random(5)."_".$name;
-            
-            while (file_exists("public.upload.images.".$img)) {
-                $img = Str::random(5)."_".$name;
-            }
-            $file->move("upload/images",$img);
-            $post->image = $img;
+            $img = Str::random(5) . "_" . $name;
 
-        }else{
+            while (file_exists("public.upload.images." . $img)) {
+                $img = Str::random(5) . "_" . $name;
+            }
+            $file->move("upload/images", $img);
+            $post->image = $img;
+        } else {
             $post->image = "";
         }
         // return $request;
@@ -182,6 +192,8 @@ class UserController extends Controller
         $user->email = $req->email;
         $user->level = $req->level;
         $user->active = $req->active;
+        
+        $user->updated_at = date("Y-m-d H:i:s");
         $user->save();
 
         return redirect()->route('user-edit', ['id' => $req->id])->with('dialog', 'Sửa thành công');
@@ -193,8 +205,10 @@ class UserController extends Controller
         $post = Post::find($id);
         $categories = Category::all();
         $period = Period::all();
-        return view('admin.post-edit', 
-        ['post' => $post, 'categories' => $categories, 'periods' => $period]);
+        return view(
+            'admin.post-edit',
+            ['post' => $post, 'categories' => $categories, 'periods' => $period]
+        );
     }
 
     public function postPostEdit(Request $request, $id)
@@ -209,16 +223,18 @@ class UserController extends Controller
         $post->period_id = $request->period;
         $post->user_id = Auth::user()->id;
         $post->hidden = $request->hidden;
+        
+        $post->updated_at = date("Y-m-d H:i:s");
         if ($request->hasFile('img')) {
             $file = $request->file('img');
-            
+
             $name = $file->getClientOriginalName();
-            $img = Str::random(5)."_".$name;
-            
-            while (file_exists("public.upload.images.".$img)) {
-                $img = Str::random(5)."_".$name;
+            $img = Str::random(5) . "_" . $name;
+
+            while (file_exists("public.upload.images." . $img)) {
+                $img = Str::random(5) . "_" . $name;
             }
-            $file->move("upload/images",$img);
+            $file->move("upload/images", $img);
             File::delete($post->image);
             $post->image = $img;
         }
@@ -238,16 +254,18 @@ class UserController extends Controller
         $post->period_id = $request->period;
         $post->user_id = Auth::user()->id;
         $post->hidden = $request->hidden;
+        $post->updated_at = date("Y-m-d H:i:s");
+
         if ($request->hasFile('img')) {
             $file = $request->file('img');
-            
+
             $name = $file->getClientOriginalName();
-            $img = Str::random(5)."_".$name;
-            
-            while (file_exists("public.upload.images.".$img)) {
-                $img = Str::random(5)."_".$name;
+            $img = Str::random(5) . "_" . $name;
+
+            while (file_exists("public.upload.images." . $img)) {
+                $img = Str::random(5) . "_" . $name;
             }
-            $file->move("upload/images",$img);
+            $file->move("upload/images", $img);
             File::delete($post->image);
             $post->image = $img;
         }

@@ -106,7 +106,7 @@
                         </div>
                     </div>
 
-                    <!-- Content Row -->
+                   @if($total_post != 0)
                     <div class="row">
 
                         <!-- Content Column -->
@@ -141,7 +141,6 @@
                         </div>
 
                         <div class="col-lg-6 mb-4">
-
                             <!-- Illustrations -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
@@ -171,7 +170,7 @@
 
                         </div>
                     </div>
-
+                    @endif
                 </div>
             </div>
         </div>

@@ -85,6 +85,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'level' => 0,
             'active' => 1,
+            'created_at' => date("Y-m-d H:i:s")
         ]);
     }
 }
