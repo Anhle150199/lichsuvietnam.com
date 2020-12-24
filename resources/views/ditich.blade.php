@@ -19,7 +19,11 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="home"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
+<<<<<<< HEAD
                             <li class="breadcrumb-item"><a href="danh-nhan">Di tích lích sử</a></li>
+=======
+                            <li class="breadcrumb-item"><a href="danh-nhan">Di tích</a></li>
+>>>>>>> 4f1f2e9ee7882a728d2bc091dc6fb59870c2988b
                             <!-- <li class="breadcrumb-item active" aria-current="page">Archive by Category MUSIC</li> -->
                         </ol>
                     </nav>
@@ -37,7 +41,11 @@
                     <!-- Archive Catagory & View Options -->
                     <div class="archive-catagory-view mb-50 d-flex align-items-center justify-content-between">
                         <div class="archive-catagory">
+<<<<<<< HEAD
                             <h4><i aria-hidden="true"></i> Di tích lịch sử </h4>
+=======
+                            <h4><i aria-hidden="true"></i> Di tích </h4>
+>>>>>>> 4f1f2e9ee7882a728d2bc091dc6fb59870c2988b
                         </div>
                         <!-- View Options -->
                         <div class="view-options">

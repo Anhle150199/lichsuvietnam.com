@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post as Post;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     /**
@@ -15,7 +15,13 @@ class HomeController extends Controller
      */
     // public function __construct()
     // {
-    //     $this->middleware('auth');
+    //     // $this->middleware('auth');
+    //     if (Auth::check()) {
+    //         if(Auth::user()->active == 0){
+    //             Auth::logout();
+    //             $this->middleware('guest')->except('logout');
+    //         }
+    //     }
     // }
 
     /**
@@ -66,6 +72,7 @@ class HomeController extends Controller
         ->get(['posts.*','users.name']);   
         return view('ditich', compact('posts'));
     }
+<<<<<<< HEAD
     public function SinglePost($id){
         $post = Post::join('users','posts.user_id','=','users.id')
         ->join('categories','posts.category_id','=','categories.id')
@@ -80,4 +87,10 @@ class HomeController extends Controller
         return view('single-post', compact('post','subpost','postcount'));
     }
     
+=======
+    public function Video(){
+        $posts = Post::join('users','posts.user_id','=','users.id')->where('posts.category_id', 2)->get(['posts.*','users.name']);   
+        return view('video', compact('posts'));
+    }
+>>>>>>> 4f1f2e9ee7882a728d2bc091dc6fb59870c2988b
 }
