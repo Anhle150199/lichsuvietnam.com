@@ -63,9 +63,9 @@
                                 <!-- Post Content -->
                                 <div class="post-content mt-0">
                                    <!-- <a href="#" class="post-cata cata-sm cata-success">Sports</a> -->
-                                    <a href="single-post.html" class="post-title mb-2"> {{$p->title}}</a>
+                                    <a href="id={{$p->id}}" class="post-title mb-2"> {{$p->title}}</a>
                                     <div class="post-meta d-flex align-items-center mb-2">
-                                        <a href="#" class="post-author">By {{$p->name}}</a>
+                                        <a href="#" class="post-author">By {{$p->user['name']}}</a>
                                         <i class="fa fa-circle" aria-hidden="true"></i>
                                         <a href="#" class="post-date"> {{$p->created_at}}</a>
                                     </div>

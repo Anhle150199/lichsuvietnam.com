@@ -19,7 +19,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="home"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
-                            <li class="breadcrumb-item"><a href="danh-nhan">Thời hiện đại</a></li>
+                            <li class="breadcrumb-item"><a href="thoi-hien-dai">Thời hiện đại</a></li>
                             <!-- <li class="breadcrumb-item active" aria-current="page">Archive by Category MUSIC</li> -->
                         </ol>
                     </nav>
@@ -65,7 +65,7 @@
                                    <!-- <a href="#" class="post-cata cata-sm cata-success">Sports</a> -->
                                     <a href="single-post.html" class="post-title mb-2"> {{$p->title}}</a>
                                     <div class="post-meta d-flex align-items-center mb-2">
-                                        <a href="#" class="post-author">By {{$p->name}}</a>
+                                        <a href="#" class="post-author">By {{$p->authorname}}</a>
                                         <i class="fa fa-circle" aria-hidden="true"></i>
                                         <a href="#" class="post-date"> {{$p->created_at}}</a>
                                     </div>

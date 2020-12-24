@@ -21,8 +21,9 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Di Tích</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"></li>
+                            <li class="breadcrumb-item"><a href="#">{{$post->name}}</a></li>
+                            <li class="breadcrumb-item"><a href="#">{{$post->title}}</a></li>
+                            {{-- <li class="breadcrumb-item active" aria-current="page"></li> --}}
                         </ol>
                     </nav>
                 </div>
@@ -50,26 +51,26 @@
 
                             <!-- Post Content -->
                             <div class="post-content mt-0">
-                                <a href="#" class="post-cata cata-sm cata-danger">Game</a>
-                                <a href="single-post.html" class="post-title mb-2">Reunification of migrant toddlers, parents should be completed Thursday</a>
+                                <a href="#" class="post-cata cata-sm cata-danger">{{$post->name}}</a>
+                                <a href="id={{$post->id}}" class="post-title mb-2">{{$post->title}}</a>
 
                                 <div class="d-flex justify-content-between mb-30">
                                     <div class="post-meta d-flex align-items-center">
-                                        <a href="#" class="post-author">By Jane</a>
+                                        <a href="#" class="post-author">{{$post->authorname}}</a>
                                         <i class="fa fa-circle" aria-hidden="true"></i>
-                                        <a href="#" class="post-date">Sep 08, 2018</a>
+                                        <a href="#" class="post-date">{{$post->created_at}}</a>
                                     </div>
                                     <div class="post-meta d-flex">
                                         <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 32</a>
-                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 42</a>
-                                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 7</a>
+                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> {{$post->views}}</a>
+                                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {{$post->likes}}</a>
                                     </div>
                                 </div>
                             </div>
 
-                            <p>I love dals. All kinds of them but yellow moong dal is my go-to lentil when I am in need of some easy comfort food. In this recipe I added suva or dill leaves to the classic moong dal recipe for a twist. I like the simplicity of this recipe, just the dal, tomatoes and fresh dill with simple seasoning. This recipe is without any onions and garlic. I love the aroma of fresh dill and I think, in Indian food, we don’t really use dill as much as we can. Nine out of ten times, the only green leaves sprinkled on a curry or a dal is fresh coriander and while I love coriander too, dill adds a unique freshness and aroma to the dal. The delicate feathery leaves of dill are also rich in Vitamin A, C and minerals like iron and manganese.</p>
+                            <p>{{$post->content}}</p>
 
-                            <blockquote class="vizew-blockquote mb-15">
+                            {{-- <blockquote class="vizew-blockquote mb-15">
                                 <h5 class="blockquote-text">“If you’re going to try, go all the way. There is no other feeling like that. You will be alone with the gods.”</h5>
                                 <h6>Ollie Schneider - CEO Deercreative</h6>
                             </blockquote>
@@ -82,7 +83,7 @@
                                 <li>Wash the dal in 3-4 changes of water and soak in room temperature water for 10 mins while you finish the rest of preparation.</li>
                                 <li>Drain and pressure cook with salt, turmeric and water for 2 whistles.</li>
                                
-                            </ul>
+                            </ul> --}}
 
                             <!-- Post Tags -->
                            <!-- <div class="post-tags mt-30">
@@ -99,7 +100,7 @@
                                     <img src="img/bg-img/30.jpg" alt="">
                                 </div>
                                 <div class="post-author-desc pl-4">
-                                    <a href="#" class="author-name">Tác giả</a>
+                                    <a href="#" class="author-name">{{$post->authorname}}</a>
                                     <p>Cám ơn sự đồng hành của tất cả các bạn!</p>
                                     <div class="post-author-social-info">
                                         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -120,54 +121,28 @@
                                 </div>
 
                                 <div class="row">
-
+                                    @foreach ($subpost as $sub)                                    
                                     <!-- Single Blog Post -->
                                     <div class="col-12 col-md-6">
                                         <div class="single-post-area mb-50">
                                             <!-- Post Thumbnail -->
                                             <div class="post-thumbnail">
-                                                <img src="img/bg-img/11.jpg" alt="">
-
-                                                <!-- Video Duration -->
-                                                <span class="video-duration">05.03</span>
+                                                <img src="<?php echo url('/'); ?>/img/bg-img/{{$sub->image}}" alt="">
                                             </div>
 
                                             <!-- Post Content -->
                                             <div class="post-content">
                                                 <a href="#" class="post-cata cata-sm cata-success">Sports</a>
-                                                <a href="single-post.html" class="post-title">Warner Bros. Developing ‘The accountant’ Sequel</a>
+                                                <a href="id={{$sub->id}}" class="post-title">{{$sub->title}}</a>
                                                 <div class="post-meta d-flex">
                                                     <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 22</a>
-                                                    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 16</a>
-                                                    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 15</a>
+                                                    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> {{$sub->views}}</a>
+                                                    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {{$sub->likes}}</a>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <!-- Single Blog Post -->
-                                    <div class="col-12 col-md-6">
-                                        <div class="single-post-area mb-50">
-                                            <!-- Post Thumbnail -->
-                                            <div class="post-thumbnail">
-                                                <img src="img/bg-img/12.jpg" alt="">
-
-                                                <!-- Video Duration -->
-                                                <span class="video-duration">05.03</span>
-                                            </div>
-
-                                            <!-- Post Content -->
-                                            <div class="post-content">
-                                                <a href="#" class="post-cata cata-sm cata-danger">Game</a>
-                                                <a href="single-post.html" class="post-title">Searching for the 'angel' who held me on Westminste</a>
-                                                <div class="post-meta d-flex">
-                                                    <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 28</a>
-                                                    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 17</a>
-                                                    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 22</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </div>                      
+                                    @endforeach
                                 </div>
                             </div>
 
@@ -307,7 +282,7 @@
                             </div>
 
                             <div class="authors--meta-data d-flex">
-                                <p>Bài viết<span class="counter">80</span></p>
+                                <p>Bài viết<span class="counter">{{$postcount}}</span></p>
                                 <p>Bình luận<span class="counter">230</span></p>
                             </div>
                         </div>
