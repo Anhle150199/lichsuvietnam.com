@@ -22,6 +22,9 @@
               <div class="table-responsive">
                 @if(session('dialog'))
                 <div class="alert alert-success">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" style="font-size:20px">×</span>
+                  </button>
                   <p>{{session('dialog')}}</p>
                 </div>
                 @endif

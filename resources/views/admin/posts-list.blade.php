@@ -15,6 +15,9 @@
                             <div class="table-responsive">
                                 @if(session('dialog'))
                                 <div class="alert alert-success">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true" style="font-size:20px">×</span>
+                                    </button>
                                     <p>{{session('dialog')}}</p>
                                 </div>
                                 @endif
@@ -35,7 +38,9 @@
                                     <tbody>
                                         @foreach($posts as $post)
                                         <tr>
-                                            <td class="p"  style="text-align: left;"><p class="p"><a  href="{{route('post-edit', ['id' => $post['id']])}}">{{$post['title']}}</a></p></td>
+                                            <td class="p" style="text-align: left;">
+                                                <p class="p"><a href="{{route('post-edit', ['id' => $post['id']])}}">{{$post['title']}}</a></p>
+                                            </td>
                                             @if($post['post_type_id'] == 1)
                                             <td>Video</td>
                                             @endif
@@ -67,7 +72,7 @@
         </div>
     </div>
     @include("admin.layout.script")
-    
+
 </body>
 
 </html>

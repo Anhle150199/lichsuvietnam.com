@@ -40,7 +40,7 @@
                             </div>
                             @endif
                             <div class="form-group">
-                                <input type="email" class="form-control text-white @error('email') is-invalid @enderror" id="email exampleInputEmail1" placeholder="Email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input type="email" class="form-control text-white @error('email') is-invalid @enderror" id="email exampleInputEmail1" placeholder="Email" name="email" value="{{ old('email') }}"  autocomplete="email" autofocus>
 
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -49,7 +49,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <input id=" password exampleInputPassword1" type="password" class="form-control text-white @error('password') is-invalid @enderror" placeholder="Mật kh" name="password" required autocomplete="current-password">
+                                <input id=" password exampleInputPassword1" type="password" class="form-control text-white @error('password') is-invalid @enderror" placeholder="Mật khẩu" name="password"  autocomplete="current-password">
 
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">

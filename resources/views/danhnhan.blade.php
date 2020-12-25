@@ -1,17 +1,8 @@
 @include("layouts.elements.head")
 <body>
-    <!-- Preloader -->
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
+
 
     @include("layouts.elements.header")
-    <!-- ##### Route view Start ##### -->
     <div class="vizew-breadcrumb">
         <div class="container">
             <div class="row">
@@ -20,26 +11,21 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="home"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
                             <li class="breadcrumb-item"><a href="danh-nhan">Danh Nhân</a></li>
-                            <!-- <li class="breadcrumb-item active" aria-current="page">Archive by Category MUSIC</li> -->
                         </ol>
                     </nav>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ##### Route view End ##### -->
 
-    <!-- ##### Archive List Posts Area Start ##### -->
     <div class="vizew-archive-list-posts-area mb-80">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-8">
-                    <!-- Archive Catagory & View Options -->
                     <div class="archive-catagory-view mb-50 d-flex align-items-center justify-content-between">
                         <div class="archive-catagory">
                             <h4><i aria-hidden="true"></i> Danh nhân </h4>
                         </div>
-                        <!-- View Options -->
                         <div class="view-options">
                             <a href="archive-grid.html"><i class="fa fa-th-large" aria-hidden="true"></i></a>
                             <a href="archive-list.html" class="active"><i class="fa fa-list-ul" aria-hidden="true"></i></a>
@@ -53,7 +39,7 @@
                             <div class="col-12 col-md-6">
                                 <!-- Post Thumbnail -->
                                 <div class="post-thumbnail">
-                                    <img src="<?php echo url('/'); ?>/img/bg-img/{{$p->image}}" style = "height: 220px; width: 400px" alt="">
+                                    <img src="<?php echo url('/'); ?>/upload/images/{{$p->image}}" style = "height: 220px; width: 400px" alt="">
 
                                     <!-- Video Duration -->
                                     {{-- <span class="video-duration">05.03</span> --}}
@@ -69,9 +55,9 @@
                                         <i class="fa fa-circle" aria-hidden="true"></i>
                                         <a href="#" class="post-date"> {{$p->created_at}}</a>
                                     </div>
-                                    <p class="mb-2">Góc nhìn tổng quan về cuộc chiến tranh tại Việt Nam.</p>
+                                    <p class="mb-2">{{$p->summary}}</p>
                                     <div class="post-meta d-flex">
-                                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 32</a>
+                                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>{{$p->comments}}</a>
                                         <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> {{$p->views}}</a>
                                         <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {{$p->likes}}</a>
                                     </div>

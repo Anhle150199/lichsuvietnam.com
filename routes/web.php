@@ -23,6 +23,15 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/login',  [App\Http\Controllers\Auth\LoginController::class, 'getLogin'])->name('login');
 Route::post('/login',  [App\Http\Controllers\Auth\LoginController::class, 'postLogin'])->name('login');
 
+Route::get('/profile',  [App\Http\Controllers\UserController::class, 'getProfile'])->name('profile');
+Route::post('/profile',  [App\Http\Controllers\UserController::class, 'postProfile'])->name('profile');
+
+Route::post('/change-avatar',  [App\Http\Controllers\UserController::class, 'postChangeAvatar'])->name('change-avatar');
+Route::get('/change-password',  [App\Http\Controllers\UserController::class, 'getChangePassword'])->name('change-password');
+Route::post('/change-password',  [App\Http\Controllers\UserController::class, 'postChangePassword'])->name('change-password');
+
+Route::post('/disable-user',  [App\Http\Controllers\UserController::class, 'disableUser'])->name('disable-user');
+
 Route::get('/danh-nhan', [App\Http\Controllers\HomeController::class, 'Danhnhan'], function () {
     return view('list');
 });

@@ -86,7 +86,7 @@
                                             <li><a href="{{ route('register') }}">{{ __('Đăng ký') }}</a></li>
                                             @endif
                                             @else
-                                            <li><a href="">{{ Auth::user()->name }}</a></li>
+                                            <li><a href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
                                             @if( Auth::user()->level >= 1)
                                             <li><a href="{{ route('admin') }}">{{__('Admin')}}</a></li>
                                             @endif
