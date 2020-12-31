@@ -2,7 +2,7 @@
 
 use App\Models\Category;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Post as Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,9 +20,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/login',  [App\Http\Controllers\Auth\LoginController::class, 'getLogin'])->name('login');
-Route::post('/login',  [App\Http\Controllers\Auth\LoginController::class, 'postLogin'])->name('login');
 
+Route::get('/login',  [App\Http\Controllers\Auth\LoginController::class, 'getLogin'])->name('login');
 Route::get('/profile',  [App\Http\Controllers\UserController::class, 'getProfile'])->name('profile');
 Route::post('/profile',  [App\Http\Controllers\UserController::class, 'postProfile'])->name('profile');
 
@@ -32,27 +31,18 @@ Route::post('/change-password',  [App\Http\Controllers\UserController::class, 'p
 
 Route::post('/disable-user',  [App\Http\Controllers\UserController::class, 'disableUser'])->name('disable-user');
 
-Route::get('/danh-nhan', [App\Http\Controllers\HomeController::class, 'Danhnhan'], function () {
-    return view('list');
+Route::get('/danh-nhan', [App\Http\Controllers\HomeController::class, 'Danhnhan']);
+Route::get('/di-tich', [App\Http\Controllers\HomeController::class, 'Ditich']);
+Route::get('/thoi-co-dai', [App\Http\Controllers\HomeController::class, 'Codai']);
+Route::get('/thoi-trung-dai', [App\Http\Controllers\HomeController::class, 'Trungdai']);
+Route::get('/thoi-can-dai', [App\Http\Controllers\HomeController::class, 'Candai']);
+Route::get('/thoi-hien-dai', [App\Http\Controllers\HomeController::class, 'Hiendai']);
+
+Route::get('/video', function () {
+    return view('video-post');
 });
-Route::get('/video', [App\Http\Controllers\HomeController::class, 'Video'], function () {
-    return view('video');
-});
-Route::get('/ditich', [App\Http\Controllers\HomeController::class, 'Ditich'], function () {
-    return view('ditich');
-});
-Route::get('/thoi-co-dai', [App\Http\Controllers\HomeController::class, 'Codai'], function () {
-    return view('thoicodai');
-});
-Route::get('/thoi-trung-dai', [App\Http\Controllers\HomeController::class, 'Trungdai'], function () {
-    return view('thoitrungdai');
-});
-Route::get('/thoi-can-dai', [App\Http\Controllers\HomeController::class, 'Candai'], function () {
-    return view('thoicandai');
-});
-Route::get('/thoi-hien-dai', [App\Http\Controllers\HomeController::class, 'Hiendai'], function () {
-    return view('thoihiendai');
-});
+
+Route::get('/id={id}', [App\Http\Controllers\HomeController::class, 'SinglePost']);
 
 Route::prefix('admin')->group(function(){
 

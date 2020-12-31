@@ -70,7 +70,7 @@
                                         <li><a href="thoi-hien-dai">- Thời hiện đại</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="ditich">Di Tích</a></li>
+                                <li><a href="di-tich">Di Tích</a></li>
                                 <li><a href="video">Video</a></li>
                                 <li> </li>
                                 <li class="text-white" style="width: 55px; padding-left: 35px;">
