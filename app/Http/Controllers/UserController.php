@@ -225,7 +225,7 @@ class UserController extends Controller
     }
     public function postChangeAvatar(Request $request)
     {
-        $avatarDefault = 'AvatarDefault.jpg';
+        $avatarDefault = ['avatar1.jpg', 'avatar2.jpg', 'avatar3.png', 'avatar4.jpg', 'avatar5.jpg'];
         $user = Auth::user();
         $file_path = "upload/images/" . $user->avatar;
 
@@ -239,7 +239,7 @@ class UserController extends Controller
                 $name = Str::random(5) . "_" . $name;
             }
 
-            if ($user->avatar != $avatarDefault) {
+            if (!in_array($user->avatar, $avatarDefault)) {
                 FILE::delete($file_path);
             }
             $file->move("upload/images", $name);

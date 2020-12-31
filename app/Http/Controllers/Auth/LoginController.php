@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Auth;
+use Laravel\Socialite\Facades\Socialite;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -80,4 +82,37 @@ class LoginController extends Controller
             }
         }
     }
+
+    // public function redirectProvider($socialite)
+    // {
+    //     return Socialite::driver($socialite)->redirect();
+    // }
+    // public function handleProviderCallback($socialite)
+    // {
+    //     $user = Socialite::driver($socialite)->user();
+    //     $authUser = $this->findOrCreateUser($user);
+    //     $this->postLogin($authUser);
+    //     // return $user;
+    //     // Auth::login($authUser);
+    //     return redirect('/');
+    // }
+    // public function findOrCreateUser($user)
+    // {
+    //     $authUser = User::where('social_id', $user->id)->first();
+    //     if ($authUser) {
+    //         return $authUser;
+    //     } else {
+    //         return User::created(
+    //             [
+    //                 'name' => $user->name,
+    //                 'email' => $user->email,
+    //                 'password' => '',
+    //                 'level' => 0,
+    //                 'active' => 1,
+    //                 'avatar' => $user->avatar,
+    //                 'created_at' => date("Y-m-d H:i:s")
+    //             ]
+    //         );
+    //     }
+    // }
 }

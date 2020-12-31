@@ -60,7 +60,10 @@
 
                             <button type="submit" class="btn vizew-btn w-100 mt-30">Đăng nhập</button>
 
-                            @if (Route::has('password.request'))
+                            
+                        </form>
+                        <a href="{{ url('/auth/redirect/facebook') }}"><button type="button" class="btn btn-primary w-100 mt-30">Đăng nhập với FaceBook</button></a>
+                        @if (Route::has('password.request'))
                             <a class="btn btn-link w-100" href="{{ route('password.request') }}">
                                 {{ __('Quên mật khẩu?') }}
                             </a>
@@ -72,7 +75,6 @@
                             </a>
                             @endif
 
-                        </form>
                     </div>
                 </div>
             </div>

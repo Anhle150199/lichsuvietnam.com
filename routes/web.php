@@ -23,6 +23,12 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/login',  [App\Http\Controllers\Auth\LoginController::class, 'getLogin'])->name('login');
 Route::post('/login',  [App\Http\Controllers\Auth\LoginController::class, 'postLogin'])->name('login');
 
+// Route::get('/callback/{facebook}',  [App\Http\Controllers\Auth\LoginController::class, 'handleProviderCallback'])->name('facebook_callback');
+// Route::get('/redirect/{facebook}',  [App\Http\Controllers\Auth\LoginController::class, 'redirectProvider'])->name('facebook_login');
+Route::get('/auth/redirect/{provider}', [App\Http\Controllers\SocialController::class, 'redirect']);
+ Route::get('/callback/{provider}', [App\Http\Controllers\SocialController::class, 'callback']);
+
+
 Route::get('/profile',  [App\Http\Controllers\UserController::class, 'getProfile'])->name('profile');
 Route::post('/profile',  [App\Http\Controllers\UserController::class, 'postProfile'])->name('profile');
 
