@@ -139,7 +139,7 @@
                             </div>
                             @endif
                         </div>
-
+                            @if($user_post_new != null)
                         <div class="col-lg-6 mb-4">
                             <!-- Illustrations -->
                             <div class="card shadow mb-4">
@@ -167,6 +167,7 @@
                                     </div>
                                     </div>
                             </div>
+                            @endif
 
                         </div>
                     </div>

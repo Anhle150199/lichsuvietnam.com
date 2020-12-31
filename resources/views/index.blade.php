@@ -167,26 +167,26 @@
 
                 <div class="col-12 col-md-5 col-lg-4">
                     <ul class="nav vizew-nav-tab" role="tablist">
-
+                        @foreach ($posts as $p)
                         <li class="nav-item">
                             <a class="nav-link active" id="post-1-tab" data-toggle="pill" href="#post-1" role="tab" aria-controls="post-1" aria-selected="true">
                                 <!-- Single Blog Post -->
                                 <div class="single-blog-post style-2 d-flex align-items-center">
                                     <div class="post-thumbnail">
-                                        <img src="<?php echo url('/'); ?>/img/bg-img/3.jpg" alt="">
+                                        <img src="<?php echo url('/'); ?>/upload/images/{{$p->image}}" alt="">
                                     </div>
                                     <div class="post-content">
-                                        <h6 class="post-title">Boys 'doing well' after Thai cave rescue</h6>
+                                        <h6 class="post-title">{{$p->title}}</h6>
                                         <div class="post-meta d-flex justify-content-between">
                                             <span><i class="fa fa-comments-o" aria-hidden="true"></i> 25</span>
-                                            <span><i class="fa fa-eye" aria-hidden="true"></i> 11</span>
-                                            <span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 19</span>
+                                            <span><i class="fa fa-eye" aria-hidden="true"></i> {{$p->views}}</span>
+                                            <span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {{$p->likes}}</span>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </li>
-
+                        @endforeach
                         <li class="nav-item">
                             <a class="nav-link" id="post-2-tab" data-toggle="pill" href="#post-2" role="tab" aria-controls="post-2" aria-selected="false">
                                 <!-- Single Blog Post -->

@@ -39,7 +39,7 @@
                             <div class="col-12 col-md-6">
                                 <!-- Post Thumbnail -->
                                 <div class="post-thumbnail">
-                                    <img src="<?php echo url('/'); ?>/upload/images/{{$p->image}}" style = "height: 220px; width: 400px" alt="">
+                                    <img src="<?php echo url('/'); ?>/upload/images/{{$p->image}}" alt="">
 
                                     <!-- Video Duration -->
                                     {{-- <span class="video-duration">05.03</span> --}}
@@ -49,9 +49,9 @@
                                 <!-- Post Content -->
                                 <div class="post-content mt-0">
                                    <!-- <a href="#" class="post-cata cata-sm cata-success">Sports</a> -->
-                                    <a href="single-post.html" class="post-title mb-2"> {{$p->title}}</a>
+                                    <a href="id={{$p->id}}" class="post-title mb-2"> {{$p->title}}</a>
                                     <div class="post-meta d-flex align-items-center mb-2">
-                                        <a href="#" class="post-author">By {{$p->name}}</a>
+                                        <a href="#" class="post-author">By {{$p->user['name']}}</a>
                                         <i class="fa fa-circle" aria-hidden="true"></i>
                                         <a href="#" class="post-date"> {{$p->created_at}}</a>
                                     </div>
