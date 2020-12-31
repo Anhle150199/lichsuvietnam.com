@@ -53,7 +53,7 @@
                             <div class="col-12 col-md-6">
                                 <!-- Post Thumbnail -->
                                 <div class="post-thumbnail">
-                                    <img src="<?php echo url('/'); ?>/img/bg-img/{{$p->image}}" style = "height: 220px; width: 400px" alt="">
+                                    <img src="<?php echo url('/'); ?>/upload/images/{{$p->image}}" alt="">
 
                                     <!-- Video Duration -->
                                     {{-- <span class="video-duration">05.03</span> --}}
@@ -69,7 +69,7 @@
                                         <i class="fa fa-circle" aria-hidden="true"></i>
                                         <a href="#" class="post-date"> {{$p->created_at}}</a>
                                     </div>
-                                    <p class="mb-2">Góc nhìn tổng quan về cuộc chiến tranh tại Việt Nam.</p>
+                                    <p class="mb-2">{{$p->summary}}</p>
                                     <div class="post-meta d-flex">
                                         <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 32</a>
                                         <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> {{$p->views}}</a>

@@ -24,14 +24,8 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('123456789'),
                 'level' => 2,
                 'active' => 1,
-            ],
-            [
-                'name' => 'Super Admin 2',
-                'email' => 'lichsuvietnam2@gmail.com',
-                'password' => Hash::make('123456789'),
-                'level' => 2,
-                'active' => 1,
             ]
         );
+        
     }
 }

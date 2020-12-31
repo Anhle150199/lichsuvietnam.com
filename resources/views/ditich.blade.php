@@ -19,11 +19,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="home"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
-<<<<<<< HEAD
-                            <li class="breadcrumb-item"><a href="danh-nhan">Di tích lích sử</a></li>
-=======
-                            <li class="breadcrumb-item"><a href="danh-nhan">Di tích</a></li>
->>>>>>> 4f1f2e9ee7882a728d2bc091dc6fb59870c2988b
+                            <li class="breadcrumb-item"><a href="di-tich">Di tích lích sử</a></li>
                             <!-- <li class="breadcrumb-item active" aria-current="page">Archive by Category MUSIC</li> -->
                         </ol>
                     </nav>
@@ -41,11 +37,7 @@
                     <!-- Archive Catagory & View Options -->
                     <div class="archive-catagory-view mb-50 d-flex align-items-center justify-content-between">
                         <div class="archive-catagory">
-<<<<<<< HEAD
                             <h4><i aria-hidden="true"></i> Di tích lịch sử </h4>
-=======
-                            <h4><i aria-hidden="true"></i> Di tích </h4>
->>>>>>> 4f1f2e9ee7882a728d2bc091dc6fb59870c2988b
                         </div>
                         <!-- View Options -->
                         <div class="view-options">
@@ -61,7 +53,7 @@
                             <div class="col-12 col-md-6">
                                 <!-- Post Thumbnail -->
                                 <div class="post-thumbnail">
-                                    <img src="<?php echo url('/'); ?>/img/bg-img/{{$p->image}}" style = "height: 220px; width: 400px" alt="">
+                                    <img src="<?php echo url('/'); ?>/upload/images/{{$p->image}}" alt="">
 
                                     <!-- Video Duration -->
                                     {{-- <span class="video-duration">05.03</span> --}}
@@ -71,13 +63,13 @@
                                 <!-- Post Content -->
                                 <div class="post-content mt-0">
                                    <!-- <a href="#" class="post-cata cata-sm cata-success">Sports</a> -->
-                                    <a href="single-post.html" class="post-title mb-2"> {{$p->title}}</a>
+                                    <a href="id={{$p->id}}" class="post-title mb-2"> {{$p->title}}</a>
                                     <div class="post-meta d-flex align-items-center mb-2">
                                         <a href="#" class="post-author">By {{$p->name}}</a>
                                         <i class="fa fa-circle" aria-hidden="true"></i>
                                         <a href="#" class="post-date"> {{$p->created_at}}</a>
                                     </div>
-                                    <p class="mb-2">Góc nhìn tổng quan về cuộc chiến tranh tại Việt Nam.</p>
+                                    <p class="mb-2">{{$p->summary}}</p>
                                     <div class="post-meta d-flex">
                                         <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 32</a>
                                         <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> {{$p->views}}</a>

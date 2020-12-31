@@ -21,7 +21,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">{{$post->name}}</a></li>
+                            <li class="breadcrumb-item"><a href="#">{{$post->category_name}}</a></li>
                             <li class="breadcrumb-item"><a href="#">{{$post->title}}</a></li>
                             {{-- <li class="breadcrumb-item active" aria-current="page"></li> --}}
                         </ol>
@@ -37,7 +37,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="post-details-thumb mb-50">
-                        <img src="img/bg-img/34.jpg" alt="">
+                        {!!$post->video!!}
+                        {{-- <img src="img/bg-img/34.jpg" alt=""> --}}
                     </div>
                 </div>
             </div>
@@ -51,12 +52,12 @@
 
                             <!-- Post Content -->
                             <div class="post-content mt-0">
-                                <a href="#" class="post-cata cata-sm cata-danger">{{$post->name}}</a>
+                                <a href="#" class="post-cata cata-sm cata-danger">{{$post->category_name}}</a>
                                 <a href="id={{$post->id}}" class="post-title mb-2">{{$post->title}}</a>
 
                                 <div class="d-flex justify-content-between mb-30">
                                     <div class="post-meta d-flex align-items-center">
-                                        <a href="#" class="post-author">{{$post->authorname}}</a>
+                                        <a href="#" class="post-author">{{$post->category_name}}</a>
                                         <i class="fa fa-circle" aria-hidden="true"></i>
                                         <a href="#" class="post-date">{{$post->created_at}}</a>
                                     </div>
@@ -67,8 +68,10 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <p>{{$post->content}}</p>
+                            <div class="text-body">
+                                {!!$post->content!!}
+                            </div>
+                            
 
                             {{-- <blockquote class="vizew-blockquote mb-15">
                                 <h5 class="blockquote-text">“If you’re going to try, go all the way. There is no other feeling like that. You will be alone with the gods.”</h5>
@@ -100,7 +103,7 @@
                                     <img src="img/bg-img/30.jpg" alt="">
                                 </div>
                                 <div class="post-author-desc pl-4">
-                                    <a href="#" class="author-name">{{$post->authorname}}</a>
+                                    <a href="#" class="author-name">{{$post->user_name}}</a>
                                     <p>Cám ơn sự đồng hành của tất cả các bạn!</p>
                                     <div class="post-author-social-info">
                                         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -132,7 +135,7 @@
 
                                             <!-- Post Content -->
                                             <div class="post-content">
-                                                <a href="#" class="post-cata cata-sm cata-success">Sports</a>
+                                                <a href="#" class="post-cata cata-sm cata-success">{{$sub->name}}</a>
                                                 <a href="id={{$sub->id}}" class="post-title">{{$sub->title}}</a>
                                                 <div class="post-meta d-flex">
                                                     <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 22</a>
@@ -272,7 +275,7 @@
                         <div class="single-widget p-0 author-widget">
                             <div class="p-4">
                                 <img class="author-avatar" src="img/bg-img/30.jpg" alt="">
-                                <a href="#" class="author-name">Tác giả</a>
+                                <a href="#" class="author-name">Tác giả: {{$post->user_name}}</a>
                                 <div class="author-social-info">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-twitter"></i></a>
