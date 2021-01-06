@@ -4,6 +4,7 @@ use App\Models\Category;
 use App\Models\User;
 use App\Models\Post as Post;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,16 +22,17 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-<<<<<<< HEAD
 // Route::get('/callback/{facebook}',  [App\Http\Controllers\Auth\LoginController::class, 'handleProviderCallback'])->name('facebook_callback');
 // Route::get('/redirect/{facebook}',  [App\Http\Controllers\Auth\LoginController::class, 'redirectProvider'])->name('facebook_login');
 Route::get('/auth/redirect/{provider}', [App\Http\Controllers\SocialController::class, 'redirect']);
  Route::get('/callback/{provider}', [App\Http\Controllers\SocialController::class, 'callback']);
 
 
-=======
 Route::get('/login',  [App\Http\Controllers\Auth\LoginController::class, 'getLogin'])->name('login');
->>>>>>> 250e6c83fc3cd9d025541e452c027f66d2105218
+// Route::get('/login',  [App\Http\Controllers\CommentController::class, 'continue'])->name('continue');
+Route::post('/comment',  [App\Http\Controllers\CommentController::class, 'postComment'])->name('post-comment');
+
+
 Route::get('/profile',  [App\Http\Controllers\UserController::class, 'getProfile'])->name('profile');
 Route::post('/profile',  [App\Http\Controllers\UserController::class, 'postProfile'])->name('profile');
 

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Auth;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Redirect;
 class LoginController extends Controller
 {
     /*
@@ -74,7 +74,10 @@ class LoginController extends Controller
 
             if (Auth::attempt(['email' => $email, 'password' => $password, 'active' => $active])) {
 
-                return redirect()->route('home');
+                // return redirect()->intended('/home');
+                // return Redirect::intended();
+                return redirect()->intended('defaultpage');
+
             } else {
                 // Kiểm tra không đúng sẽ hiển thị thông báo lỗi
                 // Session::flash();
