@@ -169,138 +169,24 @@
                     <ul class="nav vizew-nav-tab" role="tablist">
                         @foreach ($posts as $p)
                         <li class="nav-item">
-                            <a class="nav-link active" id="post-1-tab" data-toggle="pill" href="#post-1" role="tab" aria-controls="post-1" aria-selected="true">
+                            <a class="nav-link active" id="post-1-tab" data-toggle="pill" href="id={{$p->id}}" role="tab" aria-controls="post-1" aria-selected="true">
                                 <!-- Single Blog Post -->
                                 <div class="single-blog-post style-2 d-flex align-items-center">
                                     <div class="post-thumbnail">
                                         <img src="<?php echo url('/'); ?>/upload/images/{{$p->image}}" alt="">
                                     </div>
                                     <div class="post-content">
-                                        <h6 class="post-title">{{$p->title}}</h6>
+                                        <h6 href="id={{$p->id}}" class="post-title">{{$p->title}}</h6>
                                         <div class="post-meta d-flex justify-content-between">
-                                            <span><i class="fa fa-comments-o" aria-hidden="true"></i> 25</span>
-                                            <span><i class="fa fa-eye" aria-hidden="true"></i> {{$p->views}}</span>
-                                            <span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {{$p->likes}}</span>
+                                            <span><i class="fas fa-comments" aria-hidden="true"></i> 25</span>
+                                            <span><i class="fas fa-eye" aria-hidden="true"></i> {{$p->views}}</span>
+                                            <span><i class="fas fa-thumbs-up" aria-hidden="true"></i> {{$p->likes}}</span>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </li>
                         @endforeach
-                        <li class="nav-item">
-                            <a class="nav-link" id="post-2-tab" data-toggle="pill" href="#post-2" role="tab" aria-controls="post-2" aria-selected="false">
-                                <!-- Single Blog Post -->
-                                <div class="single-blog-post style-2 d-flex align-items-center">
-                                    <div class="post-thumbnail">
-                                        <img src="<?php echo url('/'); ?>/img/bg-img/4.jpg" alt="">
-                                    </div>
-                                    <div class="post-content">
-                                        <h6 class="post-title">Meet the 12 boys rescued from cave</h6>
-                                        <div class="post-meta d-flex justify-content-between">
-                                            <span><i class="fa fa-comments-o" aria-hidden="true"></i> 14</span>
-                                            <span><i class="fa fa-eye" aria-hidden="true"></i> 34</span>
-                                            <span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" id="post-3-tab" data-toggle="pill" href="#post-3" role="tab" aria-controls="post-3" aria-selected="false">
-                                <!-- Single Blog Post -->
-                                <div class="single-blog-post style-2 d-flex align-items-center">
-                                    <div class="post-thumbnail">
-                                        <img src="<?php echo url('/'); ?>/img/bg-img/5.jpg" alt="">
-                                    </div>
-                                    <div class="post-content">
-                                        <h6 class="post-title">Pogba dedicates France win to Thai cave boys</h6>
-                                        <div class="post-meta d-flex justify-content-between">
-                                            <span><i class="fa fa-comments-o" aria-hidden="true"></i> 14</span>
-                                            <span><i class="fa fa-eye" aria-hidden="true"></i> 34</span>
-                                            <span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" id="post-4-tab" data-toggle="pill" href="#post-4" role="tab" aria-controls="post-4" aria-selected="false">
-                                <!-- Single Blog Post -->
-                                <div class="single-blog-post style-2 d-flex align-items-center">
-                                    <div class="post-thumbnail">
-                                        <img src="<?php echo url('/'); ?>/img/bg-img/6.jpg" alt="">
-                                    </div>
-                                    <div class="post-content">
-                                        <h6 class="post-title">How the world reacted to PM's Brexit crisis</h6>
-                                        <div class="post-meta d-flex justify-content-between">
-                                            <span><i class="fa fa-comments-o" aria-hidden="true"></i> 24</span>
-                                            <span><i class="fa fa-eye" aria-hidden="true"></i> 98</span>
-                                            <span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 63</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" id="post-5-tab" data-toggle="pill" href="#post-5" role="tab" aria-controls="post-5" aria-selected="false">
-                                <!-- Single Blog Post -->
-                                <div class="single-blog-post style-2 d-flex align-items-center">
-                                    <div class="post-thumbnail">
-                                        <img src="<?php echo url('/'); ?>/img/bg-img/4.jpg" alt="">
-                                    </div>
-                                    <div class="post-content">
-                                        <h6 class="post-title">Meet the 12 boys rescued from cave</h6>
-                                        <div class="post-meta d-flex justify-content-between">
-                                            <span><i class="fa fa-comments-o" aria-hidden="true"></i> 14</span>
-                                            <span><i class="fa fa-eye" aria-hidden="true"></i> 34</span>
-                                            <span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" id="post-6-tab" data-toggle="pill" href="#post-6" role="tab" aria-controls="post-6" aria-selected="false">
-                                <!-- Single Blog Post -->
-                                <div class="single-blog-post style-2 d-flex align-items-center">
-                                    <div class="post-thumbnail">
-                                        <img src="<?php echo url('/'); ?>/img/bg-img/6.jpg" alt="">
-                                    </div>
-                                    <div class="post-content">
-                                        <h6 class="post-title">How the world reacted to PM's Brexit crisis</h6>
-                                        <div class="post-meta d-flex justify-content-between">
-                                            <span><i class="fa fa-comments-o" aria-hidden="true"></i> 24</span>
-                                            <span><i class="fa fa-eye" aria-hidden="true"></i> 98</span>
-                                            <span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 63</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" id="post-7-tab" data-toggle="pill" href="#post-7" role="tab" aria-controls="post-7" aria-selected="false">
-                                <!-- Single Blog Post -->
-                                <div class="single-blog-post style-2 d-flex align-items-center">
-                                    <div class="post-thumbnail">
-                                        <img src="<?php echo url('/'); ?>/img/bg-img/4.jpg" alt="">
-                                    </div>
-                                    <div class="post-content">
-                                        <h6 class="post-title">Meet the 12 boys rescued from cave</h6>
-                                        <div class="post-meta d-flex justify-content-between">
-                                            <span><i class="fa fa-comments-o" aria-hidden="true"></i> 14</span>
-                                            <span><i class="fa fa-eye" aria-hidden="true"></i> 34</span>
-                                            <span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-
                     </ul>
                 </div>
             </div>
@@ -360,36 +246,32 @@
                                     </div>
                                 </div>
 
-                                <!-- Video Duration -->
-                                <span class="video-duration">05.03</span>
                             </div>
                         </div>
 
                         <div class="row">
+                            @foreach($danhnhan as $dn)
                             <!-- Single Blog Post -->
                             <div class="col-12 col-md-6">
                                 <div class="single-post-area mb-80">
                                     <!-- Post Thumbnail -->
                                     <div class="post-thumbnail">
-                                        <img src="<?php echo url('/'); ?>/img/bg-img/12.jpg" alt="">
-
-                                        <!-- Video Duration -->
-                                        <span class="video-duration">05.03</span>
+                                        <img src="<?php echo url('/'); ?>/upload/images/{{$dn->image}}" alt="">
                                     </div>
 
                                     <!-- Post Content -->
                                     <div class="post-content">
-                                        <a href="#" class="post-cata cata-sm cata-danger">Game</a>
-                                        <a href="single-post.html" class="post-title">Searching for the 'angel' who held me on Westminste Bridge</a>
+                                        <a href="#" class="post-cata cata-sm cata-danger">Danh Nhân</a>
+                                        <a href="id={{$dn->id}}" class="post-title">{{$dn->title}}</a>
                                         <div class="post-meta d-flex">
-                                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 28</a>
-                                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 17</a>
-                                            <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 22</a>
+                                            <a href="#"><i class="fas fa-comments" aria-hidden="true"></i> 28</a>
+                                            <a href="#"><i class="fas fa-eye" aria-hidden="true"></i> {{$dn->views}}</a>
+                                            <a href="#"><i class="fas fa-thumbs-up" aria-hidden="true"></i> {{$dn->likes}}</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
+                            @endforeach
                             <!-- Single Blog Post -->
                             <div class="col-12 col-md-6">
                                 <div class="single-post-area mb-80">
@@ -403,7 +285,7 @@
 
                                     <!-- Post Content -->
                                     <div class="post-content">
-                                        <a href="#" class="post-cata cata-sm cata-primary">Business</a>
+                                        <a href="#" class="post-cata cata-sm cata-primary">Danh nhân</a>
                                         <a href="single-post.html" class="post-title">Love Island star's boyfriend found dead after her funeral</a>
                                         <div class="post-meta d-flex">
                                             <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
@@ -415,59 +297,36 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row">                           
                             <div class="col-12 col-lg-6">
                                 <!-- Section Heading -->
                                 <div class="section-heading style-2">
                                     <h4>Sự Kiện</h4>
                                     <div class="line"></div>
                                 </div>
-
+                                
                                 <!-- Sports Video Slides -->
                                 <div class="sport-video-slides owl-carousel mb-50">
                                     <!-- Single Blog Post -->
+                                    @foreach($sukien as $sk)
                                     <div class="single-post-area">
                                         <!-- Post Thumbnail -->
                                         <div class="post-thumbnail">
-                                            <img src="<?php echo url('/'); ?>/img/bg-img/15.jpg" alt="">
-
-                                            <!-- Video Duration -->
-                                            <span class="video-duration">05.03</span>
+                                            <img src="<?php echo url('/'); ?>/upload/images/{{$sk->image}}" alt="">
                                         </div>
 
                                         <!-- Post Content -->
                                         <div class="post-content">
-                                            <a href="#" class="post-cata cata-sm cata-success">Sports</a>
-                                            <a href="single-post.html" class="post-title">Searching for the 'angel' who held me on Westminster Bridge</a>
+                                            <a href="#" class="post-cata cata-sm cata-success">Sự kiện</a>
+                                            <a href="id={{$sk->id}}" class="post-title">{{$sk->title}}</a>
                                             <div class="post-meta d-flex">
-                                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 38</a>
-                                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 22</a>
+                                                <a href="#"><i class="fas fa-comments" aria-hidden="true"></i> 14</a>
+                                                <a href="#"><i class="fas fa-eye" aria-hidden="true"></i> {{$sk->views}}</a>
+                                                <a href="#"><i class="fas fa-thumbs-up" aria-hidden="true"></i> {{$sk->likes}}</a>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <!-- Single Blog Post -->
-                                    <div class="single-post-area">
-                                        <!-- Post Thumbnail -->
-                                        <div class="post-thumbnail">
-                                            <img src="<?php echo url('/'); ?>/img/bg-img/13.jpg" alt="">
-
-                                            <!-- Video Duration -->
-                                            <span class="video-duration">05.03</span>
-                                        </div>
-
-                                        <!-- Post Content -->
-                                        <div class="post-content">
-                                            <a href="#" class="post-cata cata-sm cata-success">Sports</a>
-                                            <a href="single-post.html" class="post-title">Searching for the 'angel' who held me on Westminster Bridge</a>
-                                            <div class="post-meta d-flex">
-                                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 38</a>
-                                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 22</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
 
@@ -481,48 +340,25 @@
                                 <!-- Business Video Slides -->
                                 <div class="business-video-slides owl-carousel mb-50">
                                     <!-- Single Blog Post -->
+                                    @foreach($ditich as $dt)
                                     <div class="single-post-area">
                                         <!-- Post Thumbnail -->
                                         <div class="post-thumbnail">
-                                            <img src="<?php echo url('/'); ?>/img/bg-img/17.jpg" alt="">
-
-                                            <!-- Video Duration -->
-                                            <span class="video-duration">05.03</span>
+                                            <img src="<?php echo url('/'); ?>/upload/images/{{$dt->image}}" alt="">
                                         </div>
 
                                         <!-- Post Content -->
                                         <div class="post-content">
-                                            <a href="#" class="post-cata cata-sm cata-primary">Business</a>
-                                            <a href="single-post.html" class="post-title">Full article Prince Charles's 'urgent' global research</a>
+                                            <a href="#" class="post-cata cata-sm cata-primary">Di tích</a>
+                                            <a href="id={{$dt->id}}" class="post-title">{{$dt->title}}</a>
                                             <div class="post-meta d-flex">
-                                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 38</a>
-                                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 22</a>
+                                                <a href="#"><i class="fas fa-comments" aria-hidden="true"></i> 14</a>
+                                                <a href="#"><i class="fas fa-eye" aria-hidden="true"></i> {{$dt->views}}</a>
+                                                <a href="#"><i class="fas fa-thumbs-up" aria-hidden="true"></i> {{$dt->likes}}</a>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <!-- Single Blog Post -->
-                                    <div class="single-post-area">
-                                        <!-- Post Thumbnail -->
-                                        <div class="post-thumbnail">
-                                            <img src="<?php echo url('/'); ?>/img/bg-img/13.jpg" alt="">
-
-                                            <!-- Video Duration -->
-                                            <span class="video-duration">05.03</span>
-                                        </div>
-
-                                        <!-- Post Content -->
-                                        <div class="post-content">
-                                            <a href="#" class="post-cata cata-sm cata-primary">Business</a>
-                                            <a href="single-post.html" class="post-title">Full article Prince Charles's 'urgent' global research</a>
-                                            <div class="post-meta d-flex">
-                                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 38</a>
-                                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 22</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -613,31 +449,31 @@
                                 <!-- Post Content -->
                                 <div class="post-content">
                                     <a href="#" class="post-cata">Sports</a>
-                                    <a href="single-post.html" class="post-title">Reunification of migrant toddlers, parents should be completed Thursday</a>
+                                    <a href="single-post.html" class="post-title">{{$newpost->title}}</a>
                                     <div class="post-meta d-flex">
-                                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 25</a>
-                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 25</a>
-                                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 25</a>
+                                        <a href="#"><i class="fas fa-comments" aria-hidden="true"></i> 25</a>
+                                        <a href="#"><i class="fas fa-eye" aria-hidden="true"></i> {{$newpost->views}}</a>
+                                        <a href="#"><i class="fas fa-thumbs-up" aria-hidden="true"></i> {{$newpost->likes}}</a>
                                     </div>
                                 </div>
 
                                 <!-- Video Duration -->
-                                <span class="video-duration">05.03</span>
+                                {{-- <span class="video-duration">05.03</span> --}}
                             </div>
 
                             <!-- Single Feature Post -->
-                            <div class="single-feature-post video-post bg-img" style="background-image: url(img/bg-img/7.jpg);">
+                            <div class="single-feature-post video-post bg-img" style="background-image: url(upload/images/{{$newpost->image}});">
                                 <!-- Play Button -->
-                                <a href="video-post.html" class="btn play-btn"><i class="fa fa-play" aria-hidden="true"></i></a>
+                                <a href="id={{$newpost->id}}" class="btn play-btn"><i class="fa fa-play" aria-hidden="true"></i></a>
 
                                 <!-- Post Content -->
                                 <div class="post-content">
                                     <a href="#" class="post-cata">Sports</a>
-                                    <a href="single-post.html" class="post-title">Reunification of migrant toddlers, parents should be completed Thursday</a>
+                                    <a href="id={{$newpost->id}}" class="post-title">{{$newpost->title}}</a>
                                     <div class="post-meta d-flex">
                                         <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 25</a>
-                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 25</a>
-                                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 25</a>
+                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> {{$newpost->views}}</a>
+                                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {{$newpost->likes}}</a>
                                     </div>
                                 </div>
 
@@ -701,6 +537,7 @@
     <script src="<?php echo url('/'); ?>/js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="<?php echo url('/'); ?>/js/active.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </body>
 
 </html>

@@ -62,9 +62,9 @@
                                         <a href="#" class="post-date">{{$post->created_at}}</a>
                                     </div>
                                     <div class="post-meta d-flex">
-                                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 32</a>
-                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> {{$post->views}}</a>
-                                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {{$post->likes}}</a>
+                                        <a href="#"><i class="fas fa-comments" aria-hidden="true"></i> 32</a>
+                                        <a href="#"><i class="fas fa-eye" aria-hidden="true"></i> {{$post->views}}</a>
+                                        <a href="#"><i class="fas fa-thumbs-up" aria-hidden="true"></i> {{$post->likes}}</a>
                                     </div>
                                 </div>
                             </div>
@@ -411,6 +411,7 @@
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </body>
 
 </html>

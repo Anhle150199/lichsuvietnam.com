@@ -71,9 +71,9 @@
                                     </div>
                                     <p class="mb-2">{{$p->summary}}</p>
                                     <div class="post-meta d-flex">
-                                    <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>{{$p->comments}}</a>
-                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> {{$p->views}}</a>
-                                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {{$p->likes}}</a>
+                                    <a href="#"><i class="fas fa-comments" aria-hidden="true"></i>{{$p->comments}}</a>
+                                        <a href="#"><i class="fas fa-eye" aria-hidden="true"></i> {{$p->views}}</a>
+                                        <a href="#"><i class="fas fa-thumbs-up" aria-hidden="true"></i> {{$p->likes}}</a>
                                     </div>
                                 </div>
                             </div>
@@ -112,6 +112,7 @@
     <script src="<?php echo url('/'); ?>/js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="<?php echo url('/'); ?>/js/active.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </body>
 
 </html>

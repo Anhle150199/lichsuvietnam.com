@@ -26,7 +26,18 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('index', compact('posts'));
+        $danhnhan = Post::where('category_id', 1)
+        ->get();
+
+        $sukien = Post::where('category_id', 3)
+        ->get();
+
+        $ditich = Post::where('category_id', 2)
+        ->get();
+
+        $newpost = Post::orderBy('created_at')->first();
+
+        return view('index', compact('posts','danhnhan','sukien', 'ditich', 'newpost'));
     }
     public function Candai(){
         $posts = Post::join('users','posts.user_id','=','users.id')

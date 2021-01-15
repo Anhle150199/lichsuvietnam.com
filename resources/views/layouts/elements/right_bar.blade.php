@@ -61,81 +61,22 @@
                 <h4>Xem nhiều</h4>
                 <div class="line"></div>
             </div>
-
+            @foreach($posts as $p)
             <!-- Single Blog Post -->
             <div class="single-blog-post d-flex">
                 <div class="post-thumbnail">
-                    <img src="<?php echo url('/'); ?>/img/bg-img/1.jpg" alt="">
+                    <img src="<?php echo url('/'); ?>/upload/images/{{$p->image}}" alt="">
                 </div>
                 <div class="post-content">
-                    <a href="single-post.html" class="post-title">DC Shoes: gymkhana five; the making of</a>
+                    <a href="id={{$p->id}}" class="post-title">{{$p->title}}</a>
                     <div class="post-meta d-flex justify-content-between">
-                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
+                        <a href="#"><i class="fas fa-comments" aria-hidden="true"></i> 34</a>
+                        <a href="#"><i class="fas fa-eye" aria-hidden="true"></i> {{$p->views}}</a>
+                        <a href="#"><i class="fas fa-thumbs-up" aria-hidden="true"></i> {{$p->likes}}</a>
                     </div>
                 </div>
             </div>
-
-            <!-- Single Blog Post -->
-            <div class="single-blog-post d-flex">
-                <div class="post-thumbnail">
-                    <img src="<?php echo url('/'); ?>/img/bg-img/2.jpg" alt="">
-                </div>
-                <div class="post-content">
-                    <a href="single-post.html" class="post-title">How To Make Orange Chicken Recipe?</a>
-                    <div class="post-meta d-flex justify-content-between">
-                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Blog Post -->
-            <div class="single-blog-post d-flex">
-                <div class="post-thumbnail">
-                    <img src="<?php echo url('/'); ?>/img/bg-img/36.jpg" alt="">
-                </div>
-                <div class="post-content">
-                    <a href="single-post.html" class="post-title">Sweet Yummy Chocolate in the</a>
-                    <div class="post-meta d-flex justify-content-between">
-                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Blog Post -->
-            <div class="single-blog-post d-flex">
-                <div class="post-thumbnail">
-                    <img src="<?php echo url('/'); ?>/img/bg-img/37.jpg" alt="">
-                </div>
-                <div class="post-content">
-                    <a href="single-post.html" class="post-title">DC Shoes: gymkhana five; the making of</a>
-                    <div class="post-meta d-flex justify-content-between">
-                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Blog Post -->
-            <div class="single-blog-post d-flex">
-                <div class="post-thumbnail">
-                    <img src="<?php echo url('/'); ?>/img/bg-img/38.jpg" alt="">
-                </div>
-                <div class="post-content">
-                    <a href="single-post.html" class="post-title">How To Make Orange Chicken Recipe?</a>
-                    <div class="post-meta d-flex justify-content-between">
-                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
 
     </div>
