@@ -35,13 +35,10 @@
             </div>
 
             <div class="row justify-content-center">
-                <!-- Post Details Content Area -->
                 <div class="col-12 col-lg-8 col-xl-7">
                     <div class="post-details-content">
-                        <!-- Blog Content -->
                         <div class="blog-content">
 
-                            <!-- Post Content -->
                             <div class="post-content mt-0">
                                 <span href="#" class="post-cata cata-sm cata-danger">
                                     @if($post->post_type_id ==1)
@@ -51,7 +48,6 @@
                                     @endif
                                 </span>
                                 <a href="id={{$post->id}}" class="post-title mb-2">{{$post->title}}</a>
-
                                 <div class="d-flex justify-content-between mb-30">
                                     <div class="post-meta d-flex align-items-center">
                                         <a href="#" class="post-author">{{$category->name}}</a>
@@ -65,11 +61,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="fb-share-button" data-href="https://thietkewebsite500k.net/huong-dan-nut-like-share-facebook-vao-website-wordpress/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fthietkewebsite500k.net%2Fhuong-dan-nut-like-share-facebook-vao-website-wordpress%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
                             <div class="text-body">
                                 {!!$post->content!!}
                             </div>
 
-                            <!-- Post Author -->
                             <div class="vizew-post-author d-flex align-items-center py-5">
                                 <div class="post-author-thumb">
                                     <img src="<?php echo url('/'); ?>/upload/images/{{$user['avatar']}}" alt="">
@@ -87,38 +83,39 @@
                                 </div>
                             </div>
 
-                            <!-- Related Post Area -->
                             <div class="related-post-area mt-5">
-                                <!-- Section Title -->
                                 <div class="section-heading style-2">
                                     <h4>Các bài viết khác</h4>
                                     <div class="line"></div>
                                 </div>
 
-
-
                                 <div class="row">
-
+                                    <?php $step = 0 ?>
                                     @foreach ($subpost as $sub)
-                                    <!-- Single Blog Post -->
                                     <div class="col-12 col-md-6">
-                                        <div class="single-post-area mb-50">
-                                            <!-- Post Thumbnail -->
-                                            <div class="post-thumbnail">
-                                                <img src="<?php echo url('/'); ?>/img/bg-img/{{$sub->image}}" alt="">
-                                            </div>
-
-                                            <!-- Post Content -->
-                                            <div class="post-content">
-                                                <a href="#" class="post-cata cata-sm cata-success">{{$sub->name}}</a>
-                                                <a href="id={{$sub->id}}" class="post-title">{{$sub->title}}</a>
-                                                <div class="post-meta d-flex">
-                                                    <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 22</a>
-                                                    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> {{$sub->views}}</a>
-                                                    <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {{$sub->likes}}</a>
+                                        <a href="{{route('post.show', ['id'=>$sub->id])}}">
+                                            <div class="single-post-area mb-50">
+                                                <div class="post-thumbnail">
+                                                    <img src="<?php echo url('/'); ?>/upload/images/{{$sub->image}}" style="height: 180px;">
+                                                </div>
+                                                <div class="post-content">
+                                                    @if($sub->name == "Danh nhân")
+                                                    <a href="#" class="post-cata cata-sm cata-success">
+                                                        @elseif(($sub->name == "Di tích"))
+                                                        <a href="#" class="post-cata cata-sm cata-primary">
+                                                            @else
+                                                            <a href="#" class="post-cata cata-sm cata-danger">
+                                                                @endif
+                                                                {{$sub->name}}</a>
+                                                            <a href="id={{$sub->id}}" class="post-title">{{$sub->title}}</a>
+                                                            <div class="post-meta d-flex">
+                                                                <a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i> {{$sub->likes}}</a>
+                                                                <a href="#"><i class="fa fa-comments" aria-hidden="true"></i> {{$sub->comments}}</a>
+                                                                <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> {{$sub->views}}</a>
+                                                            </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                     @endforeach
                                 </div>
@@ -133,18 +130,21 @@
                                 <ul id="data">
                                     <div class="post-a-comment-area ">
                                         <div class="contact-form-area" id="review-comment">
-                                            <form action="{{route('post-comment')}}" method="post" id="form-comment">
-                                                @csrf
-                                                <div class="row">
-                                                    <input type="text" name="post_id" id="post_id" value="{{$post->id}}" hidden />
-                                                    <div class="col-8">
-                                                        <textarea type="text" name="comment" class="form-control text-white" id="comment" placeholder="Viết bình luận ..." required style="width: 100%; height: 70%;"></textarea>
+                                            <div class="comment-content d-flex">
+
+                                                <form action="{{route('post-comment')}}" method="post" id="form-comment">
+                                                    @csrf
+                                                    <div class="row">
+                                                        <input type="text" name="post_id" id="post_id" value="{{$post->id}}" hidden />
+                                                        <div class="col-10">
+                                                            <textarea type="text" name="comment" class="form-control text-white" id="comment" placeholder="Viết bình luận ..." required style="width: 100%; height: 70%;"></textarea>
+                                                        </div>
+                                                        <div class="col-2" style="float: right;">
+                                                            <button id="btn-comment" class="btn vizew-btn " type="submit" style="margin-right: -13%;">Bình luận</button>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-2" style="float: right;">
-                                                        <button id="btn-comment" class="btn vizew-btn " type="submit">Bình luận</button>
-                                                    </div>
-                                                </div>
-                                            </form>
+                                                </form>
+                                            </div>
                                             <hr style="background-color: whitesmoke; opacity: 50%;">
                                         </div>
                                     </div>
@@ -156,37 +156,48 @@
                                             </div>
                                             <div class="comment-meta alert ">
                                                 <div class=" alert " style="background-color: #393c3d;  width: 550px;">
-
                                                     <h6 style="color: white;">{{$comment->name}}</h6>
                                                     <span>{{$comment->content}}</span>
                                                 </div>
-                                                <div class="d-flex align-items-center">
-                                                    <p class="comment-date ">{{$comment->created_at}}</p>
-                                                    <a href="#" class="reply" style="float: right;">Reply</a>
+                                                @if(Auth::check())
+                                                @if(Auth::user()->id == $comment->user_id)
+                                                <div class="dropdown dropright" style="margin-top: -11%; margin-right: -5%; float: right; ">
+                                                    <i class="fas fa-ellipsis-h  " data-toggle="dropdown"></i>
+                                                    <div class="dropdown-menu " style="background: none;border: none;">
+                                                        <a href="#" class="reply dropdown-item">Chỉnh sửa</a>
+                                                        <a href="#" class="reply dropdown-item">Xóa</a>
+                                                    </div>
+                                                </div>
+                                                @endif
+                                                @endif
+                                                <div class="d-flex align-items-center row" style="float: right;width: 100%;">
+                                                    <a href="#" onclick="reply()" class="reply" style="height: 30px;">Reply</a>
+                                                    <a href="#" onclick="moreReply({{$comment->id}})" class="reply" style="height: 30px;">More <i class="fas fa-caret-down"></i></a>
+                                                    <p class="comment-date" style="font-size: 13px; margin-top: 2%;">{{$comment->created_at}}</p>
                                                 </div>
                                             </div>
                                         </div>
-                                        @if(comment->parent)
-                                        <ol class="children">
-                                            <li class="single_comment_area">
-                                                <div class="comment-content d-flex">
-                                                    <div class="comment-author">
-                                                        <img src="img/bg-img/32.jpg" alt="author">
+                                        <div class=" " style="margin-top: -5%;">
+                                            <form action="{{route('post-comment')}}" method="post" id="form-comment" style="margin-left: 18%; width: 68%;">
+                                                @csrf
+                                                <div class="row">
+                                                    <input type="text" name="post_id" id="post_id" value="{{$post->id}}" hidden />
+                                                    <div class="col-10">
+                                                        <textarea type="text" name="comment" class="form-control text-white" id="comment" placeholder="Trả lời ..." required style="width: 100%; height: 70%;"></textarea>
                                                     </div>
-                                                    <div class="comment-meta">
-                                                        <a href="#" class="comment-date">27 Aug 2019</a>
-                                                        <h6></h6>
-                                                        <p></p>
-                                                        <div class="d-flex align-items-center">
-                                                            <a href="#" class="like">like</a>
-                                                            <a href="#" class="reply">Reply</a>
-                                                        </div>
+                                                    <div class="col-2" style="float: right;">
+                                                        <button id="btn-comment" class="btn vizew-btn " type="submit" style="margin-right: -13%;">Trả lời</button>
                                                     </div>
                                                 </div>
+                                            </form>
+                                        </div>
+                                        <ol class="children" style="margin-top: -5%; ">
+                                            <li class="single_comment_area" id="more-reply-{{$comment->id}}">
+
                                             </li>
                                         </ol>
-                                    </li>
 
+                                    </li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -194,11 +205,8 @@
                     </div>
                 </div>
 
-                <!-- Sidebar Widget -->
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                     <div class="sidebar-area">
-
-                        <!-- ***** Single Widget ***** -->
                         <div class="single-widget share-post-widget mb-50">
                             <p>Chia sẻ bài viết</p>
                             <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
@@ -206,21 +214,17 @@
                             <a href="#" class="google"><i class="fa fa-google" aria-hidden="true"></i> Google+</a>
                         </div>
 
-                        <!-- ***** Single Widget ***** -->
                         <div class="single-widget p-0 author-widget">
                             <div class="p-4">
                                 <img src="<?php echo url('/'); ?>/upload/images/{{$user['avatar']}}" alt="">
                                 <p href="#" class="author-name" style="margin-top: 5%;">Tác giả: {{$user->name}}</p>
-
                                 <p>Cám ơn sự đồng hành của tất cả các bạn!</p>
                             </div>
-
                             <div class="authors--meta-data d-flex">
                                 <p>Bài viết<span class="counter">{{$postcount}}</span></p>
                                 <p>Bình luận<span class="counter"></span></p>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -232,9 +236,8 @@
     <script src="js/bootstrap/popper.min.js"></script>
     <script src="js/bootstrap/bootstrap.min.js"></script>
     <script src="js/plugins/plugins.js"></script>
+
     <script src="js/active.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js" integrity="sha512-2rUSTSAeOO02jF6eBqENNqPs1EohenJ5j+1dgDPdXSLz9nOlrr8DJk4zW/lDy8rjhGCSonW3Gx812XJQIKZKJQ==" crossorigin="anonymous"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha512-v8ng/uGxkge3d1IJuEo6dJP8JViyvms0cly9pnbfRxT6/31c3dRWxIiwGnMSWwZjHKOuY3EVmijs7k1jz/9bLA==" crossorigin="anonymous"></script> -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
     <script>
@@ -247,6 +250,23 @@
                 console.log('Đã có tin nhắn')
             }
         })
+
+        function moreReply(id) {
+
+            document.getElementById('more-reply-' + id).innerHTML = '<div class="comment-content d-flex"  style="height: 130px;">' +
+                '<div class="comment-author">' +
+                '<img src="<?php echo url('/'); ?>/upload/images/{{$comment->avatar}}" alt="author" style="margin-top: 20%;"></div>' +
+                '<div class="comment-meta alert">' +
+                '   <div class=" alert " style="background-color: #393c3d;  width: 499PX;">' +
+                '       <h6 style="color: white;">{{$comment->name}}</h6>' +
+                '       <span>{{$comment->content}}</span>' +
+                '   </div>' +
+                '   <div class="d-flex align-items-center" style="float: right;width: 100%;">' +
+                '       <p class="comment-date " style="margin-right: 37%;">{{$comment->created_at}}</p>' +
+                '       <a href="#" class="reply" style="float: right;">Chỉnh sửa</a>' +
+                '       <a href="#" class="reply" style="float: right;">Xóa</a>' +
+                '</div></div></div>';
+        }
     </script>
 </body>
 

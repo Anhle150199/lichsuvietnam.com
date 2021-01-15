@@ -126,8 +126,8 @@
                 return false;
             }
 
-            if (summary.length >200 || title.length >200 ) {
-                alert("tiêu đề  hoặc tóm tắt không quá 200 ký tự");
+            if (summary.length >1000 || title.length >200 ) {
+                alert("tiêu đề không quá 200 ký tự hoặc tóm tắt không quá 1000 ký tự");
                 return false;
             }
         }

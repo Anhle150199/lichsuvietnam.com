@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="<?php echo url('/'); ?>/css/style.css">
     <link href="<?php echo url('/'); ?>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <!-- <link href="<?php echo url('/'); ?>/css/sb-admin-2.min.css" rel="stylesheet"> -->
+    <div id="fb-root"></div>
+<!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v9.0&appId=1693660827482004&autoLogAppEvents=1" nonce="lVfFGBO7"></script> -->
     <style>
         .avatar-profile{
             /* width: 30%;

@@ -49,11 +49,9 @@ Route::get('/thoi-trung-dai', [App\Http\Controllers\HomeController::class, 'Trun
 Route::get('/thoi-can-dai', [App\Http\Controllers\HomeController::class, 'Candai']);
 Route::get('/thoi-hien-dai', [App\Http\Controllers\HomeController::class, 'Hiendai']);
 
-Route::get('/video', function () {
-    return view('video-post');
-});
+Route::get('/video-list',  [App\Http\Controllers\HomeController::class, 'video'])->name('video.list');
 
-Route::get('/id={id}', [App\Http\Controllers\HomeController::class, 'SinglePost']);
+Route::get('/id={id}', [App\Http\Controllers\HomeController::class, 'SinglePost'])->name('post.show');
 
 Route::prefix('admin')->group(function(){
 
