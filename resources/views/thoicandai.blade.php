@@ -11,7 +11,6 @@
     </div>
 
     @include("layouts.elements.header")
-    <!-- ##### Route view Start ##### -->
     <div class="vizew-breadcrumb">
         <div class="container">
             <div class="row">
@@ -20,42 +19,34 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="home"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
                             <li class="breadcrumb-item"><a href="thoi-can-dai">Thời cận đại</a></li>
-                            <!-- <li class="breadcrumb-item active" aria-current="page">Archive by Category MUSIC</li> -->
                         </ol>
                     </nav>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ##### Route view End ##### -->
 
-    <!-- ##### Archive List Posts Area Start ##### -->
     <div class="vizew-archive-list-posts-area mb-80">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-8">
-                    <!-- Archive Catagory & View Options -->
                     <div class="archive-catagory-view mb-50 d-flex align-items-center justify-content-between">
                         <div class="archive-catagory">
                             <h4><i aria-hidden="true"></i> Thời cận đại </h4>
                         </div>
-                        <!-- View Options -->
                         <div class="view-options">
                             <a href="archive-grid.html"><i class="fa fa-th-large" aria-hidden="true"></i></a>
                             <a href="archive-list.html" class="active"><i class="fa fa-list-ul" aria-hidden="true"></i></a>
                         </div>
                     </div>
 
-                    <!-- Single Post Area -->
                     @foreach ($posts as $p)
                     <div class="single-post-area style-2">
                         <div class="row align-items-center">
                             <div class="col-12 col-md-6">
-                                <!-- Post Thumbnail -->
                                 <div class="post-thumbnail">
                                     <img src="<?php echo url('/'); ?>/upload/images/{{$p->image}}"  alt="">
 
-                                    <!-- Video Duration -->
                                     {{-- <span class="video-duration">05.03</span> --}}
                                 </div>
                             </div>t6

@@ -12,7 +12,6 @@
                         <span class="">
                             <h1>Bài đăng:</h1>
                             <h3 style="color:crimson">{{$post->title}}</h3>
-
                         </span>
                     </div>
                     <div class="row">
@@ -237,7 +236,7 @@
                 return false;
             }
 
-            if (summary.length > 200 || title.length > 200) {
+            if (summary.length > 1000 || title.length > 200) {
                 alert("tiêu đề  hoặc tóm tắt không quá 200 ký tự");
                 return false;
             }

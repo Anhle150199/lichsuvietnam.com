@@ -77,15 +77,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $level = 0;
-        $active = 1;
+        $avatarDefault = ['avatar1.jpg', 'avatar2.jpg', 'avatar3.png', 'avatar4.jpg', 'avatar5.jpg'];
+        $avatar = $avatarDefault[array_rand($avatarDefault)];
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'level' => 0,
             'active' => 1,
-            'avatar' => 'AvatarDefault.jpg',
+            'avatar' => $avatar,
             'created_at' => date("Y-m-d H:i:s")
         ]);
     }

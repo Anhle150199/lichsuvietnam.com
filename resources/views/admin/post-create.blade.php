@@ -114,8 +114,8 @@
                 return false;
             }
 
-            if (summary.length >255 || title.length >255 ) {
-                alert("tiêu đề  hoặc tóm tắt không quá 255 ký tự");
+            if (summary.length >1000 || title.length >255 ) {
+                alert("tiêu đề không quá 255 ký tự hoặc tóm tắt không quá 1000 ký tự");
                 return false;
             }
         }
