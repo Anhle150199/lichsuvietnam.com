@@ -29,8 +29,9 @@ Route::get('/auth/redirect/{provider}', [App\Http\Controllers\SocialController::
 
 
 Route::get('/login',  [App\Http\Controllers\Auth\LoginController::class, 'getLogin'])->name('login');
-// Route::get('/login',  [App\Http\Controllers\CommentController::class, 'continue'])->name('continue');
+
 Route::post('/comment',  [App\Http\Controllers\CommentController::class, 'postComment'])->name('post-comment');
+Route::post('/reply',  [App\Http\Controllers\CommentController::class, 'postReply'])->name('post-reply');
 
 
 Route::get('/profile',  [App\Http\Controllers\UserController::class, 'getProfile'])->name('profile');
@@ -42,17 +43,18 @@ Route::post('/change-password',  [App\Http\Controllers\UserController::class, 'p
 
 Route::post('/disable-user',  [App\Http\Controllers\UserController::class, 'disableUser'])->name('disable-user');
 
-Route::get('/danh-nhan', [App\Http\Controllers\HomeController::class, 'Danhnhan']);
-Route::get('/di-tich', [App\Http\Controllers\HomeController::class, 'Ditich']);
-Route::get('/thoi-co-dai', [App\Http\Controllers\HomeController::class, 'Codai']);
-Route::get('/thoi-trung-dai', [App\Http\Controllers\HomeController::class, 'Trungdai']);
-Route::get('/thoi-can-dai', [App\Http\Controllers\HomeController::class, 'Candai']);
-Route::get('/thoi-hien-dai', [App\Http\Controllers\HomeController::class, 'Hiendai']);
+Route::get('/danh-nhan', [App\Http\Controllers\CategoryController::class, 'Danhnhan']);
+Route::get('/di-tich', [App\Http\Controllers\CategoryController::class, 'Ditich']);
+Route::get('/thoi-co-dai', [App\Http\Controllers\CategoryController::class, 'Codai']);
+Route::get('/thoi-trung-dai', [App\Http\Controllers\CategoryController::class, 'Trungdai']);
+Route::get('/thoi-can-dai', [App\Http\Controllers\CategoryController::class, 'Candai']);
+Route::get('/thoi-hien-dai', [App\Http\Controllers\CategoryController::class, 'Hiendai']);
 
-Route::get('/video-list',  [App\Http\Controllers\HomeController::class, 'video'])->name('video.list');
+Route::get('/video-list',  [App\Http\Controllers\CategoryController::class, 'video'])->name('video.list');
 
-Route::get('/id={id}', [App\Http\Controllers\HomeController::class, 'SinglePost'])->name('post.show');
+Route::get('/id={id}', [App\Http\Controllers\PostController::class, 'SinglePost'])->name('post.show');
 
+//Admin
 Route::prefix('admin')->group(function(){
 
     Route::get('/', [App\Http\Controllers\UserController::class, 'index'])->name('admin');

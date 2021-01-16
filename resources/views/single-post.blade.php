@@ -128,6 +128,7 @@
                                     <div class="line"></div>
                                 </div>
 
+                                <!-- Post Comment -->
                                 <ul id="data">
                                     <div class="post-a-comment-area ">
                                         <div class="contact-form-area" id="review-comment">
@@ -149,6 +150,8 @@
                                             <hr style="background-color: whitesmoke; opacity: 50%;">
                                         </div>
                                     </div>
+
+                                    <!-- show comments -->
                                     @foreach($comments as $comment)
                                     <li class="single_comment_area" id="{{$comment->id}}">
                                         <div class="comment-content d-flex">
@@ -172,36 +175,37 @@
                                                 @endif
                                                 @endif
                                                 <div class="d-flex align-items-center row" style="float: right;width: 100%;">
-                                                    <a href="#" onclick="reply()" class="reply" style="height: 30px;">Reply</a>
+                                                    <a href="#" onclick="reply({{$comment->id}}, {{$replies}})" class="reply" style="height: 30px;">Reply</a>
                                                     <a href="#" onclick="moreReply({{$comment->id}})" class="reply" style="height: 30px;">More <i class="fas fa-caret-down"></i></a>
                                                     <p class="comment-date" style="font-size: 13px; margin-top: 2%;">{{$comment->created_at}}</p>
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <!-- reply -->
                                         <div class=" " style="margin-top: -5%;">
-                                            <form action="{{route('post-comment')}}" method="post" id="form-comment" style="margin-left: 18%; width: 68%;">
+                                            <form action="{{route('post-reply')}}" method="post" id="form-comment" style="margin-left: 18%; width: 68%;">
                                                 @csrf
-                                                <div class="row">
-                                                    <input type="text" name="post_id" id="post_id" value="{{$post->id}}" hidden />
-                                                    <div class="col-10">
-                                                        <textarea type="text" name="comment" class="form-control text-white" id="comment" placeholder="Trả lời ..." required style="width: 100%; height: 70%;"></textarea>
-                                                    </div>
-                                                    <div class="col-2" style="float: right;">
-                                                        <button id="btn-comment" class="btn vizew-btn " type="submit" style="margin-right: -13%;">Trả lời</button>
-                                                    </div>
+                                                <input type="text" name="comment_id" id="comment_id" value=" {{$comment->id}} " hidden />
+                                                <input type="text" name="post_id" id="post_id" value="{{$post->id}}" hidden />
+                                                <div class="row" id="reply-{{$comment->id}}">
+
                                                 </div>
                                             </form>
                                         </div>
+                                        <!-- more reply -->
                                         <ol class="children" style="margin-top: -5%; ">
                                             <li class="single_comment_area" id="more-reply-{{$comment->id}}">
 
                                             </li>
                                         </ol>
+                                        <!-- end more reply -->
 
                                     </li>
                                     @endforeach
                                 </ul>
                             </div>
+                            <!-- end comments -->
                         </div>
                     </div>
                 </div>
@@ -253,21 +257,36 @@
             }
         })
 
+        function reply(id) {
+            document.getElementById('reply-' + id).innerHTML =
+                '<div class="col-10">' +
+                '<textarea type="text" name="reply" class="form-control text-white" id="reply" placeholder="Trả lời ..." required style="width: 100%; height: 70%;"></textarea>' +
+                '</div>' +
+                '<div class="col-2" style="float: right;">' +
+                '    <button id="btn-comment" class="btn vizew-btn " type="submit" style="margin-right: -13%;">Trả lời</button>' +
+                '</div>';
+        }
+
         function moreReply(id) {
 
-            document.getElementById('more-reply-' + id).innerHTML = '<div class="comment-content d-flex"  style="height: 130px;">' +
+            document.getElementById('more-reply-' + id).innerHTML =
+                '@foreach($replies as $reply)' +
+                '@if($reply->comment_id == '+id+')' +
+                '<div class="comment-content d-flex"  style="height: 130px;">' +
                 '<div class="comment-author">' +
-                '<img src="<?php echo url('/'); ?>/upload/images/{{$comment->avatar}}" alt="author" style="margin-top: 20%;"></div>' +
+                '<img src="<?php echo url('/'); ?>/upload/images/{{$reply->avatar}}" alt="author" style="margin-top: 20%;"></div>' +
                 '<div class="comment-meta alert">' +
                 '   <div class=" alert " style="background-color: #393c3d;  width: 499PX;">' +
-                '       <h6 style="color: white;">{{$comment->name}}</h6>' +
-                '       <span>{{$comment->content}}</span>' +
+                '       <h6 style="color: white;">{{$reply->name}}</h6>' +
+                '       <span>{{$reply->content}}</span>' +
                 '   </div>' +
                 '   <div class="d-flex align-items-center" style="float: right;width: 100%;">' +
-                '       <p class="comment-date " style="margin-right: 37%;">{{$comment->created_at}}</p>' +
+                '       <p class="comment-date " style="margin-right: 37%;">{{$reply->created_at}}</p>' +
                 '       <a href="#" class="reply" style="float: right;">Chỉnh sửa</a>' +
                 '       <a href="#" class="reply" style="float: right;">Xóa</a>' +
-                '</div></div></div>';
+                '</div></div></div>' +
+                '@endif' +
+                '@endforeach';
         }
     </script>
 </body>

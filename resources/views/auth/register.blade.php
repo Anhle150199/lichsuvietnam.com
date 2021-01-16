@@ -31,22 +31,18 @@
                         <form method="POST" action="{{ route('register') }}" class="text-white">
                             @csrf
                             <div class="form-group">
-
                                 <label for="name" class="col-md-0 col-form-label text-md-right">{{ __('Họ và tên :') }}</label>
-                                <input id="name " type="text" class="form-control text-white @error('name') is-invalid @enderror" placeholder="Họ và tên" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name " type="text" class="form-control text-white @error('name') is-invalid @enderror" placeholder="Họ và tên" name="name" value="{{ old('name') }}" required autocomplete="name" >
 
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
-
                             </div>
 
                             <div class="form-group">
                                 <label for="email" class="col-md-0 col-form-label text-md-right">{{ __('Email :') }}</label>
-
-
                                 <input id="email" type="email" class="form-control text-white @error('email') is-invalid @enderror" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')

@@ -9,7 +9,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="home"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
-                            <li class="breadcrumb-item"><a href="danh-nhan">Video</a></li>
+                            <li class="breadcrumb-item"><a href="#">Video</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -25,13 +25,9 @@
                         <div class="archive-catagory">
                             <h4><i aria-hidden="true"></i> Video </h4>
                         </div>
-                        <div class="view-options">
-                            <a href="archive-grid.html"><i class="fa fa-th-large" aria-hidden="true"></i></a>
-                            <a href="archive-list.html" class="active"><i class="fa fa-list-ul" aria-hidden="true"></i></a>
-                        </div>
                     </div>
 
-                    @foreach ($post as $p)
+                    @foreach ($posts as $p)
                     <div class="single-post-area style-2">
                         <div class="row align-items-center">
                             <div class="col-12 col-md-6">
@@ -42,7 +38,7 @@
                             <div class="col-12 col-md-6">
                                 <div class="post-content mt-0">
                                     <a href="#" class="post-cata cata-sm cata-danger">Video</a>
-                                    <a href="single-post.html" class="post-title mb-2"> {{$p->title}}</a>
+                                    <a href="{{route('post.show', ['id'=>$p->id])}}" class="post-title mb-2"> {{$p->title}}</a>
                                     <div class="post-meta d-flex align-items-center mb-2">
                                         <a href="#" class="post-author">By {{$p->user_name}}</a>
                                         <i class="fa fa-circle" aria-hidden="true"></i>
@@ -50,25 +46,17 @@
                                     </div>
                                     <p class="mb-2">{{$p->summary}}</p>
                                     <div class="post-meta d-flex">
-                                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> {{$p->comments}}</a>
+                                        <a href="#"><i class="fas fa-thumbs-up" aria-hidden="true"></i> {{$p->likes}}</a>
+                                        <a href="#"><i class="fas fa-comments" aria-hidden="true"></i> {{$p->comments}}</a>
                                         <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> {{$p->views}}</a>
-                                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {{$p->likes}}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     @endforeach
-
-                    <nav class="mt-50">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
-                        </ul>
-                    </nav>
+                    <!-- Paginate  -->
+                    {{ $posts->links() }}
                 </div>
 
                 @include("layouts.elements.right_bar")

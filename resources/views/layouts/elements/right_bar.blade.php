@@ -61,7 +61,7 @@
                 <h4>Xem nhiều</h4>
                 <div class="line"></div>
             </div>
-            @foreach($posts as $p)
+            @foreach($postView as $p)
             <!-- Single Blog Post -->
             <div class="single-blog-post d-flex">
                 <div class="post-thumbnail">

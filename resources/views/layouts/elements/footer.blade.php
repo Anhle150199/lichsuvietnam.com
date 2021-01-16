@@ -51,11 +51,11 @@
                         <p>Email: lichsuvietnam@gmail.com</p>
                     </div>
                     <div class="footer-social-area">
-                        <a href="https://www.facebook.com/lichsunuocvietnam" class="facebook"><i class="fa fa-facebook"></i></a>
-                        <a href="https://www.google.com" class="google-plus"><i class="fa fa-google-plus"></i></a>
-                        <a href="https://www.instagram.com/" class="instagram"><i class="fa fa-instagram"></i></a>
-                        <a href="https://twitter.com" class="twitter"><i class="fa fa-twitter"></i></a>
-                        <a href="https://www.linkedin.com/" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/lichsunuocvietnam" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.google.com" class="google-plus"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="https://www.instagram.com/" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>

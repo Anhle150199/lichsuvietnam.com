@@ -68,17 +68,12 @@ class RegisterController extends Controller
         ]
     );
     }
-    
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\User
-     */
+
     protected function create(array $data)
     {
         $avatarDefault = ['avatar1.jpg', 'avatar2.jpg', 'avatar3.png', 'avatar4.jpg', 'avatar5.jpg'];
         $avatar = $avatarDefault[array_rand($avatarDefault)];
+        // return $data;
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
