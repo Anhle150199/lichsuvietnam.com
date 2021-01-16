@@ -40,13 +40,11 @@
                         <div class="blog-content">
 
                             <div class="post-content mt-0">
-                                <span href="#" class="post-cata cata-sm cata-danger">
-                                    @if($post->post_type_id ==1)
-                                    Video
+                                @if($post->post_type_id == 2)
+                                    <a href="#" class="post-cata cata-sm cata-success">Bài Viết</a>
                                     @else
-                                    Bài Viết
+                                    <a href="#" class="post-cata cata-sm cata-danger">Video</a>
                                     @endif
-                                </span>
                                 <a href="id={{$post->id}}" class="post-title mb-2">{{$post->title}}</a>
                                 <div class="d-flex justify-content-between mb-30">
                                     <div class="post-meta d-flex align-items-center">
@@ -73,14 +71,7 @@
                                 </div>
                                 <div class="post-author-desc pl-4">
                                     <a href="#" class="author-name">{{$user->name}}</a>
-                                    <p>Email: {{$user->email}}</p>
-                                    <div class="post-author-social-info">
-                                        <a href="#"><i class="fas fa-facebook"></i></a>
-                                        <a href="#"><i class="fas fa-twitter"></i></a>
-                                        <a href="#"><i class="fas fa-pinterest"></i></a>
-                                        <a href="#"><i class="fas fa-linkedin"></i></a>
-                                        <a href="#"><i class="fas fa-dribbble"></i></a>
-                                    </div>
+                                    <p> <i class="fas fa-mail-bulk"></i>  {{$user->email}}</p>
                                 </div>
                             </div>
 
