@@ -59,7 +59,7 @@
             @foreach($postView as $p)
             <div class="single-blog-post d-flex">
                 <div class="post-thumbnail">
-                    <img src="<?php echo url('/'); ?>/upload/images/{{$p->image}}" alt="">
+                    <img src="<?php echo url('/'); ?>/upload/images/{{$p->image}}" style="width: 100%; height: 70px;">
                 </div>
                 <div class="post-content">
                     <a href="id={{$p->id}}" class="post-title">{{$p->title}}</a>

@@ -11,8 +11,10 @@ use App\Models\User;
 use App\Models\Category;
 use App\Models\Period;
 use App\Models\Post;
+use App\Models\Analytics;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Carbon;
 
 use Auth;
 use Hash;
@@ -33,10 +35,23 @@ class UserController extends Controller
             $postNew = Post::where('hidden', 0)->orderBy('created_at', 'desc')->first();
 
             $totalPost = $post->count();
-            $views = $post->sum('views');
             $likes = $post->sum('likes');
             $comments = $post->sum('comments');
-            if ($totalPost != 0 && $postHighlight != null && $postNew != null ) {
+            $analytics = Analytics::orderBy('id', 'asc')->get();
+
+            $views = $post->sum('views');
+            $arrTime;
+            $arrViews;
+            $step = 0;
+            foreach ($analytics as $value) {
+                $date = date_create($value->created_at);
+                $arrTime[$step] = date_format($date, "m-Y");
+                $arrViews[$step] = $value->views;
+                $step += 1;
+            }
+            $arrTime = array_slice($arrTime, -8); 
+            $arrViews = array_slice($arrViews, -8); 
+            if ($totalPost != 0 && $postHighlight != null && $postNew != null) {
                 $userPostNew = User::where('id', '=', $postNew->user_id)->first();
 
                 $userPost = User::where('id', '=', $postHighlight->user_id)->first();
@@ -47,18 +62,22 @@ class UserController extends Controller
                         'post' => $post, 'total_post' => $totalPost,
                         'views' => $views, 'likes' => $likes, 'comments' => $comments,
                         'post_highlight' => $postHighlight, 'post_new' => $postNew,
-                        'user_post' => $userPost, 'user_post_new' => $userPostNew
+                        'user_post' => $userPost, 'user_post_new' => $userPostNew,
+                        'arrViews' =>$arrViews, 'arrTime' => $arrTime,
+                        'analytics' => $analytics
                     ]
                 );
             }
-            return view("admin.index",
-                    [
-                        'post' => $post, 'total_post' => $totalPost,
-                        'views' => $views, 'likes' => $likes, 'comments' => $comments,
-                        'post_highlight' => $postHighlight, 'post_new' => $postNew,
-                        // 'user_post_new' => $userPostNew
-                    ]
-                );
+            return view(
+                "admin.index",
+                [
+                    'post' => $post, 'total_post' => $totalPost,
+                    'views' => $views, 'likes' => $likes, 'comments' => $comments,
+                    'post_highlight' => $postHighlight, 'post_new' => $postNew,
+                    // 'user_post_new' => $userPostNew
+                    'analytics' => $analytics
+                ]
+            );
         }
         return redirect()->route('home');
     }
@@ -366,12 +385,4 @@ class UserController extends Controller
         Auth::logout();
         return redirect()->route('profile');
     }
-
-    // public function userActive($id)
-    // {
-    //     $user = User::find($id);
-    //     $user->active = 1;
-    //     $user->save();
-    //     return redirect()->route('user-edit', ['id' => $id])->with('dialog', 'Kích hoạt thành công');
-    // }
 }

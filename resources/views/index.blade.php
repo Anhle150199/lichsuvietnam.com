@@ -77,7 +77,6 @@
                             <?php $step += 1; ?>
                             @endforeach
                         </div>
-
                         <?php $step  = 0; ?>
                         <div class="row">
                             @foreach($danhnhan as $dn)
@@ -136,7 +135,6 @@
                             <?php $step += 1; ?>
                             @endforeach
                         </div>
-
                         <?php $step  = 0; ?>
                         <div class="row">
                             @foreach($ditich as $dn)
@@ -154,7 +152,7 @@
                                         @else
                                         <a href="#" class="post-cata cata-sm cata-danger">Video</a>
                                         @endif
-                                        <a href="id={{route('post.show', ['id'=>$dn->id])}}" class="post-title">{{$dn->title}}</a>
+                                        <a href="{{route('post.show', ['id'=>$dn->id])}}" class="post-title">{{$dn->title}}</a>
                                         <div class="post-meta d-flex">
                                             <a href="#"><i class="fas fa-thumbs-up" aria-hidden="true"></i> {{$dn->likes}}</a>
                                             <a href="#"><i class="fas fa-comments" aria-hidden="true"></i> {{$dn->comments}}</a>
@@ -195,10 +193,9 @@
                             <?php $step += 1; ?>
                             @endforeach
                         </div>
-
                         <?php $step  = 0; ?>
                         <div class="row">
-                            @foreach($ditich as $dn)
+                            @foreach($sukien as $dn)
                             @if($step > 1 )
 
                             <div class="col-12 col-md-6">
@@ -206,14 +203,13 @@
                                     <div class="post-thumbnail">
                                         <img src="<?php echo url('/'); ?>/upload/images/{{$dn->image}}" style="width: 100%; height: 208px;">
                                     </div>
-
                                     <div class="post-content">
                                         @if($dn->post_type_id == 2)
                                         <a href="#" class="post-cata cata-sm cata-success">Bài Viết</a>
                                         @else
                                         <a href="#" class="post-cata cata-sm cata-danger">Video</a>
                                         @endif
-                                        <a href="id={{route('post.show', ['id'=>$dn->id])}}" class="post-title">{{$dn->title}}</a>
+                                        <a href="{{route('post.show', ['id'=>$dn->id])}}" class="post-title">{{$dn->title}}</a>
                                         <div class="post-meta d-flex">
                                             <a href="#"><i class="fas fa-thumbs-up" aria-hidden="true"></i> {{$dn->likes}}</a>
                                             <a href="#"><i class="fas fa-comments" aria-hidden="true"></i> {{$dn->comments}}</a>

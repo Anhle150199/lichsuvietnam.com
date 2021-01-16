@@ -21,7 +21,7 @@ class CategoryController extends Controller
             ->where('categories.name', 'Sự kiện')
             ->where('period.name', 'Thời cận đại(1845-1945)')
             ->orderBy('created_at', 'desc')
-            ->select('posts.*', 'users.name')->paginate(5);
+            ->select('posts.*', 'users.name')->paginate(7);
         $postView  = Post::orderBy('views', 'desc')->limit(10)->get();
         return view('thoicandai', compact('posts', 'postView'));
     }
@@ -34,7 +34,7 @@ class CategoryController extends Controller
             ->where('categories.name', 'Sự kiện')
             ->where('period.name', 'Thời cổ đại')
             ->orderBy('created_at', 'desc')
-            ->select('posts.*', 'users.name')->paginate(5);
+            ->select('posts.*', 'users.name')->paginate(7);
         $postView  = Post::orderBy('views', 'desc')->limit(10)->get();
         return view('thoicodai', compact('posts', 'postView'));
     }
@@ -47,7 +47,7 @@ class CategoryController extends Controller
             ->where('categories.name', 'Sự kiện')
             ->where('period.name', 'Thời trung đại')
             ->orderBy('created_at', 'desc')
-            ->select('posts.*', 'users.name')->paginate(5);
+            ->select('posts.*', 'users.name')->paginate(7);
 
         $postView  = Post::orderBy('views', 'desc')->limit(10)->get();
         return view('thoitrungdai', compact('posts', 'postView'));
@@ -61,7 +61,7 @@ class CategoryController extends Controller
             ->where('categories.name', 'Sự kiện')
             ->where('period.name', 'Thời hiện đại')
             ->orderBy('created_at', 'desc')
-            ->select('posts.*', 'users.name')->paginate(5);
+            ->select('posts.*', 'users.name')->paginate(7);
         $postView  = Post::orderBy('views', 'desc')->limit(10)->get();
         return view('thoihiendai', compact('posts', 'postView'));
     }
@@ -72,7 +72,7 @@ class CategoryController extends Controller
             ->join('categories', 'posts.category_id', '=', 'categories.id')
             ->where('categories.name', 'Danh nhân')
             ->orderBy('created_at', 'desc')
-            ->select('posts.*', 'users.name')->paginate(5);
+            ->select('posts.*', 'users.name')->paginate(7);
         $postView  = Post::orderBy('views', 'desc')->limit(10)->get();
         return view('danhnhan', compact('posts', 'postView'));
     }
@@ -83,7 +83,7 @@ class CategoryController extends Controller
             ->join('categories', 'posts.category_id', '=', 'categories.id')
             ->where('categories.name', 'Di tích')
             ->orderBy('created_at', 'desc')
-            ->select('posts.*', 'users.name')->paginate(5);
+            ->select('posts.*', 'users.name')->paginate(7);
         $postView  = Post::orderBy('views', 'desc')->limit(10)->get();
         return view('ditich', compact('posts', 'postView'));
     }
@@ -94,7 +94,7 @@ class CategoryController extends Controller
             ->join('users', 'posts.user_id', '=', 'users.id')
             ->join('categories', 'posts.category_id', '=', 'categories.id')
             ->select('posts.*', 'users.name as user_name', 'categories.name as category')
-            ->orderBy('created_at', 'desc')->paginate(5);
+            ->orderBy('created_at', 'desc')->paginate(7);
         $postView  = Post::orderBy('views', 'desc')->limit(10)->get();
         return view('video', compact('posts', 'postView'));
     }

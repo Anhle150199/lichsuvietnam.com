@@ -93,5 +93,5 @@ Route::prefix('admin')->group(function(){
 
 Route::get('test', function ()
 {
-    return view('test');
+    return view('admin.charts');
 });

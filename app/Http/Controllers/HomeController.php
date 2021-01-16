@@ -15,8 +15,6 @@ class HomeController extends Controller
 
     public function index()
     {
-        $posts = Post::all();
-
         $videos = Post::where('post_type_id', 1)->orderBy('created_at', 'desc')->limit(10)->get();
         // return $videos[0];
         $danhnhan = Post::where('category_id', 1)->orderBy('created_at', 'desc')->limit(6)->get();
@@ -24,10 +22,7 @@ class HomeController extends Controller
         $ditich = Post::where('category_id', 2)->orderBy('created_at', 'desc')->limit(6)->get();
 
         $sukien = Post::where('category_id', 3)->orderBy('created_at', 'desc')->limit(6)->get();
-
-        $newpost = Post::orderBy('created_at')->first();
-
         $postView  = Post::orderBy('views', 'desc')->limit(10)->get();
-        return view('index', compact('posts', 'videos', 'danhnhan', 'sukien', 'ditich', 'newpost', 'postView'));
+        return view('index', compact('videos', 'danhnhan', 'sukien', 'ditich', 'postView'));
     }
 }

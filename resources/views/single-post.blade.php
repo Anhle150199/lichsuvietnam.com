@@ -41,10 +41,10 @@
 
                             <div class="post-content mt-0">
                                 @if($post->post_type_id == 2)
-                                    <a href="#" class="post-cata cata-sm cata-success">Bài Viết</a>
-                                    @else
-                                    <a href="#" class="post-cata cata-sm cata-danger">Video</a>
-                                    @endif
+                                <a href="#" class="post-cata cata-sm cata-success">Bài Viết</a>
+                                @else
+                                <a href="#" class="post-cata cata-sm cata-danger">Video</a>
+                                @endif
                                 <a href="id={{$post->id}}" class="post-title mb-2">{{$post->title}}</a>
                                 <div class="d-flex justify-content-between mb-30">
                                     <div class="post-meta d-flex align-items-center">
@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="post-author-desc pl-4">
                                     <a href="#" class="author-name">{{$user->name}}</a>
-                                    <p> <i class="fas fa-mail-bulk"></i>  {{$user->email}}</p>
+                                    <p> <i class="fas fa-mail-bulk"></i> {{$user->email}}</p>
                                 </div>
                             </div>
 
@@ -167,7 +167,6 @@
                                                 @endif
                                                 <div class="d-flex align-items-center row" style="float: right;width: 100%;">
                                                     <a href="#" onclick="reply({{$comment->id}}, {{$replies}})" class="reply" style="height: 30px;">Reply</a>
-                                                    <a href="#" onclick="moreReply({{$comment->id}})" class="reply" style="height: 30px;">More <i class="fas fa-caret-down"></i></a>
                                                     <p class="comment-date" style="font-size: 13px; margin-top: 2%;">{{$comment->created_at}}</p>
                                                 </div>
                                             </div>
@@ -186,8 +185,27 @@
                                         </div>
                                         <!-- more reply -->
                                         <ol class="children" style="margin-top: -5%; ">
-                                            <li class="single_comment_area" id="more-reply-{{$comment->id}}">
-
+                                            <li class="single_comment_area">
+                                                @foreach($replies as $reply)
+                                                @if($reply->comment_id == $comment->id)
+                                                <div class="comment-content d-flex" style="height: 130px;">
+                                                    <div class="comment-author">
+                                                        <img src="<?php echo url('/'); ?>/upload/images/{{$reply->avatar}}" alt="author" style="margin-top: 20%;">
+                                                    </div>
+                                                    <div class="comment-meta alert">
+                                                        <div class=" alert " style="background-color: #393c3d;  width: 499PX;">
+                                                            <h6 style="color: white;">{{$reply->name}}</h6>
+                                                            <span>{{$reply->content}}</span>
+                                                        </div>
+                                                        <div class="d-flex align-items-center" style="float: right;width: 100%;">
+                                                            <p class="comment-date " style="margin-right: 37%;">{{$reply->created_at}}</p>
+                                                            <a href="#" class="reply" style="float: right;">Chỉnh sửa</a>
+                                                            <a href="#" class="reply" style="float: right;">Xóa</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @endif
+                                                @endforeach
                                             </li>
                                         </ol>
                                         <!-- end more reply -->
@@ -256,28 +274,6 @@
                 '<div class="col-2" style="float: right;">' +
                 '    <button id="btn-comment" class="btn vizew-btn " type="submit" style="margin-right: -13%;">Trả lời</button>' +
                 '</div>';
-        }
-
-        function moreReply(id) {
-
-            document.getElementById('more-reply-' + id).innerHTML =
-                '@foreach($replies as $reply)' +
-                '@if($reply->comment_id == '+id+')' +
-                '<div class="comment-content d-flex"  style="height: 130px;">' +
-                '<div class="comment-author">' +
-                '<img src="<?php echo url('/'); ?>/upload/images/{{$reply->avatar}}" alt="author" style="margin-top: 20%;"></div>' +
-                '<div class="comment-meta alert">' +
-                '   <div class=" alert " style="background-color: #393c3d;  width: 499PX;">' +
-                '       <h6 style="color: white;">{{$reply->name}}</h6>' +
-                '       <span>{{$reply->content}}</span>' +
-                '   </div>' +
-                '   <div class="d-flex align-items-center" style="float: right;width: 100%;">' +
-                '       <p class="comment-date " style="margin-right: 37%;">{{$reply->created_at}}</p>' +
-                '       <a href="#" class="reply" style="float: right;">Chỉnh sửa</a>' +
-                '       <a href="#" class="reply" style="float: right;">Xóa</a>' +
-                '</div></div></div>' +
-                '@endif' +
-                '@endforeach';
         }
     </script>
 </body>
