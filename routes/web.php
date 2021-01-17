@@ -81,13 +81,15 @@ Route::prefix('admin')->group(function(){
 
         Route::get('create-video', [App\Http\Controllers\UserController::class, 'getVideoAdd'])->name('video-create');
         Route::post('create-video', [App\Http\Controllers\UserController::class, 'postVideoAdd'])->name('video-create');
-
-        // Route::get('delete', [App\Http\Controllers\UserController::class, 'getPostDelete'])->name('post-delete');
-        // Route::get('show/{id}', [App\Http\Controllers\UserController::class, 'getPostShow'])->name('post-show');
     });
     Route::prefix('/comments')->group(function(){
-        Route::get('/', [App\Http\Controllers\UserController::class, 'getPostList'])->name('comments');
-        Route::get('delete', [App\Http\Controllers\UserController::class, 'getPostDelete'])->name('post-delete');
+        Route::get('/', [App\Http\Controllers\CommentController::class, 'getCommentList'])->name('comments');
+        Route::get('hidden/{id}', [App\Http\Controllers\CommentController::class, 'hiddenComment'])->name('comment.hidden');
+        Route::get('delete/{id}', [App\Http\Controllers\CommentController::class, 'deleteComment'])->name('comment.delete');
+        
+        Route::get('/{id}/replies', [App\Http\Controllers\CommentController::class, 'getReplyList'])->name('replies');
+        Route::get('/replies/hidden/{id}', [App\Http\Controllers\CommentController::class, 'hiddenReply'])->name('replies.hidden');
+        Route::get('/replies/delete/{id}', [App\Http\Controllers\CommentController::class, 'deleteReply'])->name('replies.delete');
     });
 });
 

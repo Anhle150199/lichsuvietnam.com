@@ -9,6 +9,7 @@ use App\Models\Comment;
 use App\Events\RedisEvent;
 use App\Models\Post;
 use App\Models\Reply;
+use Illuminate\Support\Facades\DB;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -49,6 +50,50 @@ class CommentController extends Controller
         $reply->created_at = date("Y-m-d H:i:s");
         $post = Post::find($request->post_id)->increment('comments', 1);
         $reply->save();
+        return redirect()->back();
+    }
+
+    public function getCommentList()
+    {
+        $comment = Comment::orderBy('created_at', 'desc')->join('users', 'users.id', 'comments.user_id')->select('comments.*', 'users.name')->get();
+        return view('admin.comments-list', compact('comment'));
+    }
+
+    public function hiddenComment($id)
+    {
+        $comment = Comment::find($id);
+        $comment->hidden = 1 - $comment->hidden;
+        $comment->save();
+        return redirect()->back();
+    }
+    public function deleteComment($id)
+    {
+
+        $comment = Comment::find($id);
+        $reply  = DB::table('replies')->where('comment_id', '=', $id)->delete();
+        $comment->delete();
+        return redirect()->back();
+    }
+
+    public function getReplyList($id)
+    {
+        $comment = Comment::join('users', 'users.id', 'user_id')->where('comments.id', $id)
+        ->select('comments.content', 'users.name')->get();
+        $replies = Reply::join('users', 'users.id', 'replies.user_id')->where('comment_id', $id)->select('replies.*', 'users.name')->get();
+        return view('admin.replies-list', compact('replies'), ['comment'=>$comment]);
+    }
+
+    public function hiddenReply($id)
+    {
+        $reply = Reply::find($id);
+        $reply->hidden = 1 - $reply->hidden;
+        $reply->save();
+        return redirect()->back();
+    }
+    public function deleteReply($id)
+    {
+        $reply = Reply::find($id);
+        $reply->delete();
         return redirect()->back();
     }
     public function store(Request $request)

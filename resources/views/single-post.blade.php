@@ -60,7 +60,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="fb-share-button" data-href="https://thietkewebsite500k.net/huong-dan-nut-like-share-facebook-vao-website-wordpress/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fthietkewebsite500k.net%2Fhuong-dan-nut-like-share-facebook-vao-website-wordpress%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
+                            <div class="d-flex justify-content-between mb-30">
+                                <div class="fb-share-button" data-href="https://thietkewebsite500k.net/huong-dan-nut-like-share-facebook-vao-website-wordpress/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fthietkewebsite500k.net%2Fhuong-dan-nut-like-share-facebook-vao-website-wordpress%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
+                                <a class="post-cata cata-sm cata-danger" href="{{route('post-edit', ['id'=>$post->id])}}">Sửa bài viết</a>
+                            </div>
                             <div class="text-body">
                                 {!!$post->content!!}
                             </div>

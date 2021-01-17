@@ -9,7 +9,7 @@
                 <div class="container-fluid">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Danh sách bài đăng</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Replies</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -21,10 +21,16 @@
                                     <p>{{session('dialog')}}</p>
                                 </div>
                                 @endif
+                                <div class=" alert alert-success">
+                                    @foreach($comment as $comment)
+                                    <h6> <strong>{{$comment->name}}</strong></h6>
+                                    <span>{{$comment->content}}</span>
+                                    @endforeach
+                                </div>
                                 <table class="table table-striped " id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Comments</th>
+                                            <th>Replies</th>
                                             <th>Ngày tạo</th>
                                             <th>Ngày sửa</th>
                                             <th></th>
@@ -32,28 +38,24 @@
                                     </thead>
 
                                     <tbody>
-                                        @foreach($comment as $comment)
+                                        @foreach($replies as $reply)
                                         <tr>
                                             <td class="p" style="text-align: left;">
-                                                        <h6> <strong>{{$comment->name}}</strong></h6>
-                                                <a href="{{route('replies', ['id'=>$comment->id])}}">
-                                                    <div>
-                                                        <span class="text-body">{{$comment->content}}</span>
-                                                    </div>
-                                                </a>
+                                                <h6> <strong>{{$reply->name}}</strong></h6>
+                                                <span class="text-body">{{$reply->content}}</span>
                                             </td>
 
 
-                                            <td>{{$comment['created_at']}}</td>
-                                            <td>{{$comment['updated_at']}}</td>
+                                            <td>{{$reply['created_at']}}</td>
+                                            <td>{{$reply['updated_at']}}</td>
                                             <td>
-                                                @if($comment['hidden'] == 1)
-                                                <a href="{{route('comment.hidden', ['id'=>$comment->id])}}"><i class="fas fa-eye"></i></a>
+                                                @if($reply['hidden'] == 1)
+                                                <a href="{{route('replies.hidden', ['id'=>$reply->id])}}"><i class="fas fa-eye"></i></a>
                                                 @endif
-                                                @if($comment['hidden'] == 0)
-                                                <a href="{{route('comment.hidden', ['id'=>$comment->id])}}"><i class="fas fa-eye-slash"></i></a>
+                                                @if($reply['hidden'] == 0)
+                                                <a href="{{route('replies.hidden', ['id'=>$reply->id])}}"><i class="fas fa-eye-slash"></i></a>
                                                 @endif
-                                                <a href="{{route('comment.delete', ['id'=>$comment->id])}}" style="margin-left: 9px;"><i class="fas fa-trash"></i></a>
+                                                <a href="{{route('replies.delete', ['id'=>$reply->id])}}" style="margin-left: 9px;"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         @endforeach
