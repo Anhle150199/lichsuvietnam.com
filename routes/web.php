@@ -22,6 +22,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::post('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
+
 // Route::get('/callback/{facebook}',  [App\Http\Controllers\Auth\LoginController::class, 'handleProviderCallback'])->name('facebook_callback');
 // Route::get('/redirect/{facebook}',  [App\Http\Controllers\Auth\LoginController::class, 'redirectProvider'])->name('facebook_login');
 Route::get('/auth/redirect/{provider}', [App\Http\Controllers\SocialController::class, 'redirect']);
@@ -53,6 +55,7 @@ Route::get('/thoi-hien-dai', [App\Http\Controllers\CategoryController::class, 'H
 Route::get('/video-list',  [App\Http\Controllers\CategoryController::class, 'video'])->name('video.list');
 
 Route::get('/id={id}', [App\Http\Controllers\PostController::class, 'SinglePost'])->name('post.show');
+
 
 //Admin
 Route::prefix('admin')->group(function(){

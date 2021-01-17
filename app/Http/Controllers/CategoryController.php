@@ -15,7 +15,7 @@ class CategoryController extends Controller
 
     public function Candai()
     {
-        $posts = Post::join('users', 'posts.user_id', '=', 'users.id')
+        $posts = Post::join('users', 'posts.user_id', '=', 'users.id')->where('hidden', 0)
             ->join('categories', 'posts.category_id', '=', 'categories.id')
             ->join('period', 'posts.period_id', '=', 'period.id')
             ->where('categories.name', 'Sự kiện')
@@ -28,7 +28,7 @@ class CategoryController extends Controller
 
     public function Codai()
     {
-        $posts = Post::join('users', 'posts.user_id', '=', 'users.id')
+        $posts = Post::join('users', 'posts.user_id', '=', 'users.id')->where('hidden', 0)
             ->join('categories', 'posts.category_id', '=', 'categories.id')
             ->join('period', 'posts.period_id', '=', 'period.id')
             ->where('categories.name', 'Sự kiện')
@@ -41,7 +41,7 @@ class CategoryController extends Controller
 
     public function Trungdai()
     {
-        $posts = Post::join('users', 'posts.user_id', '=', 'users.id')
+        $posts = Post::join('users', 'posts.user_id', '=', 'users.id')->where('hidden', 0)
             ->join('categories', 'posts.category_id', '=', 'categories.id')
             ->join('period', 'posts.period_id', '=', 'period.id')
             ->where('categories.name', 'Sự kiện')
@@ -55,7 +55,7 @@ class CategoryController extends Controller
 
     public function Hiendai()
     {
-        $posts = Post::join('users', 'posts.user_id', '=', 'users.id')
+        $posts = Post::join('users', 'posts.user_id', '=', 'users.id')->where('hidden', 0)
             ->join('categories', 'posts.category_id', '=', 'categories.id')
             ->join('period', 'posts.period_id', '=', 'period.id')
             ->where('categories.name', 'Sự kiện')
@@ -68,7 +68,7 @@ class CategoryController extends Controller
 
     public function Danhnhan()
     {
-        $posts = Post::join('users', 'posts.user_id', '=', 'users.id')
+        $posts = Post::join('users', 'posts.user_id', '=', 'users.id')->where('hidden', 0)
             ->join('categories', 'posts.category_id', '=', 'categories.id')
             ->where('categories.name', 'Danh nhân')
             ->orderBy('created_at', 'desc')
@@ -79,7 +79,7 @@ class CategoryController extends Controller
 
     public function Ditich()
     {
-        $posts = Post::join('users', 'posts.user_id', '=', 'users.id')
+        $posts = Post::join('users', 'posts.user_id', '=', 'users.id')->where('hidden', 0)
             ->join('categories', 'posts.category_id', '=', 'categories.id')
             ->where('categories.name', 'Di tích')
             ->orderBy('created_at', 'desc')

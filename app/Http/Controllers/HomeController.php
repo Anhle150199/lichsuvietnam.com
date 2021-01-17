@@ -25,4 +25,19 @@ class HomeController extends Controller
         $postView  = Post::orderBy('views', 'desc')->limit(10)->get();
         return view('index', compact('videos', 'danhnhan', 'sukien', 'ditich', 'postView'));
     }
+
+    public function search(Request $request)
+    {
+        $keyWord = $request->search;
+        $result =  Post::where('title', 'like', "%$keyWord%")
+            ->orWhere('summary', 'like', "%$keyWord%")
+            ->where('hidden', 0)
+            ->join('users', 'posts.user_id', '=', 'users.id')
+            ->join('categories', 'posts.category_id', '=', 'categories.id')
+            ->select('posts.*', 'users.name as user_name', 'categories.name as category')
+            ->orderBy('created_at', 'desc')->paginate(7);
+            
+        $postView  = Post::orderBy('views', 'desc')->limit(10)->get();
+        return view('search', compact('keyWord', 'result', 'postView'));
+    }
 }

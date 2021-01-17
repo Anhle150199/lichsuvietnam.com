@@ -22,12 +22,12 @@
                         </div>
                         <!-- Top Search Area -->
                         <div class="top-search-area">
-                            <form action="index.html" method="post">
-                                <input type="search" name="top-search" id="topSearch" placeholder="Tìm kiếm ...">
-                                <button type="submit" class="btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            <form action="{{route('search')}}" method="post">
+                                @csrf
+                                <input type="search" name="search" id="search" placeholder="Tìm kiếm ...">
+                                <button type="submit" class="btn"><i class="fa fa-search" ></i></button>
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -41,18 +41,12 @@
 
                 <!-- Menu -->
                 <nav class="classy-navbar justify-content-between" id="vizewNav">
-
-                    <!-- Nav brand -->
                     <a href="{{ url('/') }}" class="nav-brand" style="max-width: 300px;"><img src="<?php echo url('/'); ?>/img/core-img/logo1.png" alt=""></a>
-
-                    <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
                         <span class="navbarToggler"><span></span><span></span><span></span></span>
                     </div>
 
                     <div class="classy-menu">
-
-                        <!-- Close Button -->
                         <div class="classycloseIcon">
                             <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                         </div>
