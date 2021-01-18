@@ -19,7 +19,7 @@ class CategoryController extends Controller
             ->join('categories', 'posts.category_id', '=', 'categories.id')
             ->join('period', 'posts.period_id', '=', 'period.id')
             ->where('categories.name', 'Sự kiện')
-            ->where('period.name', 'Thời cận đại(1845-1945)')
+            ->where('period.name', 'Thời cận đại(1858-1945)')
             ->orderBy('created_at', 'desc')
             ->select('posts.*', 'users.name')->paginate(7);
         $postView  = Post::orderBy('views', 'desc')->limit(10)->get();
