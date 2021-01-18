@@ -176,7 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Laravel\Socialite\SocialiteServiceProvider::class,
-
+        App\Providers\BroadcastServiceProvider::class,
 
 
     ],

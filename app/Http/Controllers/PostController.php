@@ -11,6 +11,8 @@ use App\Models\Analytics;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Like;
 
 class PostController extends Controller
 {
@@ -58,8 +60,33 @@ class PostController extends Controller
             ->join('users', 'replies.user_id', '=', 'users.id')
             ->orderBy('created_at', 'desc')
             ->get(['replies.*', 'users.name', 'users.avatar']);
-
+        $like = Like::where('post_id',$id)->where('user_id', Auth::user()->id)->first(); 
+        if ($like == "") {
+            $like = 0;
+        }else{
+            $like  = 1;
+        }
+        // return $like;
         $postcount = Post::where('user_id', '=', $user->id)->count();
-        return view('single-post', compact('post', 'subpost', 'postcount', 'user', 'category', 'comments', 'replies'));
+        return view('single-post', compact('post', 'subpost', 'postcount', 'user', 'category', 'comments', 'replies', 'like'));
+    }
+
+    public function likePost(Request $request)
+    {
+        $post = Post::find($request->id);
+        $like = Like::where('post_id',$request->id)->where('user_id', Auth::user()->id)->first(); 
+        // return $like;
+        if ($like == "") {
+            $like = new Like;
+            $like->user_id = Auth::user()->id;
+            $like->post_id = $request->id;
+            $like->save();
+            $post->likes +=1;
+        }else{
+            $like->delete();
+            $post->likes -=1;
+        }
+        $post->save();
+        return redirect()->back();
     }
 }

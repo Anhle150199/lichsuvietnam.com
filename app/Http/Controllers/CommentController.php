@@ -6,12 +6,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Comment;
-use App\Events\RedisEvent;
 use App\Models\Post;
 use App\Models\Reply;
 use Illuminate\Support\Facades\DB;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Events\CommentEvent;
 
 class CommentController extends Controller
 {
@@ -25,18 +25,18 @@ class CommentController extends Controller
     }
     public function postComment(Request $request)
     {
+        $message = $request->comment; 
+        event(new CommentEvent($message));
+
         $comment = new Comment;
         $comment->content = $request->comment;
         $comment->post_id = $request->post_id;
         $comment->user_id= Auth::user()->id;
         $comment->hidden = 0;
         $comment->created_at = date("Y-m-d H:i:s");
-        $post = Post::find($request->post_id)->increment('comments', 1);
+        // $post = Post::find($request->post_id)->increment('comments', 1);
         // $post->save();
-        $comment->save();
-        event(
-            $e = new RedisEvent($comment)
-        );
+        // $comment->save();
         return redirect()->back();
     }
     public function postReply(Request $request)
@@ -107,4 +107,9 @@ class CommentController extends Controller
         $comment->save();
 
     }
+
+    public function commentRealTime(){
+        event(new CommentEvent("Hi,Xin chào hải đẹp trai!"));
+        return "Message has been sent.";
+       }
 }

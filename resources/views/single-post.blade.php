@@ -1,4 +1,15 @@
-@include("layouts.elements.head")
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text / html; charset = utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{$post->summary}}">
+    <meta http-equiv=”content-language” content=”vi” />
+    <title>LSVN- {{$post->title}}</title>
+
+
+    @include("layouts.elements.head")
 
 <body>
     @include("layouts.elements.header")
@@ -60,10 +71,28 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-between mb-30">
-                                <div class="fb-share-button" data-href="https://thietkewebsite500k.net/huong-dan-nut-like-share-facebook-vao-website-wordpress/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fthietkewebsite500k.net%2Fhuong-dan-nut-like-share-facebook-vao-website-wordpress%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
-                                <a class="post-cata cata-sm cata-danger" href="{{route('post-edit', ['id'=>$post->id])}}">Sửa bài viết</a>
+                            <div class="d-flex justify-content-between">
+                                <ul class="nav">
+                                    <li class="nav-item">
+                                        <form id="form_like" action="{{route('post.like')}}" method="get">
+                                            @csrf
+                                            <input type="text" name="id" value="{{$post->id}}" hidden>
+                                            <button class="btn btn-primary nav-link" id="like" type="submit" style="height: 34px;font-size: 14px;"><i class="far fa-thumbs-up">
+                                                    @if($like == 1)
+                                                    <span>Dislike </span>
+                                                    @else
+                                                    <span>Like</span>
+                                                    @endif
+                                                </i>
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                                @if(Auth::user()->level > 0)
+                                <a class="post-cata cata-sm cata-danger" href="{{route('post-edit', ['id'=>$post->id])}}" style="float: right;height: 27px;">Sửa bài viết</a>
+                                @endif
                             </div>
+
                             <div class="text-body">
                                 {!!$post->content!!}
                             </div>
@@ -200,6 +229,17 @@
                                                             <h6 style="color: white;">{{$reply->name}}</h6>
                                                             <span>{{$reply->content}}</span>
                                                         </div>
+                                                        @if(Auth::check())
+                                                        @if(Auth::user()->id == $comment->user_id)
+                                                        <div class="dropdown dropright" style="margin-top: -11%; margin-right: -5%; float: right; ">
+                                                            <i class="fas fa-ellipsis-h  " data-toggle="dropdown"></i>
+                                                            <div class="dropdown-menu " style="background: none;border: none;">
+                                                                <a href="#" class="reply dropdown-item">Chỉnh sửa</a>
+                                                                <a href="#" class="reply dropdown-item">Xóa</a>
+                                                            </div>
+                                                        </div>
+                                                        @endif
+                                                        @endif
                                                         <div class="d-flex align-items-center" style="float: right;width: 100%;">
                                                             <p class="comment-date " style="margin-right: 37%;">{{$reply->created_at}}</p>
                                                             <a href="#" class="reply" style="float: right;">Chỉnh sửa</a>
@@ -249,26 +289,32 @@
     </section>
 
     @include("layouts.elements.footer")
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
-    <script src="js/bootstrap/popper.min.js"></script>
-    <script src="js/bootstrap/bootstrap.min.js"></script>
-    <script src="js/plugins/plugins.js"></script>
+    <!-- 
+    <script src="<?php echo url('/'); ?>/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="<?php echo url('/'); ?>/js/bootstrap/popper.min.js"></script>
+    <script src="<?php echo url('/'); ?>/js/bootstrap/bootstrap.min.js"></script>
+    <script src="<?php echo url('/'); ?>/js/plugins/plugins.js"></script>
+    <script src="<?php echo url('/'); ?>/js/active.js"></script> -->
 
-    <script src="js/active.js"></script>
+
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+    <script>
+        // Enable pusher logging - don't include this in production
+        Pusher.logToConsole = true;
+
+        var pusher = new Pusher('7912005e9e4c47bb85d7', {
+            cluster: 'ap1'
+        });
+
+        var channel = pusher.subscribe('my-channel');
+        channel.bind('my-event', function(data) {
+            alert(JSON.stringify(data));
+        });
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
     <script>
-        var socket = io('http://localhost:6001')
-        socket.on('comment:message', function(data) {
-            //console.log(data)
-            if ($('#' + data.id).length == 0) {
-                $('#data').append('<p><strong>' + data.user_id + '</strong>: ' + data.content + '</p>')
-            } else {
-                console.log('Đã có tin nhắn')
-            }
-        })
-
         function reply(id) {
             document.getElementById('reply-' + id).innerHTML =
                 '<div class="col-10">' +
@@ -278,6 +324,27 @@
                 '    <button id="btn-comment" class="btn vizew-btn " type="submit" style="margin-right: -13%;">Trả lời</button>' +
                 '</div>';
         }
+
+        // $(document).ready(function() {
+        //     var submit =document.getElementById('like');
+
+        //     // bắt sự kiện click vào nút Login
+        //     submit.click(function() {
+        //         var id = $("input[name='id']").val();
+
+        //         // Lấy tất cả dữ liệu trong form login
+        //         var data = $('form#form_like').serialize();
+        //         // Sử dụng $.ajax()
+        //         $.ajax({
+        //             type: 'GET', //kiểu post
+        //             url: route('post.like'), //gửi dữ liệu sang trang submit.php
+        //             data: data,
+        //             success: function(data) {
+        //             }
+        //         });
+        //         return false;
+        //     });
+        // });
     </script>
 </body>
 
