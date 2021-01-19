@@ -19,6 +19,10 @@ class Reply extends Model
         return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
 
+    public function post(){
+        return $this->belongsTo('App\Models\Post', 'post_id', 'id');
+    }
+
     public function comment(){
         return $this->belongsTo('App\Models\Comment', 'comment_id', 'id');
     }

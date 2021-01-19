@@ -8,7 +8,8 @@
     <meta http-equiv=”content-language” content=”vi” />
     <title>LSVN- {{$post->title}}</title>
 
-
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v9.0&appId=1693660827482004" nonce="rB5Me5mJ"></script>
     @include("layouts.elements.head")
 
 <body>
@@ -88,8 +89,10 @@
                                         </form>
                                     </li>
                                 </ul>
+                                @if(Auth::check())
                                 @if(Auth::user()->level > 0)
                                 <a class="post-cata cata-sm cata-danger" href="{{route('post-edit', ['id'=>$post->id])}}" style="float: right;height: 27px;">Sửa bài viết</a>
+                                @endif
                                 @endif
                             </div>
 
@@ -97,6 +100,7 @@
                                 {!!$post->content!!}
                             </div>
 
+                            <div class="fb-share-button" data-href="https://www.addthis.com/dashboard#gallery/pub/ra-5ffe63f7a61ed552/get-the-code/pco/shin/widgetId/agmd" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8080%2Flichsuvietnam.com%2Fpublic%2Fid%3D28&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
                             <div class="vizew-post-author d-flex align-items-center py-5">
                                 <div class="post-author-thumb">
                                     <img src="<?php echo url('/'); ?>/upload/images/{{$user['avatar']}}" alt="">
@@ -144,6 +148,7 @@
                                     @endforeach
                                 </div>
                             </div>
+
 
                             <div class="comment_area clearfix mb-50">
                                 <div class="section-heading style-2">
@@ -198,7 +203,7 @@
                                                 @endif
                                                 @endif
                                                 <div class="d-flex align-items-center row" style="float: right;width: 100%;">
-                                                    <a href="#" onclick="reply({{$comment->id}}, {{$replies}})" class="reply" style="height: 30px;">Reply</a>
+                                                    <a onclick="reply({{$comment->id}}, {{$replies}})" class="reply" style="height: 30px;">Reply</a>
                                                     <p class="comment-date" style="font-size: 13px; margin-top: 2%;">{{$comment->created_at}}</p>
                                                 </div>
                                             </div>
@@ -230,7 +235,7 @@
                                                             <span>{{$reply->content}}</span>
                                                         </div>
                                                         @if(Auth::check())
-                                                        @if(Auth::user()->id == $comment->user_id)
+                                                        @if(Auth::user()->id == $reply->user_id)
                                                         <div class="dropdown dropright" style="margin-top: -11%; margin-right: -5%; float: right; ">
                                                             <i class="fas fa-ellipsis-h  " data-toggle="dropdown"></i>
                                                             <div class="dropdown-menu " style="background: none;border: none;">
@@ -287,14 +292,14 @@
             </div>
         </div>
     </section>
-
     @include("layouts.elements.footer")
-    <!-- 
+
     <script src="<?php echo url('/'); ?>/js/jquery/jquery-2.2.4.min.js"></script>
     <script src="<?php echo url('/'); ?>/js/bootstrap/popper.min.js"></script>
     <script src="<?php echo url('/'); ?>/js/bootstrap/bootstrap.min.js"></script>
     <script src="<?php echo url('/'); ?>/js/plugins/plugins.js"></script>
-    <script src="<?php echo url('/'); ?>/js/active.js"></script> -->
+    <script src="<?php echo url('/'); ?>/js/active.js"></script>
+
 
 
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
@@ -329,7 +334,7 @@
         //     var submit =document.getElementById('like');
 
         //     // bắt sự kiện click vào nút Login
-        //     submit.click(function() {
+        //     submit.click(function update() {
         //         var id = $("input[name='id']").val();
 
         //         // Lấy tất cả dữ liệu trong form login
@@ -340,8 +345,10 @@
         //             url: route('post.like'), //gửi dữ liệu sang trang submit.php
         //             data: data,
         //             success: function(data) {
+        //                 alert("đã like")
         //             }
         //         });
+        //         window.setTimeout(update, 1000000);
         //         return false;
         //     });
         // });

@@ -26,7 +26,7 @@ class PostController extends Controller
         $thisMonth = $now->month;
 
         $analytics = Analytics::orderBy('created_at', 'desc')->first();
-      
+
         $myYear = $analytics->created_at->year;
         $myMonth = $analytics->created_at->month;
         if ($thisYear == $myYear) {
@@ -34,9 +34,9 @@ class PostController extends Controller
                 $analytics->views += 1;
                 $analytics->updated_at = date("Y-m-d");
                 $analytics->save();
-            } 
+            }
         }
-        if($thisYear != $myYear || $thisMonth != $myMonth) {
+        if ($thisYear != $myYear || $thisMonth != $myMonth) {
             $newAnalytics = new Analytics;
             $newAnalytics->created_at = date("Y-m-d");
             $newAnalytics->updated_at = date("Y-m-d");
@@ -60,10 +60,14 @@ class PostController extends Controller
             ->join('users', 'replies.user_id', '=', 'users.id')
             ->orderBy('created_at', 'desc')
             ->get(['replies.*', 'users.name', 'users.avatar']);
-        $like = Like::where('post_id',$id)->where('user_id', Auth::user()->id)->first(); 
+        $like = "";
+        if (Auth::check()) {
+            $like = Like::where('post_id', $id)->where('user_id', Auth::user()->id)->first();
+        }
+
         if ($like == "") {
             $like = 0;
-        }else{
+        } else {
             $like  = 1;
         }
         // return $like;
@@ -73,20 +77,23 @@ class PostController extends Controller
 
     public function likePost(Request $request)
     {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
         $post = Post::find($request->id);
-        $like = Like::where('post_id',$request->id)->where('user_id', Auth::user()->id)->first(); 
+        $like = Like::where('post_id', $request->id)->where('user_id', Auth::user()->id)->first();
         // return $like;
         if ($like == "") {
             $like = new Like;
             $like->user_id = Auth::user()->id;
             $like->post_id = $request->id;
             $like->save();
-            $post->likes +=1;
-        }else{
+            $post->likes += 1;
+        } else {
             $like->delete();
-            $post->likes -=1;
+            $post->likes -= 1;
         }
         $post->save();
-        return redirect()->back();
+        return back();
     }
 }

@@ -1,33 +1,39 @@
-<?php
-
 namespace App\Events;
 
+use App\Comment;
 use Illuminate\Broadcasting\Channel;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Queue\SerializesModels;
 
-class CommentEvent implements ShouldBroadcast
+class NewComment implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $message;
+    public $comment;
 
-    public function __construct($message)
+    public function __construct(Comment $comment)
     {
-        $this->message = $message;
+        $this->comment = $comment;
     }
-  
+
     public function broadcastOn()
     {
-        return ['my-channel'];
+        return new PresenceChannel('video');
     }
-  
-    public function broadcastAs()
+
+    public function broadcastWith()
     {
-        return 'my-event';
+        return [
+            'id' => $this->comment->id,
+            'body' => $this->comment->body,
+            'user' => [
+                'name' => $this->comment->user->name,
+                'id' => $this->comment->user->id,
+            ],
+        ];
     }
 }

@@ -2,13 +2,14 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="description" content="">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Sự kiên thời cận đại - Lịch Sử Việt Nam</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sự kiên thời cận đại - Lịch Sử Việt Nam</title>
 
-@include("layouts.elements.head")
+    @include("layouts.elements.head")
+
 <body>
 
     @include("layouts.elements.header")
@@ -47,7 +48,11 @@
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="post-content mt-0">
+                                    @if($p->post_type_id == 2)
+                                    <a href="#" class="post-cata cata-sm cata-success">Bài Viết</a>
+                                    @else
                                     <a href="#" class="post-cata cata-sm cata-danger">Video</a>
+                                    @endif
                                     <a href="{{route('post.show', ['id'=>$p->id])}}" class="post-title mb-2"> {{$p->title}}</a>
                                     <div class="post-meta d-flex align-items-center mb-2">
                                         <a href="#" class="post-author">By {{$p->user_name}}</a>

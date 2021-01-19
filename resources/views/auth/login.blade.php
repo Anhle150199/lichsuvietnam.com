@@ -35,12 +35,12 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             @if(session('error'))
-                            <div >
+                            <div>
                                 <p style="font-size: smaller; color: red;">{{session('error')}}</p>
                             </div>
                             @endif
                             <div class="form-group">
-                                <input type="email" class="form-control text-white @error('email') is-invalid @enderror" id="email exampleInputEmail1" placeholder="Email" name="email" value="{{ old('email') }}"  autocomplete="email" autofocus>
+                                <input type="email" class="form-control text-white @error('email') is-invalid @enderror" id="email exampleInputEmail1" placeholder="Email" name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
 
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -49,7 +49,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <input id=" password exampleInputPassword1" type="password" class="form-control text-white @error('password') is-invalid @enderror" placeholder="Mật khẩu" name="password"  autocomplete="current-password">
+                                <input id=" password exampleInputPassword1" type="password" class="form-control text-white @error('password') is-invalid @enderror" placeholder="Mật khẩu" name="password" autocomplete="current-password">
 
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -60,20 +60,25 @@
 
                             <button type="submit" class="btn vizew-btn w-100 mt-30">Đăng nhập</button>
 
-                            
-                        </form>
-                        <a href="{{ url('/auth/redirect/facebook') }}"><button type="button" class="btn btn-primary w-100 mt-30">Đăng nhập với FaceBook</button></a>
-                        @if (Route::has('password.request'))
-                            <a class="btn btn-link w-100" href="{{ route('password.request') }}">
-                                {{ __('Quên mật khẩu?') }}
-                            </a>
-                            @endif
 
-                            @if (Route::has('register'))
-                            <a class="btn btn-link w-100" href="{{ route('register') }}">
-                                {{ __('Bạn chưa có tài khoản? Đăng ký') }}
-                            </a>
-                            @endif
+                        </form>
+
+                        <!-- <a href="{{ route('social.oauth', ['driver'=>'facebook']) }}" class="btn btn-primary btn-block">
+                            Login with Facebook
+                        </a>
+                        <a href="{{ route('social.oauth', 'google') }}" class="btn btn-danger btn-block">
+                            Login with Google
+                        </a> -->
+
+                        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                        </fb:login-button>
+                        @if (Route::has('register'))
+                        <a class="btn btn-link w-100" href="{{ route('register') }}">
+                            {{ __('Bạn chưa có tài khoản? Đăng ký') }}
+                        </a>
+                        @endif
+
+
 
                     </div>
                 </div>
@@ -95,6 +100,52 @@
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '{your-app-id}',
+                cookie: true,
+                xfbml: true,
+                version: '{api-version}'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
+
+
+        {
+            status: 'connected',
+            authResponse: {
+                accessToken: '...',
+                expiresIn: '...',
+                signedRequest: '...',
+                userID: '...'
+            }
+        }
+
+        function checkLoginState() {
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+        }
+    </script>
 </body>
 
 </html>

@@ -34,7 +34,12 @@ return [
     | Supported: "session", "token"
     |
     */
-
+    'socialite' => [
+        'drivers' => [
+            'google',
+        ],
+    ],
+    
     'guards' => [
         'web' => [
             'driver' => 'session',

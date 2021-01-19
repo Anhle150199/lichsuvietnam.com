@@ -25,8 +25,8 @@ class CommentController extends Controller
     }
     public function postComment(Request $request)
     {
-        $message = $request->comment; 
-        event(new CommentEvent($message));
+        // $message = $request->comment; 
+        // event(new CommentEvent($message));
 
         $comment = new Comment;
         $comment->content = $request->comment;
@@ -34,9 +34,9 @@ class CommentController extends Controller
         $comment->user_id= Auth::user()->id;
         $comment->hidden = 0;
         $comment->created_at = date("Y-m-d H:i:s");
-        // $post = Post::find($request->post_id)->increment('comments', 1);
+        $post = Post::find($request->post_id)->increment('comments', 1);
         // $post->save();
-        // $comment->save();
+        $comment->save();
         return redirect()->back();
     }
     public function postReply(Request $request)
@@ -108,8 +108,4 @@ class CommentController extends Controller
 
     }
 
-    public function commentRealTime(){
-        event(new CommentEvent("Hi,Xin chào hải đẹp trai!"));
-        return "Message has been sent.";
-       }
 }

@@ -26,8 +26,8 @@ Route::post('/search', [App\Http\Controllers\HomeController::class, 'search'])->
 
 // Route::get('/callback/{facebook}',  [App\Http\Controllers\Auth\LoginController::class, 'handleProviderCallback'])->name('facebook_callback');
 // Route::get('/redirect/{facebook}',  [App\Http\Controllers\Auth\LoginController::class, 'redirectProvider'])->name('facebook_login');
-Route::get('/auth/redirect/{provider}', [App\Http\Controllers\SocialController::class, 'redirect']);
-Route::get('/callback/{provider}', [App\Http\Controllers\SocialController::class, 'callback']);
+// Route::get('/auth/redirect/{provider}', [App\Http\Controllers\SocialController::class, 'redirect']);
+// Route::get('/callback/{provider}', [App\Http\Controllers\SocialController::class, 'callback']);
 
 
 Route::get('/login',  [App\Http\Controllers\Auth\LoginController::class, 'getLogin'])->name('login');
@@ -102,3 +102,10 @@ Route::get('send-notification', [App\Http\Controllers\NotificationController::cl
 Route::get('test', function () {
     return view('test');
 });
+
+// Route::get('auth/social',  [App\Http\Controllers\Auth\LoginController::class, 'show'])->name('social.login');
+Route::get('oauth/{driver}',  [App\Http\Controllers\Auth\LoginController::class, 'redirectToProvider'] )->name('social.oauth');
+Route::get('oauth/{driver}/callback',  [App\Http\Controllers\Auth\LoginController::class, 'handleProviderCallback'] )->name('social.callback');
+
+Route::get('login/github',  [app\Http\Controllers\Auth\GithubAuthController::class, 'redirectLogin']);
+Route::get('auth/github/callback', [app\Http\Controllers\Auth\GithubAuthController::class, 'handleCallback']);

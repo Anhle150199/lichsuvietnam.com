@@ -7,40 +7,122 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Auth;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
+use Exception;
+
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
+
     protected $redirectTo = RouteServiceProvider::HOME;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    protected $providers = [
+        'facebook', 'google'
+    ];
+
+    public function redirectToProvider($driver)
+    {
+        // if (!$this->isProviderAllowed($driver)) {
+        //     return $this->sendFailedResponse("{$driver} is not currently supported");
+        // }
+
+        // try {
+        return Socialite::driver($driver)->redirect();
+        // } catch (Exception $e) {
+        //     // You should show something simple fail message
+        //     return $this->sendFailedResponse($e->getMessage());
+        // }
+    }
+
+
+    public function handleProviderCallback($provider)
+    {
+        // try {
+        //     $user = Socialite::driver($driver)->user();
+        // } catch (Exception $e) {
+        //     return $this->sendFailedResponse($e->getMessage());
+        // }
+
+        // // check for email in returned user
+        // return empty($user->email)
+        //     ? $this->sendFailedResponse("No email id returned from {$driver} provider.")
+        //     : $this->loginOrCreateAccount($user, $driver);
+        $getInfo = Socialite::driver($provider)->user();
+        $user = $this->createUser($getInfo, $provider);
+        auth()->login($user);
+        return redirect()->to('/home');
+    }
+
+    // protected function sendSuccessResponse()
+    // {
+    //     return redirect()->intended('home');
+    // }
+    function createUser($getInfo, $provider)
+    {
+        $user = User::where('provider_id', $getInfo->id)->first();
+        if (!$user) {
+            $user = User::create([
+                'name'     => $getInfo->name,
+                'email'    => $getInfo->email,
+                'provider' => $provider,
+                'provider_id' => $getInfo->id
+            ]);
+        }
+        return $user;
+    }
+    protected function sendFailedResponse($error = null)
+    {
+        return redirect()->route('login')
+            ->withErrors(['error' => $error ?: 'Unable to login, try with another provider to login.']);
+    }
+
+    protected function loginOrCreateAccount($providerUser, $driver)
+    {
+        // check for already has account
+        $user = User::where('email', $providerUser->getEmail())->first();
+
+        // if user already found
+        if ($user) {
+            // update the avatar and provider that might have changed
+            $user->update([
+                'avatar' => $providerUser->avatar,
+                'provider' => $driver,
+                'provider_id' => $providerUser->id,
+                'access_token' => $providerUser->token
+            ]);
+        } else {
+            // create a new user
+            $user = User::create([
+                'name' => $providerUser->getName(),
+                'email' => $providerUser->getEmail(),
+                'avatar' => $providerUser->getAvatar(),
+                'provider' => $driver,
+                'provider_id' => $providerUser->getId(),
+                'access_token' => $providerUser->token,
+                // user can use reset password to create a password
+                'password' => ''
+            ]);
+        }
+
+        // login the user
+        Auth::login($user, true);
+
+        return $this->sendSuccessResponse();
+    }
+
+    private function isProviderAllowed($driver)
+    {
+        return in_array($driver, $this->providers) && config()->has("services.{$driver}");
     }
 
     public function getLogin()
@@ -77,45 +159,9 @@ class LoginController extends Controller
                 // return redirect()->intended('/home');
                 // return Redirect::intended();
                 return redirect()->intended('defaultpage');
-
             } else {
-                // Kiểm tra không đúng sẽ hiển thị thông báo lỗi
-                // Session::flash();
                 return redirect('login')->with('error', 'Email hoặc mật khẩu không đúng!');
             }
         }
     }
-
-    // public function redirectProvider($socialite)
-    // {
-    //     return Socialite::driver($socialite)->redirect();
-    // }
-    // public function handleProviderCallback($socialite)
-    // {
-    //     $user = Socialite::driver($socialite)->user();
-    //     $authUser = $this->findOrCreateUser($user);
-    //     $this->postLogin($authUser);
-    //     // return $user;
-    //     // Auth::login($authUser);
-    //     return redirect('/');
-    // }
-    // public function findOrCreateUser($user)
-    // {
-    //     $authUser = User::where('social_id', $user->id)->first();
-    //     if ($authUser) {
-    //         return $authUser;
-    //     } else {
-    //         return User::created(
-    //             [
-    //                 'name' => $user->name,
-    //                 'email' => $user->email,
-    //                 'password' => '',
-    //                 'level' => 0,
-    //                 'active' => 1,
-    //                 'avatar' => $user->avatar,
-    //                 'created_at' => date("Y-m-d H:i:s")
-    //             ]
-    //         );
-    //     }
-    // }
 }
