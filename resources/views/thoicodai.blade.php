@@ -18,7 +18,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="home"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
-                            <li class="breadcrumb-item"><a href="#">Thời cổ đại</a></li>
+                            <li class="breadcrumb-item"><a href="#">Sự kiện</a></li>
                         </ol>
                     </nav>
                 </div>

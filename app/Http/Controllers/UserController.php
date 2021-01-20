@@ -15,9 +15,8 @@ use App\Models\Analytics;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Carbon;
-
-use Auth;
-use Hash;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash as FacadesHash;
 
 class UserController extends Controller
@@ -263,6 +262,7 @@ class UserController extends Controller
             }
             $file->move("upload/images", $name);
             $user->avatar = $name;
+            $user->change_avatar = 1;
         }
         $user->save();
         return redirect()->route('profile')->with('dialog', 'Cập nhật avatar thành công');

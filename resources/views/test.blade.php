@@ -1,107 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Demo Application</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="public/css/bootstrap-notifications.min.css">
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Demo App</a>
-        </div>
-  
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown dropdown-notifications">
-              <a href="#notifications-panel" class="dropdown-toggle" data-toggle="dropdown">
-                <i data-count="0" class="glyphicon glyphicon-bell notification-icon"></i>
-              </a>
-  
-              <div class="dropdown-container">
-                <div class="dropdown-toolbar">
-                  <div class="dropdown-toolbar-actions">
-                    <a href="#">Mark all as read</a>
-                  </div>
-                  <h3 class="dropdown-toolbar-title">Notifications (<span class="notif-count">0</span>)</h3>
-                </div>
-                <ul class="dropdown-menu">
-                </ul>
-                <div class="dropdown-footer text-center">
-                  <a href="#">View All</a>
-                </div>
-              </div>
-            </li>
-            <li><a href="#">Timeline</a></li>
-            <li><a href="#">Friends</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  
-    <script type="text/javascript">
-      var notificationsWrapper   = $('.dropdown-notifications');
-      var notificationsToggle    = notificationsWrapper.find('a[data-toggle]');
-      var notificationsCountElem = notificationsToggle.find('i[data-count]');
-      var notificationsCount     = parseInt(notificationsCountElem.data('count'));
-      var notifications          = notificationsWrapper.find('ul.dropdown-menu');
-      if (notificationsCount <= 0) {
-        notificationsWrapper.hide();
-      }
-      // Enable pusher logging - don't include this in production
-      // Pusher.logToConsole = true;
-      var pusher = new Pusher('7912005e9e4c47bb85d7', {
-            cluster: 'ap1',
-            encrypted: true
-        });
-      // Subscribe to the channel we specified in our Laravel Event
-      var channel = pusher.subscribe('channel-demo-real-time');
-      // Bind a function to a Event (the full Laravel class)
-      channel.bind('App\Events\DemoNotificationEvent', function(data) {
-        var existingNotifications = notifications.html();
-        var avatar = Math.floor(Math.random() * (71 - 20 + 1)) + 20;
-        var newNotificationHtml = `
-          <li class="notification active">
-              <div class="media">
-                <div class="media-left">
-                  <div class="media-object">
-                    <img src="https://api.adorable.io/avatars/71/`+avatar+`.png" class="img-circle" alt="50x50" style="width: 50px; height: 50px;">
-                  </div>
-                </div>
-                <div class="media-body">
-                  <strong class="notification-title">`+data.message+`</strong>
-                  <!--p class="notification-desc">Extra description can go here</p-->
-                  <div class="notification-meta">
-                    <small class="timestamp">about a minute ago</small>
-                  </div>
-                </div>
-              </div>
-          </li>
-        `;
-        notifications.html(newNotificationHtml + existingNotifications);
-        notificationsCount += 1;
-        notificationsCountElem.attr('data-count', notificationsCount);
-        notificationsWrapper.find('.notif-count').text(notificationsCount);
-        notificationsWrapper.show();
-      });
-    </script>
-  </body>
-</html>
+   <!-- Post Comment -->
+   <ul id="data">
+     <div class="post-a-comment-area ">
+       <div class="contact-form-area" id="review-comment">
+         <div class="comment-content d-flex">
+
+           <form action="{{route('post-comment')}}" method="post" id="form-comment">
+             @csrf
+             <div class="row">
+               <input type="text" name="post_id" id="post_id" value="{{$post->id}}" hidden />
+               <div class="col-10">
+                 <textarea type="text" name="comment" class="form-control text-white" id="comment" placeholder="Viết bình luận ..." required style="width: 100%; height: 70%;"></textarea>
+               </div>
+               <div class="col-2" style="float: right;">
+                 <button id="btn_comment" class="btn vizew-btn " type="submit" style="margin-right: -13%;">Bình luận</button>
+               </div>
+             </div>
+           </form>
+         </div>
+         <hr style="background-color: whitesmoke; opacity: 50%;">
+       </div>
+     </div>
+     <div id="comments" class="comment_listing">
+
+       <!-- show comments -->
+       @foreach($comments as $comment)
+       <li class="single_comment_area" id="{{$comment->id}}">
+         <div class="comment-content d-flex">
+           <div class="comment-author">
+             <img src="<?php echo url('/'); ?>/upload/images/{{$comment->avatar}}" alt="author" style="margin-top: 20%;">
+           </div>
+           <div class="comment-meta alert ">
+             <div class=" alert " style="background-color: #393c3d;  width: 550px;">
+               <h6 style="color: white;">{{$comment->name}}</h6>
+               <span>{{$comment->content}}</span>
+             </div>
+             @if(Auth::check())
+             @if(Auth::user()->id == $comment->user_id)
+             <div class="dropdown dropright" style="margin-top: -11%; margin-right: -5%; float: right; ">
+               <i class="fas fa-ellipsis-h  " data-toggle="dropdown"></i>
+               <div class="dropdown-menu " style="background: none;border: none;">
+                 <a href="#" class="reply dropdown-item">Chỉnh sửa</a>
+                 <a href="{{route('comment.delete', ['id'=>$comment->id])}}" class="reply dropdown-item">Xóa</a>
+               </div>
+             </div>
+             @endif
+             @endif
+             <div class="d-flex align-items-center row" style="float: right;width: 100%;">
+               <a onclick="reply({{$comment->id}}, {{$replies}})" class="reply" style="height: 30px;">Reply</a>
+               <p class="comment-date" style="font-size: 13px; margin-top: 2%;">{{$comment->created_at}}</p>
+             </div>
+           </div>
+         </div>
+
+         <!-- reply -->
+         <div class=" " style="margin-top: -5%;">
+           <form action="{{route('post-reply')}}" method="post" id="form-comment" style="margin-left: 18%; width: 68%;">
+             @csrf
+             <input type="text" name="comment_id" id="comment_id" value=" {{$comment->id}} " hidden />
+             <input type="text" name="post_id" id="post_id" value="{{$post->id}}" hidden />
+             <div class="row" id="reply-{{$comment->id}}">
+
+             </div>
+           </form>
+         </div>
+         <!-- more reply -->
+         <ol class="children" style="margin-top: -5%; ">
+           <li class="single_comment_area">
+             @foreach($replies as $reply)
+             @if($reply->comment_id == $comment->id)
+             <div class="comment-content d-flex" style="height: 130px;">
+               <div class="comment-author">
+                 <img src="<?php echo url('/'); ?>/upload/images/{{$reply->avatar}}" alt="author" style="margin-top: 20%;">
+               </div>
+               <div class="comment-meta alert">
+                 <div class=" alert " style="background-color: #393c3d;  width: 499PX;">
+                   <h6 style="color: white;">{{$reply->name}}</h6>
+                   <span>{{$reply->content}}</span>
+                 </div>
+                 @if(Auth::check())
+                 @if(Auth::user()->id == $reply->user_id)
+                 <div class="dropdown dropright" style="margin-top: -11%; margin-right: -5%; float: right; ">
+                   <i class="fas fa-ellipsis-h  " data-toggle="dropdown"></i>
+                   <div class="dropdown-menu " style="background: none;border: none;">
+                     <a href="#" class="reply dropdown-item">Chỉnh sửa</a>
+                     <a href="{{route('replies.delete', ['id'=>$reply->id])}}" class="reply dropdown-item">Xóa</a>
+                   </div>
+                 </div>
+                 @endif
+                 @endif
+                 <div class="d-flex align-items-center" style="float: right;width: 100%;">
+                   <p class="comment-date " style="margin-right: 37%;">{{$reply->created_at}}</p>
+                 </div>
+               </div>
+             </div>
+             @endif
+             @endforeach
+           </li>
+         </ol>
+         <!-- end more reply -->
+
+       </li>
+       @endforeach
+     </div>
+   </ul>
+
+   <!-- end comments -->

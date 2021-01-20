@@ -32,7 +32,8 @@ Route::post('/search', [App\Http\Controllers\HomeController::class, 'search'])->
 
 Route::get('/login',  [App\Http\Controllers\Auth\LoginController::class, 'getLogin'])->name('login');
 
-Route::post('/comment',  [App\Http\Controllers\CommentController::class, 'postComment'])->name('post-comment');
+Route::post('/comment-list',  [App\Http\Controllers\CommentController::class, 'index'])->name('comment');
+Route::post('/comment-post',  [App\Http\Controllers\CommentController::class, 'postComment'])->name('post-comment');
 Route::post('/reply',  [App\Http\Controllers\CommentController::class, 'postReply'])->name('post-reply');
 
 Route::get('send-notification', [App\Http\Controllers\CommentController::class, 'commentRealTime']);
@@ -103,9 +104,10 @@ Route::get('test', function () {
     return view('test');
 });
 
-// Route::get('auth/social',  [App\Http\Controllers\Auth\LoginController::class, 'show'])->name('social.login');
-Route::get('oauth/{driver}',  [App\Http\Controllers\Auth\LoginController::class, 'redirectToProvider'] )->name('social.oauth');
-Route::get('oauth/{driver}/callback',  [App\Http\Controllers\Auth\LoginController::class, 'handleProviderCallback'] )->name('social.callback');
+// Facebook login
+Route::get('login/facebook', [App\Http\Controllers\Auth\LoginController::class, 'redirectToFacebook'])->name('login.facebook');
+Route::get('callback/facebook', [App\Http\Controllers\Auth\LoginController::class, 'handleFacebookCallback']);
 
-Route::get('login/github',  [app\Http\Controllers\Auth\GithubAuthController::class, 'redirectLogin']);
-Route::get('auth/github/callback', [app\Http\Controllers\Auth\GithubAuthController::class, 'handleCallback']);
+// Google login
+Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('callback/google', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);

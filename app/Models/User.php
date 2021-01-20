@@ -20,8 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email', 'level',
-        'password', 'active','avatar', 'provider_id', 'provider',
-        'access_token'
+        'password', 'active','avatar', 'social_id', 
     ];
     protected $guarded = ['*'];
     /**
@@ -47,7 +46,12 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Comment', 'user_id', 'id');
     }
 
-    public function post(){
+    public function reply(){
+        return $this->hasMany('App\Models\Reply', 'user_id', 'id');
+    }
+    public function like(){
+        return $this->hasMany('App\Models\Like', 'user_id', 'id');
+    }public function post(){
         return $this->hasMany('App\Models\Post', 'user_id', 'id');
     }
 }

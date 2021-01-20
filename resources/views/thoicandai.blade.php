@@ -20,7 +20,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="home"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
-                            <li class="breadcrumb-item"><a href="#">Thời cận đại (1858-1945)</a></li>
+                            <li class="breadcrumb-item"><a href="#">Sự kiện</a></li>
                         </ol>
                     </nav>
                 </div>

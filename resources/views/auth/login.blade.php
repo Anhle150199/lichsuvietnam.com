@@ -62,16 +62,28 @@
 
 
                         </form>
+                        <br>
+                        <div class="or-seperator"><i>OR</i></div>
+                        <div class="row mx-gutters-2 mb-4">
+                            <div class="col">
+                                <a href="{{ route('login.google') }}">
+                                    <button type="button" class="btn vizew-btn w-100 mt-20 bg-danger ">
+                                        <i class="fab fa-google-plus-g " style="margin-right: 5%;"></i>Google
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mx-gutters-2 mb-4">
+                            <div class="col">
+                                <a href="{{ route('login.facebook') }}">
+                                    <button type="button" class="btn vizew-btn w-100  bg-primary">
+                                        <i class="fab fa-facebook-square " style="margin-right: 5%;"></i>Facebook
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
 
-                        <!-- <a href="{{ route('social.oauth', ['driver'=>'facebook']) }}" class="btn btn-primary btn-block">
-                            Login with Facebook
-                        </a>
-                        <a href="{{ route('social.oauth', 'google') }}" class="btn btn-danger btn-block">
-                            Login with Google
-                        </a> -->
 
-                        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-                        </fb:login-button>
                         @if (Route::has('register'))
                         <a class="btn btn-link w-100" href="{{ route('register') }}">
                             {{ __('Bạn chưa có tài khoản? Đăng ký') }}
@@ -101,51 +113,7 @@
     <!-- Active js -->
     <script src="js/active.js"></script>
 
-    <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId: '{your-app-id}',
-                cookie: true,
-                xfbml: true,
-                version: '{api-version}'
-            });
 
-            FB.AppEvents.logPageView();
-
-        };
-
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-        FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-        });
-
-
-        {
-            status: 'connected',
-            authResponse: {
-                accessToken: '...',
-                expiresIn: '...',
-                signedRequest: '...',
-                userID: '...'
-            }
-        }
-
-        function checkLoginState() {
-            FB.getLoginStatus(function(response) {
-                statusChangeCallback(response);
-            });
-        }
-    </script>
 </body>
 
 </html>

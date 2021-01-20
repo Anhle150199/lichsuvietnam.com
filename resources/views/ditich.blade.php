@@ -21,7 +21,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="home"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
-                            <li class="breadcrumb-item"><a href="#">Di tích lích sử</a></li>
+                            <li class="breadcrumb-item"><a href="#">Di tích </a></li>
                         </ol>
                     </nav>
                 </div>

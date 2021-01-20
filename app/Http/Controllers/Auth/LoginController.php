@@ -26,104 +26,66 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    protected $providers = [
-        'facebook', 'google'
-    ];
-
-    public function redirectToProvider($driver)
+    // Facebook login
+    public function redirectToFacebook()
     {
-        // if (!$this->isProviderAllowed($driver)) {
-        //     return $this->sendFailedResponse("{$driver} is not currently supported");
-        // }
-
-        // try {
-        return Socialite::driver($driver)->redirect();
-        // } catch (Exception $e) {
-        //     // You should show something simple fail message
-        //     return $this->sendFailedResponse($e->getMessage());
-        // }
+        return Socialite::driver('facebook')->redirect();
     }
 
-
-    public function handleProviderCallback($provider)
+    // Facebook callback
+    public function handleFacebookCallback()
     {
-        // try {
-        //     $user = Socialite::driver($driver)->user();
-        // } catch (Exception $e) {
-        //     return $this->sendFailedResponse($e->getMessage());
-        // }
+        $user = Socialite::driver('facebook')->user();
 
-        // // check for email in returned user
-        // return empty($user->email)
-        //     ? $this->sendFailedResponse("No email id returned from {$driver} provider.")
-        //     : $this->loginOrCreateAccount($user, $driver);
-        $getInfo = Socialite::driver($provider)->user();
-        $user = $this->createUser($getInfo, $provider);
-        auth()->login($user);
-        return redirect()->to('/home');
+        $this->_registerOrLoginUser($user);
+
+        // Return home after login
+        $user = User::where('email', '=', $user->email)->first();
+        if ($user->active == 0) {
+            return redirect()->route('login')->with('error', 'Tài khoản đã bị vô hiệu hóa!');
+        }
+        return redirect()->route('home');
+    }
+    
+    // Google login
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
     }
 
-    // protected function sendSuccessResponse()
-    // {
-    //     return redirect()->intended('home');
-    // }
-    function createUser($getInfo, $provider)
+    // Google callback
+    public function handleGoogleCallback()
     {
-        $user = User::where('provider_id', $getInfo->id)->first();
+        $user = Socialite::driver('google')->user();
+
+        $this->_registerOrLoginUser($user);
+
+        $user = User::where('email', '=', $user->email)->first();
+        if ($user->active == 0) {
+            return redirect()->route('login')->with('error', 'Tài khoản đã bị vô hiệu hóa!');
+        }
+        // Return home after login
+        return redirect()->route('home');
+    }
+
+    protected function _registerOrLoginUser($data)
+    {
+        $user = User::where('email', '=', $data->email)->first();
         if (!$user) {
-            $user = User::create([
-                'name'     => $getInfo->name,
-                'email'    => $getInfo->email,
-                'provider' => $provider,
-                'provider_id' => $getInfo->id
-            ]);
+            $user = new User();
+            $user->name = $data->name;
+            $user->email = $data->email;
+            $user->social_id = $data->id;
+            $user->avatar = $data->avatar;
+            $user->save();
         }
-        return $user;
-    }
-    protected function sendFailedResponse($error = null)
-    {
-        return redirect()->route('login')
-            ->withErrors(['error' => $error ?: 'Unable to login, try with another provider to login.']);
-    }
-
-    protected function loginOrCreateAccount($providerUser, $driver)
-    {
-        // check for already has account
-        $user = User::where('email', $providerUser->getEmail())->first();
-
-        // if user already found
-        if ($user) {
-            // update the avatar and provider that might have changed
-            $user->update([
-                'avatar' => $providerUser->avatar,
-                'provider' => $driver,
-                'provider_id' => $providerUser->id,
-                'access_token' => $providerUser->token
-            ]);
-        } else {
-            // create a new user
-            $user = User::create([
-                'name' => $providerUser->getName(),
-                'email' => $providerUser->getEmail(),
-                'avatar' => $providerUser->getAvatar(),
-                'provider' => $driver,
-                'provider_id' => $providerUser->getId(),
-                'access_token' => $providerUser->token,
-                // user can use reset password to create a password
-                'password' => ''
-            ]);
+        if ($user->active == 0) {
+            return redirect()->route('login')->with('error', 'Tài khoản đã bị vô hiệu hóa!');
         }
-
-        // login the user
-        Auth::login($user, true);
-
-        return $this->sendSuccessResponse();
+        Auth::login($user);
     }
 
-    private function isProviderAllowed($driver)
-    {
-        return in_array($driver, $this->providers) && config()->has("services.{$driver}");
-    }
+
 
     public function getLogin()
     {
@@ -132,7 +94,6 @@ class LoginController extends Controller
 
     public function postLogin(Request $request)
     {
-        // Kiểm tra dữ liệu nhập vào
         $rules = [
             'email' => 'required|email',
             'password' => 'required|min:8'
@@ -149,15 +110,11 @@ class LoginController extends Controller
         if ($validator->fails()) {
             return redirect('login')->withErrors($validator)->withInput();
         } else {
-            // Nếu dữ liệu hợp lệ sẽ kiểm tra trong csdl
             $email = $request->input('email');
             $password = $request->input('password');
             $active = 1;
 
             if (Auth::attempt(['email' => $email, 'password' => $password, 'active' => $active])) {
-
-                // return redirect()->intended('/home');
-                // return Redirect::intended();
                 return redirect()->intended('defaultpage');
             } else {
                 return redirect('login')->with('error', 'Email hoặc mật khẩu không đúng!');

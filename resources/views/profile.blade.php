@@ -44,7 +44,11 @@
                 <!-- <div class="media"> -->
                 <!-- <div style="max-width: 1000px;"> -->
                 <div class="avatar-profile ">
+                @if(Auth::user()->social_id != '' && Auth::user()->change_avatar == 0)
+                <img src="{{Auth::user()->avatar}}" style="display: block;width: 350px; height: 350px;">
+                @else
                     <img src="<?php echo url('/'); ?>/upload/images/{{Auth::user()->avatar}}" style="display: block;width: 350px; height: 350px;">
+                    @endif
                     <div style="max-width: fit-content;margin: auto;">
                         <button type="button" class="btn btn-primary  mt-30" data-toggle="modal" data-target="#myModal" style="margin: auto;">
                             Đổi avatar

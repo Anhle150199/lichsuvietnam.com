@@ -7,9 +7,6 @@
     <meta name="description" content="{{$post->summary}}">
     <meta http-equiv=”content-language” content=”vi” />
     <title>LSVN- {{$post->title}}</title>
-
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v9.0&appId=1693660827482004" nonce="rB5Me5mJ"></script>
     @include("layouts.elements.head")
 
 <body>
@@ -99,8 +96,8 @@
                             <div class="text-body">
                                 {!!$post->content!!}
                             </div>
-
-                            <div class="fb-share-button" data-href="https://www.addthis.com/dashboard#gallery/pub/ra-5ffe63f7a61ed552/get-the-code/pco/shin/widgetId/agmd" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8080%2Flichsuvietnam.com%2Fpublic%2Fid%3D28&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
+                            <div class="sharethis-inline-share-buttons"></div>
+                            <!-- <div class="fb-share-button" data-href="https://www.addthis.com/dashboard#gallery/pub/ra-5ffe63f7a61ed552/get-the-code/pco/shin/widgetId/agmd" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8080%2Flichsuvietnam.com%2Fpublic%2Fid%3D28&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div> -->
                             <div class="vizew-post-author d-flex align-items-center py-5">
                                 <div class="post-author-thumb">
                                     <img src="<?php echo url('/'); ?>/upload/images/{{$user['avatar']}}" alt="">
@@ -156,125 +153,29 @@
                                     <div class="line"></div>
                                 </div>
 
-                                <!-- Post Comment -->
-                                <ul id="data">
-                                    <div class="post-a-comment-area ">
-                                        <div class="contact-form-area" id="review-comment">
-                                            <div class="comment-content d-flex">
+                            
+                            <div id="disqus_thread"></div>
+                            <script>
+                                var disqus_config = function() {
+                                    this.page.url = '{{route('post-comment')}}'; // Replace PAGE_URL with your page's canonical URL variable
+                                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                                };
 
-                                                <form action="{{route('post-comment')}}" method="post" id="form-comment">
-                                                    @csrf
-                                                    <div class="row">
-                                                        <input type="text" name="post_id" id="post_id" value="{{$post->id}}" hidden />
-                                                        <div class="col-10">
-                                                            <textarea type="text" name="comment" class="form-control text-white" id="comment" placeholder="Viết bình luận ..." required style="width: 100%; height: 70%;"></textarea>
-                                                        </div>
-                                                        <div class="col-2" style="float: right;">
-                                                            <button id="btn-comment" class="btn vizew-btn " type="submit" style="margin-right: -13%;">Bình luận</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <hr style="background-color: whitesmoke; opacity: 50%;">
-                                        </div>
-                                    </div>
-
-                                    <!-- show comments -->
-                                    @foreach($comments as $comment)
-                                    <li class="single_comment_area" id="{{$comment->id}}">
-                                        <div class="comment-content d-flex">
-                                            <div class="comment-author">
-                                                <img src="<?php echo url('/'); ?>/upload/images/{{$comment->avatar}}" alt="author" style="margin-top: 20%;">
-                                            </div>
-                                            <div class="comment-meta alert ">
-                                                <div class=" alert " style="background-color: #393c3d;  width: 550px;">
-                                                    <h6 style="color: white;">{{$comment->name}}</h6>
-                                                    <span>{{$comment->content}}</span>
-                                                </div>
-                                                @if(Auth::check())
-                                                @if(Auth::user()->id == $comment->user_id)
-                                                <div class="dropdown dropright" style="margin-top: -11%; margin-right: -5%; float: right; ">
-                                                    <i class="fas fa-ellipsis-h  " data-toggle="dropdown"></i>
-                                                    <div class="dropdown-menu " style="background: none;border: none;">
-                                                        <a href="#" class="reply dropdown-item">Chỉnh sửa</a>
-                                                        <a href="#" class="reply dropdown-item">Xóa</a>
-                                                    </div>
-                                                </div>
-                                                @endif
-                                                @endif
-                                                <div class="d-flex align-items-center row" style="float: right;width: 100%;">
-                                                    <a onclick="reply({{$comment->id}}, {{$replies}})" class="reply" style="height: 30px;">Reply</a>
-                                                    <p class="comment-date" style="font-size: 13px; margin-top: 2%;">{{$comment->created_at}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- reply -->
-                                        <div class=" " style="margin-top: -5%;">
-                                            <form action="{{route('post-reply')}}" method="post" id="form-comment" style="margin-left: 18%; width: 68%;">
-                                                @csrf
-                                                <input type="text" name="comment_id" id="comment_id" value=" {{$comment->id}} " hidden />
-                                                <input type="text" name="post_id" id="post_id" value="{{$post->id}}" hidden />
-                                                <div class="row" id="reply-{{$comment->id}}">
-
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <!-- more reply -->
-                                        <ol class="children" style="margin-top: -5%; ">
-                                            <li class="single_comment_area">
-                                                @foreach($replies as $reply)
-                                                @if($reply->comment_id == $comment->id)
-                                                <div class="comment-content d-flex" style="height: 130px;">
-                                                    <div class="comment-author">
-                                                        <img src="<?php echo url('/'); ?>/upload/images/{{$reply->avatar}}" alt="author" style="margin-top: 20%;">
-                                                    </div>
-                                                    <div class="comment-meta alert">
-                                                        <div class=" alert " style="background-color: #393c3d;  width: 499PX;">
-                                                            <h6 style="color: white;">{{$reply->name}}</h6>
-                                                            <span>{{$reply->content}}</span>
-                                                        </div>
-                                                        @if(Auth::check())
-                                                        @if(Auth::user()->id == $reply->user_id)
-                                                        <div class="dropdown dropright" style="margin-top: -11%; margin-right: -5%; float: right; ">
-                                                            <i class="fas fa-ellipsis-h  " data-toggle="dropdown"></i>
-                                                            <div class="dropdown-menu " style="background: none;border: none;">
-                                                                <a href="#" class="reply dropdown-item">Chỉnh sửa</a>
-                                                                <a href="#" class="reply dropdown-item">Xóa</a>
-                                                            </div>
-                                                        </div>
-                                                        @endif
-                                                        @endif
-                                                        <div class="d-flex align-items-center" style="float: right;width: 100%;">
-                                                            <p class="comment-date " style="margin-right: 37%;">{{$reply->created_at}}</p>
-                                                            <a href="#" class="reply" style="float: right;">Chỉnh sửa</a>
-                                                            <a href="#" class="reply" style="float: right;">Xóa</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                @endif
-                                                @endforeach
-                                            </li>
-                                        </ol>
-                                        <!-- end more reply -->
-
-                                    </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            <!-- end comments -->
+                                (function() { // DON'T EDIT BELOW THIS LINE
+                                    var d = document,
+                                        s = d.createElement('script');
+                                    s.src = 'https://comments-860vbi6aal.disqus.com/embed.js';
+                                    s.setAttribute('data-timestamp', +new Date());
+                                    (d.head || d.body).appendChild(s);
+                                })();
+                            </script>
+</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                     <div class="sidebar-area">
-                        <div class="single-widget share-post-widget mb-50">
-                            <p>Chia sẻ bài viết</p>
-                            <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
-                            <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
-                            <a href="#" class="google"><i class="fa fa-google" aria-hidden="true"></i> Google+</a>
-                        </div>
 
                         <div class="single-widget p-0 author-widget">
                             <div class="p-4">
@@ -301,22 +202,6 @@
     <script src="<?php echo url('/'); ?>/js/active.js"></script>
 
 
-
-    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-    <script>
-        // Enable pusher logging - don't include this in production
-        Pusher.logToConsole = true;
-
-        var pusher = new Pusher('7912005e9e4c47bb85d7', {
-            cluster: 'ap1'
-        });
-
-        var channel = pusher.subscribe('my-channel');
-        channel.bind('my-event', function(data) {
-            alert(JSON.stringify(data));
-        });
-    </script>
-
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
     <script>
@@ -329,29 +214,29 @@
                 '    <button id="btn-comment" class="btn vizew-btn " type="submit" style="margin-right: -13%;">Trả lời</button>' +
                 '</div>';
         }
+        $(function(){
+            setInterval(function(){
+                $.ajax({
+                    url:'/comment-list',
+                    success:function(res){
+                        $('.comment_listing').html(res);
+                    }
+                })
+            }, 5000);
 
-        // $(document).ready(function() {
-        //     var submit =document.getElementById('like');
-
-        //     // bắt sự kiện click vào nút Login
-        //     submit.click(function update() {
-        //         var id = $("input[name='id']").val();
-
-        //         // Lấy tất cả dữ liệu trong form login
-        //         var data = $('form#form_like').serialize();
-        //         // Sử dụng $.ajax()
-        //         $.ajax({
-        //             type: 'GET', //kiểu post
-        //             url: route('post.like'), //gửi dữ liệu sang trang submit.php
-        //             data: data,
-        //             success: function(data) {
-        //                 alert("đã like")
-        //             }
-        //         });
-        //         window.setTimeout(update, 1000000);
-        //         return false;
-        //     });
-        // });
+            $('#btn_comment').click(function(){
+                var comment = $('#comment').val();
+                var post_id = $('#post_id').val();
+                $.ajax({
+                    url: '/comment-post',
+                    data: 'post_id='+post_id+'&comment='+comment,
+                    type: 'post',
+                    success:function(){
+                        alert('ok');
+                    }
+                })
+            })
+        })
     </script>
 </body>
 

@@ -30,14 +30,14 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
     'facebook' => [
-        'client_id'     => env('FB_ID'),
-        'client_secret' => env('FB_SECRET'),
-        'redirect'      => env('APP_URL') . '/oauth/facebook/callback',
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect' => 'http://localhost:8080/lichsuvietnam.com/public/callback/facebook',
     ],
     'google' => [
-        'client_id'     => env('GOOGLE_CLIENT_ID'),
+        'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect'      => env('GOOGLE_REDIRECT'),
+        'redirect' => 'http://localhost:8080/lichsuvietnam.com/public/callback/google',
     ],
     'github' => [
         'client_id' => env('GITHUB_CLIENT_ID'),
